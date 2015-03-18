@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<!-- 
+Atlas Project in Multimedia Cartography
+Institute of Cartography and Geoinformation
+ETH Zurich
+Author: H. R. Baer, hbaer@ethz.ch
+Versions:
+2015-1-28: created
+-->
+
+<meta charset="utf-8">
+<title>Atlas Prototype | Pure HTML</title>
+<link rel="stylesheet" href="CSS/Atlas.css">
+<!-- script src="Scripts/Atlas.js"></script -->
+<script src="Scripts/Atlas.js"></script>
+
+
+<body>
+
+<!-- The panel to place a basemap -->
+<div class="mappanel">
+  <iframe id="mapframe" frameborder="0" src="Maps/DotWorldMap.svg"></iframe>
+</div>
+
+<div class="mapmenu"></div>
+
+
+
+
+
+
+<!-- The panel to chose a map from a list -->
+<div id="maplist" class="sweepin-panel roll-over left ns" style="top:50px">
+  <div class="sweepin-content">
+    <div class="title">Our Atlas Project</div>
+    <div id="map1" class="item ns">Overview Map</div>
+    <div id="map2" class="item ns">The Innovate Map</div>
+    <div id="map3" class="item ns">…</div>
+	
+	  </div>
+	  
+</div>
+
+<div id="Menu" class="sweepin-panel roll-over top ns" style="left:50%">
+<div class="sweepin-content">
+
+<div class="title ns"></div>
+	<button id="Button1"></button>
+	<button id="Button2"></button>
+	<button id="Button3"></button>
+	<button id="Button4"></button>
+	<button id="Button5"></button>
+	<button id="Button6"></button>
+	<button id="Button7"></button>
+	<button id="Button8"></button>
+	  </div>	  
+</div>
+
+<div id="menuitems" class="sweepin-panel roll-over right ns" style="top:50px">
+  <div class="sweepin-content">
+    <div id="imprint" class="item">Imprint</div>
+    <div id="description" class="item">Map Description</div>
+    <div class="separator"></div>
+    <div id="fullscreenatlas" class="item">Fullscreen Atlas</div>
+    <div id="fullscreenmap" class="item">Fullscreen Map</div>
+    <div class="separator"></div>
+    <div id="print" class="item">Print Map</div>
+  </div>
+</div>
+
+<div id="menuitems" class="sweepin-panel roll-over left ns" style="top:50%">
+  <div class="sweepin-content">
+    <iframe frameborder="0" src="Info/InfoPanel.html"></iframe>
+  </div>
+</div>

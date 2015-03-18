@@ -9,6 +9,53 @@ body {
 	right: 0;
 }
 
+.title {
+    height: 30px;
+    color:#000;
+}
+
+#Button1 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button1.png) no-repeat;
+}
+#Button2 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button2.png) no-repeat;
+}
+#Button3 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button3.png) no-repeat;
+}
+#Button4 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button4.png) no-repeat;
+}
+#Button5 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button5.png) no-repeat;
+}
+#Button6 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button6.png) no-repeat;
+}
+#Button7 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button7.png) no-repeat;
+}
+#Button8 {
+    height: 51px;
+    width: 71px;
+	background: url(menu/button8.png) no-repeat;
+}
+
+
 .mappanel {
 	position: absolute;
 	left: 0px;
@@ -25,18 +72,20 @@ body {
 
 .sweepin-panel {
   position: absolute;
-  background: #d00;
+  background: #ddf;
   overflow: hidden;
   display: inline;
-  white-space: nowrap;
+  
 }
 
 .sweepin-panel.left {
   left: 0px;
   margin-top: 8px;
   margin-bottom: 8px;
-  width: 10px;
-  height: 26px;
+  width: 29px;
+  height: 96px;
+  background:url(menu/legend.png) no-repeat;
+  
 }
 
 .sweepin-panel.right {
@@ -49,8 +98,9 @@ body {
 
 .sweepin-panel.top {
   top: 0px;
-  width: 26px;
-  height: 10px;
+  width: 75px;
+  height: 28px;
+  background:url(menu/menu.png) no-repeat;
 }
 
 .sweepin-panel.bottom {
@@ -67,6 +117,7 @@ body {
   margin-bottom: 0px;
   box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.25);
   opacity: 0.9;
+ 
 }
 
 .sweepin-panel.roll-over.left:hover, .sweepin-panel.clicked.left {
@@ -91,6 +142,7 @@ body {
   border-left: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
   border-right: 1px solid #bbb;
+  margin-left: -250px;
 }
 
 .sweepin-panel.roll-over.bottom:hover, .sweepin-panel.clicked.bottom {
@@ -105,10 +157,12 @@ body {
   position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
+  
 }
 
 .sweepin-content:hover {
   cursor: pointer;
+  
 }
 
 .sweepin-content .item, .sweepin-content .title {
@@ -125,8 +179,9 @@ body {
 }
 
 .sweepin-content .item:hover {
-  background: #d00;
+  background: #000;
   color: white;
+  
 }
 
 .sweepin-content .separator {

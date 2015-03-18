@@ -72,9 +72,8 @@ body {
 
 .sweepin-panel {
   position: absolute;
-  background: #ddf;
   overflow: hidden;
-  display: inline;
+  display: inline; 
   
 }
 
@@ -85,15 +84,6 @@ body {
   width: 29px;
   height: 96px;
   background:url(menu/legend.png) no-repeat;
-  
-}
-
-.sweepin-panel.right {
-  right: 0px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  width: 10px;
-  height: 26px;
 }
 
 .sweepin-panel.top {
@@ -103,14 +93,10 @@ body {
   background:url(menu/menu.png) no-repeat;
 }
 
-.sweepin-panel.bottom {
-  bottom: 0px;
-  width: 26px;
-  height: 10px;
-}
+
 
 .sweepin-panel.roll-over:hover, .sweepin-panel.clicked {
-  background: #fff;
+  
   width: auto;
   height: auto;
   margin-top: 0px;
@@ -126,15 +112,9 @@ body {
   border-top: 1px solid #bbb;
   border-right: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
+  background: #fff;
 }
 
-.sweepin-panel.roll-over.right:hover, .sweepin-panel.clicked.right {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom: 1px solid #bbb;
-  border-left: 1px solid #bbb;
-  border-top: 1px solid #bbb;
-}
 
 .sweepin-panel.roll-over.top:hover, .sweepin-panel.clicked.top {
   border-bottom-left-radius: 5px;
@@ -145,20 +125,20 @@ body {
   margin-left: -250px;
 }
 
-.sweepin-panel.roll-over.bottom:hover, .sweepin-panel.clicked.bottom {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-left: 1px solid #bbb;
-  border-top: 1px solid #bbb;
-  border-right: 1px solid #bbb;
-}
 
-.sweepin-content {
+.sweepin-content.top {
   position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
-  
 }
+
+.sweepin-content.left {
+  position: relative;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-left: 13px;
+}
+
 
 .sweepin-content:hover {
   cursor: pointer;
@@ -176,6 +156,7 @@ body {
 
 .sweepin-content .title {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .sweepin-content .item:hover {
@@ -184,12 +165,6 @@ body {
   
 }
 
-.sweepin-content .separator {
-  height: 1px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background: #bbb;
-}
 
 .ns {
 	-moz-user-select: none;

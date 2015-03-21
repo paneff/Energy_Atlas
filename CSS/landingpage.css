@@ -1,0 +1,43 @@
+body {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	margin: 0 0 0 0;
+	font-family: Arial;
+	font-size: 10pt;
+	background: #04010B;
+	background: url("../images/lightpollutionatlas_landingpage.jpg") no-repeat center center fixed;
+    background-color: #000;
+    -webkt-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+#btn_imagegallery{
+	width: 100%;
+	max-width: 100%
+	height: auto;
+}
+
+#btn_videogallery{
+	width: 100%;
+	max-width: 100%
+	height: auto;
+}
+
+#btn_information{
+	width: 100%;
+	max-width: 100%
+	height: auto;
+}
+
+#btn_gotomaps{
+	width: 100%;
+	max-width: 100%
+	height: auto;
+}

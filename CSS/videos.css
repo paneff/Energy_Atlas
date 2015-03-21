@@ -1,0 +1,56 @@
+body {
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    font-family: Garamond, Helvetica;
+    font-size: 12pt;
+    background: #04010B;
+    height: 100%;
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+}
+
+#row1{
+    height: 25%;
+    margin: 0;
+}
+
+#row2{
+    height: 60%;
+    margin: 0;
+}
+
+#row3{
+    height: 15%;
+    margin: 0;
+}
+/*#coverfullpage{
+    top: 0; left: 0; bottom: 0; right: 0;
+    /*border-collapse: collapse;
+    overflow-x: hidden;
+    overflow-y: hidden;*
+}*/
+
+#title_imagegallerytitle{
+    width: 45%;
+    max-width: 45%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+#btn_gotomaps{
+    width: 18%;
+    max-width: 18%;
+    height: 30%;
+    margin: 2% auto;
+}
+
+.jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+    background: #04010B;
+    overflow:hidden;
+    cursor: pointer;
+}
+            
+.jssorb03 div { background-position: -5px -4px; }
+.jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+.jssorb03 .av { background-position: -65px -4px; }
+.jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }

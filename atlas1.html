@@ -12,23 +12,21 @@ Versions:
 <meta charset="utf-8">
 <title>Atlas Prototype | Pure HTML</title>
 <link rel="stylesheet" href="CSS/Atlas.css">
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <!-- script src="Scripts/Atlas.js"></script -->
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+<script src="../../lib/proj4-compressed.js"></script>
+<script src="../../src/proj4leaflet.js"></script>
 <script src="Scripts/Atlas.js"></script>
 
 
-<body>
 
+<body onload="initialize()">
+	
 <!-- The panel to place a basemap -->
-<div class="mappanel">
-  <iframe id="mapframe" frameborder="0" src="Maps/DotWorldMap.svg"></iframe>
-</div>
-
-<div class="mapmenu"></div>
-
-
-
-
-
+    <div id="basemap" style="position:absolute;left:0;top:0px;right:0;bottom:0"></div>
+		
+	<div class="mapmenu"></div>
 
 <!-- The panel to chose a map from a list --> 
  <div id="maplist" class="sweepin-panel roll-over left ns" style="top:200px"> 

@@ -9,6 +9,15 @@ body {
 	right: 0;
 }
 
+.basemap {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	right:0;
+	bottom:0;
+}
+
+
 .title {
     height: 30px;
     color:#000;

@@ -14,16 +14,16 @@
 	 
 	 */
 	 
-	  L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
-        maxZoom: 15,
+      var basemap = L.map('basemap').setView([55, 14], 4);
+      L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
+        maxZoom: 18,
         attribution:
         '<a href="https://www.mapbox.com/about/maps/">© Mapbox © OpenStreetMap</a> | ' + 
         '<a href="https://www.mapbox.com/map-feedback/">Improve this map</a><br>' +
         'Multimedia Cartography 2015 | IKG | ETH Zurich',
         id: 'examples.map-i875mjb7'
       }).addTo(basemap);
-      
-	  function printMap() {
+      function printMap() {
         window.print();
       }
 	  

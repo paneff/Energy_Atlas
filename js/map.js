@@ -29,8 +29,10 @@
 		  
 		  basemap.setView([90000, 100000], 1);
 	  
-	  
-	 
+
+var test_consumption = new L.geoJson(test_consumption, {
+		
+	}).addTo(basemap);
 	 
 	 
 

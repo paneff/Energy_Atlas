@@ -32,7 +32,7 @@
 		  //L.control.mousePosition().addTo(basemap);
 	  
 
-        L.geoJson(consumption_test_small, {
+        L.geoJson(consumption, {
 		}).addTo(basemap);
 	 
 	 

@@ -9,7 +9,6 @@
 		 		8192, 4096, 2048, 1024, 512, 256, 128,
 		  		64, 32, 16, 8, 4, 2, 1, 0.5
 		  		],
-		  	origin: [0, 0]
 		  }),
 		  
 		  
@@ -27,12 +26,14 @@
 			continuousWorld: true,
 		  	}).addTo(basemap);
 		  
-		  basemap.setView([90000, 100000], 1);
+		  basemap.setView([1, 1], 1);
+		  
+		  
+		  //L.control.mousePosition().addTo(basemap);
 	  
 
-var test_consumption = new L.geoJson(test_consumption, {
-		
-	}).addTo(basemap);
+        L.geoJson(consumption_test_small, {
+		}).addTo(basemap);
 	 
 	 
 

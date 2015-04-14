@@ -3,7 +3,7 @@
       
 	  
 		var crs = new L.Proj.CRS('epsg:102014',
-		  '+proj=lcc +lat_1=30 +lat_2=45 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m no_defs',
+		  '+proj=lcc +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs',
 		  {
 		  	resolutions: [
 		 		4096, 2048, 1024, 512
@@ -31,10 +31,31 @@
 		 L.control.mousePosition().addTo(basemap);
 	  
 
-        /* L.geoJson(geojsonFeature, {
-		}).addTo(basemap);
+		function getColor(c) {
+		    return c > 7500 ? '#101010' :
+		           c > 7000 ? '#ffffff' :
+							  '#E31A1C' ;
+		} 
+		
+		function style(feature) {
+					return {
+						weight: 2,
+						opacity: 1,
+						color: 'black',
+						dashArray: '1',
+						fillOpacity: 0.7,
+						fillColor: getColor(feature.properties.jahr2006)
+					};
+				}
+
+		L.geoJson(consumption, {style: style}).addTo(basemap);
+		
+		/* 
 	 
         L.geoJson(geojsonFeature2, {
+		}).addTo(basemap);
+		
+        L.geoJson(consumption, {
 		}).addTo(basemap);
 		
         L.geoJson(test_wgs89, {

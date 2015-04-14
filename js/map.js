@@ -6,7 +6,7 @@
 		  '+proj=lcc +lat_1=30 +lat_2=45 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m no_defs',
 		  {
 		  	resolutions: [
-		 		16386 ,8192, 4096, 2048, 1024
+		 		4096, 2048, 1024, 512
 		  		],
 		  }),
 		  
@@ -25,7 +25,7 @@
 			continuousWorld: true,
 		  	}).addTo(basemap);
 		  
-			basemap.setView([1, 1], 0);
+			basemap.setView([52, 10], 0);
 		  
 		  
 		 L.control.mousePosition().addTo(basemap);

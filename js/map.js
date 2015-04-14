@@ -3,17 +3,17 @@
       
 	  
 		var crs = new L.Proj.CRS('epsg:102014',
-		  '+proj=lcc +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m no_defs',
+		  '+proj=lcc +lat_1=30 +lat_2=45 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m no_defs',
 		  {
 		  	resolutions: [
-		 		16386,8192, 4096, 2048, 1024
+		 		16386 ,8192, 4096, 2048, 1024
 		  		],
 		  }),
 		  
 		  
 		  basemap = new L.Map('basemap', {
 		  	crs: crs,
-		  	worldCopyJump: false
+		  	worldCopyJump: true
 		 	 });
 		  
 		  
@@ -31,10 +31,15 @@
 		 L.control.mousePosition().addTo(basemap);
 	  
 
-        L.geoJson(geojsonFeature, {
+        /* L.geoJson(geojsonFeature, {
 		}).addTo(basemap);
 	 
         L.geoJson(geojsonFeature2, {
 		}).addTo(basemap);
+		
+        L.geoJson(test_wgs89, {
+		}).addTo(basemap);*/
+		
+
 
   }

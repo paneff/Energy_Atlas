@@ -33,8 +33,15 @@ var geojsonFeature2 = {
     },
     "geometry": {
         "type": "Point",
-        "coordinates": [1000000, 1000000]
-    }
+        "coordinates": [8, 47]
+    },
+	
+	
+	"crs": {"type":"name",
+		    "properties":{
+				"name":"EPSG:102014"
+		  }
+	}
 };
 
 
@@ -52,6 +59,9 @@ var geojsonFeature = {
             [1000000,  0],
 			[0,500000],
             [500000,  500000]
+			
+			
+	
 		
         ]]
     }

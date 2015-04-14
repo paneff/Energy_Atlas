@@ -23,3 +23,36 @@ var consumption_test_small = [{
 } 
 
 }];
+
+var geojsonFeature2 = {
+    "type": "Feature",
+    "properties": {
+        "name": "Coors Field",
+        "amenity": "Baseball Stadium",
+        "popupContent": "This is where the Rockies play!"
+    },
+    "geometry": {
+        "type": "Point",
+        "coordinates": [1000000, 1000000]
+    }
+};
+
+
+var geojsonFeature = {
+    "type": "Feature",
+    "properties": {
+        "name": "Coors Field",
+        "amenity": "Baseball Stadium",
+        "popupContent": "This is where the Rockies play!"
+    },
+    "geometry": {
+    "type": "Polygon",
+        "coordinates": [[
+            [0, 0],
+            [1000000,  0],
+			[0,500000],
+            [500000,  500000]
+		
+        ]]
+    }
+};

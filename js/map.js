@@ -2,39 +2,39 @@
 	  
       
 	  
-		var crs = new L.Proj.CRS('EPSG:102014',
-		  '+proj=lcc +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs',
+		var crs = new L.Proj.CRS('epsg:102014',
+		  '+proj=lcc +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m no_defs',
 		  {
 		  	resolutions: [
-		 		8192, 4096, 2048, 1024, 512, 256, 128,
-		  		64, 32, 16, 8, 4, 2, 1, 0.5
+		 		16386,8192, 4096, 2048, 1024
 		  		],
 		  }),
 		  
 		  
 		  basemap = new L.Map('basemap', {
 		  	crs: crs,
-		  	continuousWorld: true,
 		  	worldCopyJump: false
 		 	 });
 		  
-		  L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
+		  
+			 L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
 		  	format: 'image/png',
 			layers: 'basemap',
 		 	maxZoom: 4,
-		  	minZoom: 1,
+		  	minZoom: 0,
 			continuousWorld: true,
 		  	}).addTo(basemap);
 		  
-		  basemap.setView([1, 1], 1);
+			basemap.setView([1, 1], 0);
 		  
 		  
-		  //L.control.mousePosition().addTo(basemap);
+		 L.control.mousePosition().addTo(basemap);
 	  
 
-        L.geoJson(consumption_test_small, {
+        L.geoJson(geojsonFeature, {
 		}).addTo(basemap);
 	 
-	 
+        L.geoJson(geojsonFeature2, {
+		}).addTo(basemap);
 
   }

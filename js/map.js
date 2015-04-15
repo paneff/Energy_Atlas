@@ -32,8 +32,8 @@
 	  
 
 		function getColor(c) {
-		    return c > 7500 ? '#101010' :
-		           c > 7000 ? '#ffffff' :
+		    return c > 20 ? '#101010' :
+		           c > 5 ? '#ffffff' :
 							  '#E31A1C' ;
 		} 
 		
@@ -44,11 +44,11 @@
 						color: 'black',
 						dashArray: '1',
 						fillOpacity: 0.7,
-						fillColor: getColor(feature.properties.jahr2006)
+						fillColor: getColor(feature.properties.SHAPE_LEN)
 					};
 				}
 
-		L.geoJson(consumption, {style: style}).addTo(basemap);
+		L.geoJson(gnp, {style: style}).addTo(basemap);
 		
 		/* 
 	 

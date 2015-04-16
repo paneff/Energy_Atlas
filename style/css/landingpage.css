@@ -5,7 +5,7 @@ body {
 	font-family: Arial;
 	font-size: 10pt;
 	background: #04010B;
-	background: url("../images/lightpollutionatlas_landingpage.jpg") no-repeat center center fixed;
+	background: url("../data/images/lightpollutionatlas_landingpage.jpg") no-repeat center center fixed;
     background-color: #000;
     -webkt-background-size: cover;
     -moz-background-size: cover;

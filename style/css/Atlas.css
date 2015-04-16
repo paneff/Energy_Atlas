@@ -92,14 +92,14 @@ body {
   margin-bottom: 8px;
   width: 29px;
   height: 96px;
-  background:url(menu/legend.png) no-repeat;
+  background:url(/data/icons/legend.png) no-repeat;
 }
 
 .sweepin-panel.top {
   top: 0px;
   width: 75px;
   height: 28px;
-  background:url(menu/menu.png) no-repeat;
+  background:url(/data/icons/menu.png) no-repeat;
 }
 
 

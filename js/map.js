@@ -32,9 +32,8 @@
 	  
 
 		function getColor(c) {
-		    return c > 20 ? '#101010' :
-		           c > 5 ? '#ffffff' :
-							  '#E31A1C' ;
+		    return c > 100 ? '#F00B1E' :
+							  '#4AEE3C' ;
 		} 
 		
 		function style(feature) {
@@ -44,11 +43,11 @@
 						color: 'black',
 						dashArray: '1',
 						fillOpacity: 0.7,
-						fillColor: getColor(feature.properties.SHAPE_LEN)
+						fillColor: getColor(feature.properties.year05)
 					};
 				}
 
-		L.geoJson(gnp, {style: style}).addTo(basemap);
+		L.geoJson(consumption, {style: style}).addTo(basemap);
 		
 		
 		/* 

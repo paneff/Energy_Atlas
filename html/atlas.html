@@ -1,80 +1,115 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-<!-- 
-Atlas Project in Multimedia Cartography
-Institute of Cartography and Geoinformation
-ETH Zurich
-Author: H. R. Baer, hbaer@ethz.ch
-Versions:
-2015-1-28: created
--->
+<!--------------------------------------------------------  Light Pollution
+Atlas Multimedia Cartography Institute of Cartography and Geoinformation ETH
+Zurich Authors: Lagou C., Martinioni, M., Neff, P. and Spielhofer, R.
+Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
+-------------------------------------------------------->
+
+
+<!--------------------------------------------------------HEAD------------------------------------------------------>
 <head>
 <meta charset="utf-8">
-<title>Lightpollution Atlas</title>
-<link rel="stylesheet" href="../style/css/Atlas.css">
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<!-- script src="Scripts/Atlas.js"></script -->
+<title>Light Pollution Atlas</title>
+<link rel="shortcut icon" href="../data/images/lamp.png">
+<!----------------------------CSS FILES---------------------------->
+<link rel="stylesheet" type="text/css" href="../style/css/Atlas.css">
+<link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+<link rel="stylesheet" type="text/css" href="../libraries/L.Control.MousePosition.css">
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<link href="../style/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<!----------------------------JAVASCRIPT FILES---------------------------->
 <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
 <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/lib/proj4-compressed.js"></script>
 <script src="http://research.geodan.nl/sites/icm-ui/lib/proj4leaflet/proj4leaflet.js"></script>
 <script src="../libraries/L.Control.MousePosition.js"></script>
-<link rel="stylesheet" href="../libraries/L.Control.MousePosition.css">
-
-
 <script src="../js/map.js"></script>
 <script src="../data/thematicdata/consumption_test.js"></script>
 <script src="../data/thematicdata/gnp.js"></script>
-<script src="../data/thematicdata/consumption.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="../js/sync.js"></script>
 </head>
-<!-- <script src="leaflet/lib/proj4-compressed.js"></script>
-<script src="leaflet/src/proj4leaflet.js"></script> -->
 
 
-
+<!--------------------------------------------------------BODY------------------------------------------------------>
 <body onload="initialize()">
+	<!----------------------------MAP SECTION---------------------------->
+	<div id="singleviewmap">
+		<div id="basemap" style="position:absolute;left:0;top:0px;right:0;bottom:0"></div>
+		<div id="basemapclone"></div>
+	</div>
 
+	<!----------------------------LEGEND SECTION---------------------------->
+ 	<div id="legend_basemap" class="legend sweepin-panel roll-over left ns" style="top:200px">
+ 		<div class="sweepin-content">
+ 			<div>Legend</div>
+	 		<div class="item ns accordion_level11"><button id="selecttheme_button">Select Theme</button></div><br>
+	 			<!--
+	 			Light Pollution Data are already presented in the Single Map View
+	 			By default all the rest of the data are overlayed on the Light Pollution Map
+	 			and there is no possibility to uncheck any layer
+	 			-->
+	 			<div class="item ns accordion_level12">Light Pollution
+	 				<input id="singleview_request_lightpollution" type="checkbox" name="theme"></div>
+	 			<div class="item ns accordion_level12">Electricity Consumption
+	 				<input id="singleview_request_electricityconsumption" type="checkbox" name="theme"></div>
+	 			<div class="item ns accordion_level12">Electricity Price
+	 				<input id="singleview_request_electricityprice" type="checkbox" name="theme"></div>
+	 			<div class="item ns accordion_level12">Gross National Product
+	 				<input id="singleview_request_grossnationalproduct" type="checkbox" name="theme"></div>
+	 			<div class="item ns accordion_level12">Population Density
+	 				<input id="singleview_request_populationdensity" type="checkbox" name="theme"></div>
+	 		<div class="item ns accordion_level21"><button id="selectregion_button">Select Region</button></div><br>
+	 			<div class="item ns accordion_level22">Select Country
+	 				<input id="singleview_request_selectcountry" type="radio" name="region"></div>
+	 				<div class="item ns accordion_level22">Greece
+	 					<input id="singleview_request_greece accordion_level221" type="checkbox" name="country"></div>
+	 				<div class="item ns accordion_level22">Switzerland
+	 					<input id="singleview_request_switzerland accordion_level221" type="checkbox" name="country"></div>
+	 			<div class="item ns accordion_level22">Select City
+	 				<input id="singleview_request_selectcity" type="radio" name="region"></div>
+	 				<div class="item ns accordion_level22">Athens
+	 					<input id="singleview_request_athens accordion_level222" type="checkbox" name="city"></div>
+	 				<div class="item ns accordion_level22">Zurich
+	 					<input id="singleview_request_zurich accordion_level222" type="checkbox" name="city"></div>
+	 		<div class="item ns accordion_level31"><button id="selectyear_button">Select Year</button></div><br>
+	 			<div class="item ns accordion_level32">1996
+	 				<input id="singleview_request_1996" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">1999
+	 				<input id="singleview_request_1999" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2000
+	 				<input id="singleview_request_2000" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2003
+	 				<input id="singleview_request_2003" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2004
+	 				<input id="singleview_request_2004" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2006
+	 				<input id="singleview_request_2006" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2010
+	 				<input id="singleview_request_2010" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">2011
+	 				<input id="singleview_request_2011" type="radio" name="year"></div>
+ 		</div>
+ 	</div>
 
-<!-- The panel to place a basemap -->
-
-	
-    <div id="basemap" style="position:absolute;left:0;top:0px;right:0;bottom:0"></div>
-		
-	<div class="mapmenu"></div>
-
-<!-- The panel to chose a map from a list --> 
- <div id="maplist" class="sweepin-panel roll-over left ns" style="top:200px"> 
-   <div class="sweepin-content left"> 
-     <div class="title">Legend</div> 
-     <div id="map1" class="item ns">Element1<input type="checkbox" id="myCheck1" class="chk">
-</div> 
-     <div id="map2" class="item ns">Element2<input type="checkbox" id="myCheck2" class="chk">
-</div> 
-     <div id="map3" class="item ns">…<input type="checkbox" id="myCheck3" class="chk">
-</div>
- 	 
-   </div> 
- 	   
- </div> 
-
-
-<div id="Menu" class="sweepin-panel roll-over top ns" style="left:50%">
-<div class="sweepin-content top">
-
-<div class="title ns"></div>
-<FROM>
-	<button id="../data/icons/Button1"> </button>
-	<button id="../data/icons/Button2"></button>
-	<button id="../data/icons/Button3"></button>
-	<button id="../data/icons/Button4"></button>
-	<button id="../data/icons/Button5"></button>
-	<button id="../data/icons/Button6"></button>
-	<button id="../data/icons/Button7"></button>
-	<button id="../data/icons/Button8"></button>
+	<!----------------------------MENU SECTION---------------------------->	
+	<div id="Menu" class="sweepin-panel roll-over top ns" style="left:50%">
+		<div class="sweepin-content top">
+			<div class="title ns"></div>
+			<button id="home_button"></button>
+			<button id="singleview_button"></button>
+			<button id="dualview_button"></button>
+			<button id="overlayview_button"></button>
+			<button id="graph_button"></button>
+			<button id="info_button"></button>
+			<button id="help_button"></button>
 	  </div>	  
-</div>
-
-
+	</div>
 </body>
+
 </html>
 
 

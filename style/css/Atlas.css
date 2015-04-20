@@ -9,61 +9,75 @@ body {
 	right: 0;
 }
 
-.basemap {
+#singleviewmap{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right:0;
+  bottom:0;
+}
+
+#basemap {
 	position: absolute;
 	left: 0;
-	top: 0px;
+	top: 0;
 	right:0;
 	bottom:0;
 }
 
+#basemapclone {
+  position: absolute;
+  width:0%;
+  height:100%;
+  left: 50%;
+  top: 0;
+  right:0;
+  bottom:0;
+}
 
 .title {
     height: 30px;
     color:#000;
 }
 
-#Button1 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button1.png) no-repeat;
-}
-#Button2 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button2.png) no-repeat;
-}
-#Button3 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button3.png) no-repeat;
-}
-#Button4 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button4.png) no-repeat;
-}
-#Button5 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button5.png) no-repeat;
-}
-#Button6 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button6.png) no-repeat;
-}
-#Button7 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button7.png) no-repeat;
-}
-#Button8 {
-    height: 51px;
-    width: 71px;
-	background: url(data/button8.png) no-repeat;
-}
+/*-----------------Legend-----------------*/
 
+/*-----------------Menu Buttons-----------------*/
+#home_button {
+  height: 51px;
+  width: 71px;
+	background: url(../../data/icons/home.png) no-repeat;
+}
+#singleview_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/singleview.png) no-repeat;
+}
+#dualview_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/dualview.png) no-repeat;
+}
+#overlayview_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/overlayview.png) no-repeat;
+}
+#graph_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/graph.png) no-repeat;
+}
+#info_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/info.png) no-repeat;
+}
+#help_button {
+  height: 51px;
+  width: 71px;
+  background: url(../../data/icons/help.png) no-repeat;
+}
 
 .mappanel {
 	position: absolute;
@@ -82,8 +96,7 @@ body {
 .sweepin-panel {
   position: absolute;
   overflow: hidden;
-  display: inline; 
-  
+  display: inline;  
 }
 
 .sweepin-panel.left {
@@ -92,27 +105,23 @@ body {
   margin-bottom: 8px;
   width: 29px;
   height: 96px;
-  background:url(/data/icons/legend.png) no-repeat;
+  background:url(../../data/icons/legend.png) no-repeat;
 }
 
 .sweepin-panel.top {
   top: 0px;
   width: 75px;
   height: 28px;
-  background:url(/data/icons/menu.png) no-repeat;
+  background:url(../../data/icons/menu.png) no-repeat;
 }
 
-
-
 .sweepin-panel.roll-over:hover, .sweepin-panel.clicked {
-  
   width: auto;
   height: auto;
   margin-top: 0px;
   margin-bottom: 0px;
   box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.25);
   opacity: 0.9;
- 
 }
 
 .sweepin-panel.roll-over.left:hover, .sweepin-panel.clicked.left {

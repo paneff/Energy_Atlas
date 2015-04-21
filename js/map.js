@@ -31,8 +31,9 @@ function initialize() {
 	L.control.mousePosition().addTo(basemap);
   
 	function getColor(c) {
-	    return c > 20 ? '#ee7621' :
-	           c > 5 ?  '#ee8262' :
+	    return c > 150 ? '#ee7621' :
+	           c > 100 ?  '#ee8262' :
+			   c > 25 ? '#ee9562' :
 						'#ffffff' ;
 	} 
 	
@@ -43,11 +44,11 @@ function initialize() {
 					color: 'black',
 					dashArray: '1',
 					fillOpacity: 1,
-					fillColor: getColor(feature.properties.SHAPE_LEN)
+					fillColor: getColor(feature.properties.year96)
 				};
 			}
 
-	L.geoJson(gnp, {style: style}).addTo(basemap);
+	L.geoJson(density, {style: style}).addTo(basemap);
 
 
 
@@ -71,9 +72,10 @@ function initialize() {
 	L.control.mousePosition().addTo(basemapclone);
   
 	function getColor(c) {
-return c > 20 ? '#ee7621' :
-       c > 5 ?  '#ee8262' :
-				'#ffffff' ;
+return c > 150 ? '#ee7621' :
+	           c > 100 ?  '#ee8262' :
+			   c > 25 ? '#ee9562' :
+						'#ffffff' ;
 	} 
 	
 	function style(feature) {
@@ -83,11 +85,11 @@ return c > 20 ? '#ee7621' :
 					color: 'black',
 					dashArray: '1',
 					fillOpacity: 1,
-					fillColor: getColor(feature.properties.SHAPE_LEN)
+					fillColor: getColor(feature.properties.year96)
 				};
 			}
 
-	L.geoJson(gnp, {style: style}).addTo(basemapclone);
+	L.geoJson(density, {style: style}).addTo(basemapclone);
 
 
 	/////////////////////////////////////////////////////////////////////////////////////Legend/////////////////////////////////////////////////////////////////////////////////////

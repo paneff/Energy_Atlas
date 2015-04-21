@@ -116,12 +116,13 @@ body {
 }
 
 .sweepin-panel.roll-over:hover, .sweepin-panel.clicked {
+  background: #fff;
   width: auto;
   height: auto;
   margin-top: 0px;
   margin-bottom: 0px;
   box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.25);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .sweepin-panel.roll-over.left:hover, .sweepin-panel.clicked.left {
@@ -140,12 +141,13 @@ body {
   border-left: 1px solid #bbb;
   border-bottom: 1px solid #bbb;
   border-right: 1px solid #bbb;
-  margin-left: -250px;
+  margin-left: -320px;
 }
 
 
 .sweepin-content.top {
   position: relative;
+  text-align: center;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -183,7 +185,10 @@ body {
   
 }
 
+.sweepin-content {
 
+  margin-left:30px;
+}
 
 .ns {
 	-moz-user-select: none;

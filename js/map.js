@@ -54,15 +54,15 @@ function initialize() {
 	// ///////////////////////////////////////////////////////////////////////////////////BasemapClone/////////////////////////////////////////////////////////////////////////// 
  	basemapclone = new L.Map('basemapclone', {
 	  	crs: crs,
+	  	zoomControl: false,
 	  	worldCopyJump: true
 	}); 
 	  
 	L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
 	  	format: 'image/png',
 		layers: 'basemap',
-	 	//maxZoom: 4,
-	  	//minZoom: 0,
-	  	zoomControl: false,
+	 	maxZoom: 4,
+	  	minZoom: 0,
 		continuousWorld: true
 	}).addTo(basemapclone);
 	  
@@ -157,7 +157,7 @@ function initialize() {
 
 
 	//-------------------------------------------------------Menu-------------------------------------------------------//
-
+	$('#home_button').click(function(){ window.location = 'landingpage.html'});
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 								   							Dual View			     							   /////////////////////////////////////
@@ -180,7 +180,7 @@ function initialize() {
 		basemap.sync(basemapclone);
 		basemapclone.sync(basemap);
 		//Add Legend
-		$("#legend_basemap").clone().attr('id', 'legend_basemapclone').appendTo("#basemapclone");
+		$("#legend_basemap").clone(true).attr('id', 'legend_basemapclone').appendTo("#basemapclone");
 		$('[name="theme"]').prop('type', 'radio');
 	}
 

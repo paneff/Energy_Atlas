@@ -2,15 +2,15 @@ body {
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
 	margin: 0 0 0 0;
-	font-family: Arial;
+	font-family: Helvetica;
 	font-size: 10pt;
-	background: #04010B;
-	background: url("../data/images/lightpollutionatlas_landingpage.jpg") no-repeat center center fixed;
+	background: #090610;
     background-color: #000;
     -webkt-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    overflow-x: hidden;
 }
 
 html {
@@ -18,26 +18,37 @@ html {
     height: 100%;
 }
 
+h1{
+	color: #CCD6E0;
+	font-family: Helvetica;
+	font-size: 50pt;
+	margin-top: 50px;
+	padding: 40px;
+    text-align: center;
+    /*text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);*/
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+
 #btn_imagegallery{
 	width: 100%;
-	max-width: 100%
+	max-width: 100%;
 	height: auto;
 }
 
 #btn_videogallery{
 	width: 100%;
-	max-width: 100%
+	max-width: 100%;
 	height: auto;
 }
 
 #btn_information{
 	width: 100%;
-	max-width: 100%
+	max-width: 100%;
 	height: auto;
 }
 
 #btn_gotomaps{
 	width: 100%;
-	max-width: 100%
+	max-width: 100%;
 	height: auto;
 }

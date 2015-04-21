@@ -31,9 +31,9 @@ function initialize() {
 	L.control.mousePosition().addTo(basemap);
   
 	function getColor(c) {
-	    return c > 20 ? '#101010' :
-	           c > 5 ? '#ffffff' :
-						  '#E31A1C' ;
+	    return c > 20 ? '#ee7621' :
+	           c > 5 ?  '#ee8262' :
+						'#ffffff' ;
 	} 
 	
 	function style(feature) {
@@ -42,7 +42,7 @@ function initialize() {
 					opacity: 1,
 					color: 'black',
 					dashArray: '1',
-					fillOpacity: 0.7,
+					fillOpacity: 1,
 					fillColor: getColor(feature.properties.SHAPE_LEN)
 				};
 			}
@@ -71,9 +71,9 @@ function initialize() {
 	L.control.mousePosition().addTo(basemapclone);
   
 	function getColor(c) {
-	    return c > 20 ? '#101010' :
-	           c > 5 ? '#ffffff' :
-						  '#E31A1C' ;
+return c > 20 ? '#ee7621' :
+       c > 5 ?  '#ee8262' :
+				'#ffffff' ;
 	} 
 	
 	function style(feature) {
@@ -82,7 +82,7 @@ function initialize() {
 					opacity: 1,
 					color: 'black',
 					dashArray: '1',
-					fillOpacity: 0.7,
+					fillOpacity: 1,
 					fillColor: getColor(feature.properties.SHAPE_LEN)
 				};
 			}

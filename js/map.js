@@ -29,7 +29,8 @@ function initialize() {
 	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 	  
 	L.control.mousePosition().addTo(basemap);
-  
+	
+
 	function getColor(c) {
 	    return c > 150 ? '#ee7621' :
 	           c > 100 ?  '#ee8262' :
@@ -50,6 +51,9 @@ function initialize() {
 
 	L.geoJson(density_clip, {style: style}).addTo(basemap);
 	L.geoJson(price_cities, {style: style}).addTo(basemap);
+
+	 
+
 
 
 

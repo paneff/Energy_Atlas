@@ -48,7 +48,7 @@ function initialize() {
 				};
 			}
 
-	L.geoJson(density, {style: style}).addTo(basemap);
+	L.geoJson(density_clip, {style: style}).addTo(basemap);
 
 
 
@@ -72,7 +72,7 @@ function initialize() {
 	L.control.mousePosition().addTo(basemapclone);
   
 	function getColor(c) {
-return c > 150 ? '#ee7621' :
+		return c > 150 ? '#ee7621' :
 	           c > 100 ?  '#ee8262' :
 			   c > 25 ? '#ee9562' :
 						'#ffffff' ;
@@ -85,11 +85,13 @@ return c > 150 ? '#ee7621' :
 					color: 'black',
 					dashArray: '1',
 					fillOpacity: 1,
+					smoothFactor: 0,
 					fillColor: getColor(feature.properties.year96)
 				};
 			}
 
-	L.geoJson(density, {style: style}).addTo(basemapclone);
+	L.geoJson(density_clip, {style: style}).addTo(basemapclone);
+
 
 
 	/////////////////////////////////////////////////////////////////////////////////////Legend/////////////////////////////////////////////////////////////////////////////////////

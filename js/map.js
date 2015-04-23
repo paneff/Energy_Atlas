@@ -49,6 +49,7 @@ function initialize() {
 			}
 
 	L.geoJson(density_clip, {style: style}).addTo(basemap);
+	L.geoJson(price_cities, {style: style}).addTo(basemap);
 
 
 
@@ -91,6 +92,7 @@ function initialize() {
 			}
 
 	L.geoJson(density_clip, {style: style}).addTo(basemapclone);
+	L.geoJson(price_cities, {style: style}).addTo(basemapclone);
 
 
 

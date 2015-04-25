@@ -30,6 +30,28 @@ function initialize() {
 	  
 	L.control.mousePosition().addTo(basemap);
 	
+	function getColorlight(c) {
+		return c > 8700000 ? '#f7fbff' :
+	           c > 6500000 ? '#c6dcf0' :
+			   c > 4350000 ? '#6fb1d6' :
+			   c > 2170000 ? '#2277ba' :
+						     '#042e6d' ;
+	} 
+	
+	function style_light(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+					fillColor: getColorlight(feature.properties.testsum)
+				};
+			}
+
+L.geoJson(light_test, {style: style_light}).addTo(basemap);
+	
 
 	function getColor(c) {
 	    return c > 150 ? '#ee7621' :
@@ -49,8 +71,8 @@ function initialize() {
 				};
 			}
 
-	L.geoJson(density_clip, {style: style}).addTo(basemap);
-	L.geoJson(price_cities, {style: style}).addTo(basemap);
+	//L.geoJson(density_clip, {style: style}).addTo(basemap);
+	//L.geoJson(price_cities, {style: style}).addTo(basemap);
 
 	 
 
@@ -75,6 +97,32 @@ function initialize() {
 	basemapclone.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 	  
 	L.control.mousePosition().addTo(basemapclone);
+
+
+	function getColorlight(c) {
+		return c > 8700000 ? '#f7fbff' :
+	           c > 6500000 ? '#c6dcf0' :
+			   c > 4350000 ? '#6fb1d6' :
+			   c > 2170000 ? '#2277ba' :
+						     '#042e6d' ;
+	} 
+	
+	function style_light(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+					fillColor: getColorlight(feature.properties.testsum)
+				};
+			}
+
+L.geoJson(light_test, {style: style_light}).addTo(basemapclone);
+
+
+
   
 	function getColor(c) {
 		return c > 150 ? '#ee7621' :
@@ -95,8 +143,8 @@ function initialize() {
 				};
 			}
 
-	L.geoJson(density_clip, {style: style}).addTo(basemapclone);
-	L.geoJson(price_cities, {style: style}).addTo(basemapclone);
+	//L.geoJson(density_clip, {style: style}).addTo(basemapclone);
+	//L.geoJson(price_cities, {style: style}).addTo(basemapclone);
 
 
 

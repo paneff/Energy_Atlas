@@ -49,8 +49,63 @@ function initialize() {
 					fillColor: getColorlight(feature.properties.testsum)
 				};
 			}
+	
+	function highlightFeature(e) {
+			var layer = e.target;
 
-L.geoJson(light_test, {style: style_light}).addTo(basemap);
+			layer.setStyle({
+				weight: 5,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+		}
+
+		var geojson;
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
+			basemap.fitBounds(e.target.getBounds());
+		}
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+
+geojson = L.geoJson(light_test, {style: style_light, onEachFeature: onEachFeature
+}).addTo(basemap);
+
+var info = L.control();
+
+info.onAdd = function (basemap) {
+    this._Infobox = L.DomUtil.create('Infobox', 'info'); // create a div with a class "info"
+    this.update();
+    return this._Infobox;
+};
+
+// method that we will use to update the control based on feature properties passed
+info.update = function (properties) {
+    this._Infobox= 'US Population Density' +  (properties ?
+        '<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
+};
+
+info.addTo(basemap);
+
 	
 
 	function getColor(c) {

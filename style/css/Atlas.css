@@ -17,6 +17,7 @@ body {
   bottom:0;
 }
 
+
 #basemap {
 	position: absolute;
 	left: 0;
@@ -24,6 +25,18 @@ body {
 	right:0;
 	bottom:0;
 }
+.info {
+	position: absolute;
+	width: 10%;
+	height: 10%; 
+    padding: 6px 8px;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+
 
 #basemapclone {
   position: absolute;
@@ -196,4 +209,7 @@ body {
 	-webkit-user-select: none;
 	user-select: none;
 }
+
+
+
 

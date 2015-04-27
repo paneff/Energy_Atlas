@@ -7,6 +7,51 @@ function initialize() {
 	 		4096, 2048, 1024, 512
 	  		],
 	  })
+	  
+	  
+/////////// functions for the styling of the individual layers/////////////	  
+	
+	//
+	  
+  	function getColorlight(c) {
+  		return c > 8700000 ? '#f7fbff' :
+  	           c > 6500000 ? '#c6dcf0' :
+  			   c > 4350000 ? '#6fb1d6' :
+  			   c > 2170000 ? '#2277ba' :
+  						     '#042e6d' ;
+  	} 
+	
+  	function style_light(feature) {
+  				return {
+  					weight: 1,
+  					opacity: 0.7,
+  					color: 'grey',
+  					dashArray: '1',
+  					fillOpacity: 1,
+  					smoothFactor: 0,
+  					fillColor: getColorlight(feature.properties.testsum)
+  				};
+  			}
+			
+			
+	function getColor(c) {
+				return c > 150 ? '#ee7621' :
+			           c > 100 ?  '#ee8262' :
+					   c > 25 ? '#ee9562' :
+								'#ffffff' ;
+			} 
+	
+	function style(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+		  			fillColor: getColor(feature.properties.year96)
+						};
+					}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 															Single View										   /////////////////////////////////////
@@ -30,26 +75,9 @@ function initialize() {
 	  
 	L.control.mousePosition().addTo(basemap);
 	
-	function getColorlight(c) {
-		return c > 8700000 ? '#f7fbff' :
-	           c > 6500000 ? '#c6dcf0' :
-			   c > 4350000 ? '#6fb1d6' :
-			   c > 2170000 ? '#2277ba' :
-						     '#042e6d' ;
-	} 
 	
-	function style_light(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColorlight(feature.properties.testsum)
-				};
-			}
 	
+/*
 	function highlightFeature(e) {
 			var layer = e.target;
 
@@ -104,29 +132,12 @@ info.update = function (properties) {
         '<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
 };
 
-info.addTo(basemap);
+info.addTo(basemap);*/
+
 
 	
 
-	function getColor(c) {
-	    return c > 150 ? '#ee7621' :
-	           c > 100 ?  '#ee8262' :
-			   c > 25 ? '#ee9562' :
-						'#ffffff' ;
-	} 
-	
-	function style(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					fillColor: getColor(feature.properties.year96)
-				};
-			}
-
-	//L.geoJson(density_clip, {style: style}).addTo(basemap);
+	L.geoJson(density_clip, {style: style}).addTo(basemap);
 	//L.geoJson(price_cities, {style: style}).addTo(basemap);
 
 	 
@@ -154,49 +165,11 @@ info.addTo(basemap);
 	L.control.mousePosition().addTo(basemapclone);
 
 
-	function getColorlight(c) {
-		return c > 8700000 ? '#f7fbff' :
-	           c > 6500000 ? '#c6dcf0' :
-			   c > 4350000 ? '#6fb1d6' :
-			   c > 2170000 ? '#2277ba' :
-						     '#042e6d' ;
-	} 
-	
-	function style_light(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColorlight(feature.properties.testsum)
-				};
-			}
 
 L.geoJson(light_test, {style: style_light}).addTo(basemapclone);
 
 
 
-  
-	function getColor(c) {
-		return c > 150 ? '#ee7621' :
-	           c > 100 ?  '#ee8262' :
-			   c > 25 ? '#ee9562' :
-						'#ffffff' ;
-	} 
-	
-	function style(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColor(feature.properties.year96)
-				};
-			}
 
 	//L.geoJson(density_clip, {style: style}).addTo(basemapclone);
 	//L.geoJson(price_cities, {style: style}).addTo(basemapclone);

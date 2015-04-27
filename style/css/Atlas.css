@@ -57,38 +57,38 @@ body {
 
 /*-----------------Menu Buttons-----------------*/
 #home_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
 	background: url(../../data/icons/home.png) no-repeat;
 }
 #singleview_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/singleview.png) no-repeat;
 }
 #dualview_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/dualview.png) no-repeat;
 }
 #overlayview_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/overlayview.png) no-repeat;
 }
 #graph_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/graph.png) no-repeat;
 }
 #info_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/info.png) no-repeat;
 }
 #help_button {
-  height: 51px;
-  width: 71px;
+  height: 50px;
+  width: 75px;
   background: url(../../data/icons/help.png) no-repeat;
 }
 
@@ -119,6 +119,31 @@ body {
   width: 29px;
   height: 96px;
   background:url(../../data/icons/legend.png) no-repeat;
+}
+
+.title{
+margin-left: 30px;
+}
+
+#selecttheme_button{
+margin-left: 30px;
+}
+.accordion_level12{
+margin-left: 30px;
+}
+
+#selectregion_button{
+margin-left: 30px;
+}
+.accordion_level22{
+margin-left: 30px;
+}
+
+#selectyear_button{
+margin-left: 30px;
+}
+.accordion_level32{
+margin-left: 30px;
 }
 
 .sweepin-panel.top {
@@ -169,8 +194,9 @@ body {
   position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
-  margin-left: 13px;
+  margin-left: 15px;
 }
+
 
 
 .sweepin-content:hover {
@@ -198,10 +224,7 @@ body {
   
 }
 
-.sweepin-content {
 
-  margin-left:30px;
-}
 
 .ns {
 	-moz-user-select: none;

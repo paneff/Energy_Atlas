@@ -91,12 +91,12 @@ function initialize() {
 	// functions for price
 	
 	function getColor_price(c) {
-				return c > 0.90 ? '#ee6619' :
-					   c > 0.60 ? '#f6861f' :
-			    	   c > 0.40 ? '#fbaa19' :
-					   c > 0.20  ? '#ffc907' :
-					   c > 0.10  ? '#fff333' :
-					   c > 0.05   ? '#fff795' :
+				return c > 170 ? '#ee6619' :
+					   c > 140 ? '#f6861f' :
+			    	   c > 110 ? '#fbaa19' :
+					   c > 80  ? '#ffc907' :
+					   c > 50  ? '#fff333' :
+					   c > 1   ? '#fff795' :
 								 '#000000' ;
 				} 
 	
@@ -173,10 +173,10 @@ function initialize() {
 	var consumption_layer = L.geoJson();
 	
 	L.geoJson(light_test, {style: style_light}).addTo(layer);
-	//L.geoJson(density, {style: style_density}).addTo(density_layer);
+	L.geoJson(density_clip, {style: style_density}).addTo(density_layer);
 	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
-	L.geoJson(price, {style: style_price}).addTo(price_layer);	
-	//L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer);	
+	L.geoJson(gnp, {style: style_price}).addTo(price_layer);	
+	L.geoJson(density_clip, {style: style_consumption}).addTo(consumption_layer);	
 	
 	
 

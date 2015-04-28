@@ -179,15 +179,15 @@ function initialize() {
 	//L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer);	
 	
 	
-/*
+
 	function highlightFeature(e) {
 			var layer = e.target;
 
 			layer.setStyle({
 				weight: 5,
-				color: '#666',
+				color: '#566',
 				dashArray: '',
-				fillOpacity: 0.7
+				fillOpacity: 0.8
 			});
 
 			if (!L.Browser.ie && !L.Browser.opera) {
@@ -234,7 +234,7 @@ info.update = function (properties) {
         '<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
 };
 
-info.addTo(basemap);*/
+info.addTo(basemap);
 
 
 	

@@ -92,6 +92,26 @@ body {
   background: url(../../data/icons/help.png) no-repeat;
 }
 
+/*-----------------Infograph-----------------*/
+.notshown{
+  display: none;
+}
+
+.shown{
+  display: block;
+}
+
+
+#infotext_infograph{
+  height: 200px;
+}
+#graphtext_infograph{
+  height: 200px;
+}
+
+
+
+
 .mappanel {
 	position: absolute;
 	left: 0px;
@@ -119,6 +139,15 @@ body {
   width: 29px;
   height: 96px;
   background:url(../../data/icons/legend.png) no-repeat;
+}
+
+.sweepin-panel.right {
+  right: 0px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  width: 45px;
+  height: 47px;
+  background:url(../../data/icons/infograph.png) no-repeat;
 }
 
 .title{
@@ -172,6 +201,13 @@ margin-left: 30px;
   background: #fff;
 }
 
+.sweepin-panel.roll-over.right:hover, .sweepin-panel.clicked.right {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+  border-top: 1px solid #bbb;
+}
 
 .sweepin-panel.roll-over.top:hover, .sweepin-panel.clicked.top {
   border-bottom-left-radius: 5px;

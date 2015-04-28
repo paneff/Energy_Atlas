@@ -484,5 +484,59 @@ info.addTo(basemap);*/
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
 	}
+
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////// 					    			   		  	   Toast Message, Right Pannel      				               /////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//When either Graph or Info Button is Clicked
+	document.getElementById("graph_button").addEventListener("click", infographpanel);
+	function infographpanel() {
+        var toast = $(window).AndroidToast({
+			message : "Mouse over the infograph icon on the right.",
+	        fadeInTime : "700",
+	        fadeOutTime : "700",
+	        easing: "swing",
+	        stayTime: "5000",
+	        maxWidth: "400",
+	        bottomPosition: "610"
+		});
+        toast.AndroidToast('show');
+        //Make infograph icon visible
+    	$("#infoograph").removeClass( "notshown" ).addClass( "shown" );
+    	//add text to the infotext_infograp div about the specific layer
+
+    	//add graph title
+    	$("#graph_infograph").prepend("Graph:");
+    	//add graph text
+
+    	//add graph
+
+    }
+
+
+    document.getElementById("info_button").addEventListener("click", infopanel);
+	function infopanel() {
+        var toast = $(window).AndroidToast({
+			message : "Mouse over the infograph icon on the right.",
+	        fadeInTime : "700",
+	        fadeOutTime : "700",
+	        easing: "swing",
+	        stayTime: "5000",
+	        maxWidth: "400",
+	        bottomPosition: "610"
+		});
+        toast.AndroidToast('show');
+        //Make infograph icon visible
+    	$("#infoograph").removeClass( "notshown" ).addClass( "shown" );
+    	//add text to the infotext_infograp div about the specific layer
+
+    	//remove graph title
+    	$("#graph_infograph").empty();
+    	//remove graph text
+
+    	//remove graph
+
+    }
 		
   }

@@ -154,6 +154,7 @@ function initialize() {
 	  	worldCopyJump: true
 	}); 
 	  
+
 	L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
 	  	format: 'image/png',
 		layers: 'basemap',
@@ -161,7 +162,18 @@ function initialize() {
 	  	minZoom: 0,
 		continuousWorld: true
 	}).addTo(basemap);
-	  
+	
+	
+	
+	var satellite = L.tileLayer.wms('http://geocarto.ethz.ch/cgi-bin/satellite_image/qgis_mapserv.fcgi', {
+	  	format: 'image/png',
+		layers: 'satellite_image',
+	 	maxZoom: 4,
+	  	minZoom: 0,
+		continuousWorld: true
+	})//.addTo(basemap);//*/
+	
+	
 	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 	  
 	L.control.mousePosition().addTo(basemap);
@@ -180,7 +192,7 @@ function initialize() {
 	
 	
 
-	function highlightFeature(e) {
+	/*function highlightFeature(e) {
 			var layer = e.target;
 
 			layer.setStyle({
@@ -236,7 +248,7 @@ info.update = function (properties) {
 
 info.addTo(basemap);
 
-
+*/
 	
 
 	//L.geoJson(light_test, {style: style_light}).addTo(basemap);
@@ -389,11 +401,11 @@ info.addTo(basemap);
 			var testcheck2 = $(this);
 			
 			if (testcheck2.is(':checked')) {
-				density_layer.addTo(basemap);
+				satellite.addTo(basemap);
 			}
 			
 			else {
-				basemap.removeLayer(density_layer);
+				basemap.removeLayer(satellite);
 			}
 			
 		});

@@ -29,7 +29,7 @@ function initialize() {
   					dashArray: '1',
   					fillOpacity: 1,
   					smoothFactor: 0,
-  					fillColor: getColorlight(feature.properties.testsum)
+  					fillColor: getColorlight(feature.properties.sum)
   				};
   			}
 			
@@ -184,11 +184,11 @@ function initialize() {
 	var price_layer = L.geoJson();
 	var consumption_layer = L.geoJson();
 	
-	L.geoJson(light_test, {style: style_light}).addTo(layer);
-	L.geoJson(density_clip, {style: style_density}).addTo(density_layer);
+	L.geoJson(lightpollution, {style: style_light}).addTo(layer);
+	L.geoJson(density, {style: style_density}).addTo(density_layer);
 	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
-	L.geoJson(gnp, {style: style_price}).addTo(price_layer);	
-	L.geoJson(density_clip, {style: style_consumption}).addTo(consumption_layer);	
+	L.geoJson(price, {style: style_price}).addTo(price_layer);	
+	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer);	
 	
 	
 
@@ -251,7 +251,7 @@ info.addTo(basemap);
 */
 	
 
-	//L.geoJson(light_test, {style: style_light}).addTo(basemap);
+	//L.geoJson(lightpollution, {style: style_light}).addTo(basemap);
 	//L.geoJson(price_cities, {style: style}).addTo(basemap);
 
 	 

@@ -416,11 +416,11 @@ info.addTo(basemap);
 
 	
 	//-Select Region-//
-	$('.accordion_level21').click(function(){
-		$('.accordion_level22').slideToggle();
-	});
+	//$('.accordion_level21').click(function(){
+		//$('.accordion_level22').slideToggle();
+	//});
 	//Selection - Radio button
-	jQuery('#singleview_request_selectcountry').attr('checked', 'checked');
+	//jQuery('#singleview_request_selectcountry').attr('checked', 'checked');
 		// //If Select Country is checked, check all countries and if not uncheck all
 
 

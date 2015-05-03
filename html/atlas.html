@@ -56,7 +56,7 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
 	<!----------------------------LEGEND SECTION---------------------------->
  	<div id="legend_basemap" class="legend sweepin-panel roll-over left ns" style="top:200px">
  		<div class="sweepin-content">
- 			<div class="title">Legend</div>
+ 			<div class="title">Topics</div>
 	 		<div class="item ns accordion_level11"><button id="selecttheme_button">Select Theme</button></div><br>
 	 			<!--
 	 			Light Pollution Data are already presented in the Single Map View
@@ -65,61 +65,41 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
 	 			-->
 
 				
-	 			<div class="item ns accordion_level12">Light Pollution
-	 				<input id="singleview_request_lightpollution" type="checkbox" name="theme"></div>
-	 			<div class="item ns accordion_level12">Electricity Consumption
-	 				<input id="singleview_request_electricityconsumption" type="checkbox" name="theme"></div>
-	 			<div class="item ns accordion_level12">Electricity Price
-	 				<input id="singleview_request_electricityprice" type="checkbox" name="theme"></div>
-	 			<div class="item ns accordion_level12">Gross National Product
-	 				<input id="singleview_request_grossnationalproduct" type="checkbox" name="theme"></div>
-	 			<div class="item ns accordion_level12">Population Density
-	 				<input id="singleview_request_populationdensity" type="checkbox" name="theme"></div>
-	 		<div class="item ns accordion_level21"><button id="selectregion_button">Select Region</button></div><br>
-	 			<div class="item ns accordion_level22">Select Country
-	 				<input id="singleview_request_selectcountry" type="radio" name="region"></div>
-	 				<div class="item ns accordion_level22">Greece
-	 					<input id="singleview_request_greece accordion_level221" type="checkbox" name="country"></div>
-	 				<div class="item ns accordion_level22">Switzerland
-	 					<input id="singleview_request_switzerland accordion_level221" type="checkbox" name="country"></div>
-	 			<div class="item ns accordion_level22">Select City
-	 				<input id="singleview_request_selectcity" type="radio" name="region"></div>
-	 				<div class="item ns accordion_level22">Athens
-	 					<input id="singleview_request_athens accordion_level222" type="checkbox" name="city"></div>
-	 				<div class="item ns accordion_level22">Zurich
-	 					<input id="singleview_request_zurich accordion_level222" type="checkbox" name="city"></div>
+	 			<div class="item ns accordion_level12">
+	 				<input id="singleview_request_lightpollution" type="checkbox" name="theme">Light Pollution</div>
+	 			<div class="item ns accordion_level12">
+	 				<input id="singleview_request_electricityconsumption" type="checkbox" name="theme">Electricity Consumption</div>
+	 			<div class="item ns accordion_level12">
+	 				<input id="singleview_request_electricityprice" type="checkbox" name="theme">Electricity Price</div>
+	 			<div class="item ns accordion_level12">
+	 				<input id="singleview_request_grossnationalproduct" type="checkbox" name="theme">Gross National Product</div>
+	 			<div class="item ns accordion_level12">
+	 				<input id="singleview_request_populationdensity" type="checkbox" name="theme">Population Density</div><br>
 	 		<div class="item ns accordion_level31"><button id="selectyear_button">Select Year</button></div><br>
-	 			<div class="item ns accordion_level32">1996
-	 				<input id="singleview_request_1996" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">1999
-	 				<input id="singleview_request_1999" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2000
-	 				<input id="singleview_request_2000" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2003
-	 				<input id="singleview_request_2003" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2004
-	 				<input id="singleview_request_2004" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2006
-	 				<input id="singleview_request_2006" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2010
-	 				<input id="singleview_request_2010" type="radio" name="year"></div>
-	 			<div class="item ns accordion_level32">2011
-	 				<input id="singleview_request_2011" type="radio" name="year"></div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="singleview_request_1996" type="radio" name="year">1996</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="singleview_request_2000" type="radio" name="year">2000</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="singleview_request_2004" type="radio" name="year">2004</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="singleview_request_2011" type="radio" name="year">2011</div>
  		</div>
  	</div>
 
 	<!----------------------------MENU SECTION---------------------------->	
-	<div id="Menu" class="sweepin-panel roll-over top ns" style="left:50%">
+	<div id="Menu" class="legend sweepin-panel roll-over top ns notshown" style="left:50%">
 		<div class="sweepin-content">
-			<div class="title ns"></div>
+			<!--<div class="title ns"></div>-->
+			
 			<button type="button" class="btn" id="home_button"></button>
 			<button type="button" class="btn" id="singleview_button"></button>
 			<button type="button" class="btn" id="dualview_button"></button>
 			<button type="button" class="btn" id="overlayview_button"></button>
 			<button type="button" class="btn" id="graph_button"></button>
 			<button type="button" class="btn" id="info_button"></button>
-			<button type="button" class="btn" id="help_button">
-			</button>
+			<button type="button" class="btn" id="help_button"></button>
+			
 	  </div>	  
 	</div>
 	

@@ -10,6 +10,7 @@ body {
 	cursor:url(../../data/icons/cursor.png),auto;
 }
 
+
 #singleviewmap{
   position: absolute;
   left: 0;
@@ -25,6 +26,7 @@ body {
 	top: 0;
 	right:0;
 	bottom:0;
+	cursor:url(../../data/icons/cursor.png),auto;
 }
 .info {
 	position: absolute;
@@ -50,6 +52,7 @@ body {
   top: 0;
   right:0;
   bottom:0;
+  cursor:url(../../data/icons/cursor.png),auto;
 }
 
 .sweepin-content{

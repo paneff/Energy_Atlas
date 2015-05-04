@@ -73,36 +73,43 @@ width:10px;
   height: 50px;
   width: 75px;
 	background: url(../../data/icons/home.png) no-repeat;
+	cursor:url(../../data/icons/pointer.png),auto;
 }
 #singleview_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/singleview.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 #dualview_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/dualview.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 #overlayview_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/overlayview.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 #graph_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/graph.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 #info_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/info.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 #help_button {
   height: 50px;
   width: 75px;
   background: url(../../data/icons/help.png) no-repeat;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 
 /*-----------------Infograph-----------------*/
@@ -169,23 +176,20 @@ margin-left: 30px;
 
 #selecttheme_button{
 margin-left: 30px;
+cursor:url(../../data/icons/pointer.png),auto;
 }
 .accordion_level12{
 margin-left: 30px;
-}
-
-#selectregion_button{
-margin-left: 30px;
-}
-.accordion_level22{
-margin-left: 30px;
+cursor:url(../../data/icons/cursor.png),auto;
 }
 
 #selectyear_button{
 margin-left: 30px;
+cursor:url(../../data/icons/pointer.png),auto;
 }
 .accordion_level32{
 margin-left: 30px;
+cursor:url(../../data/icons/cursor.png),auto;
 }
 
 .sweepin-panel.top {
@@ -245,6 +249,7 @@ margin-left: 30px;
   padding-top: 6px;
   padding-bottom: 6px;
   margin-left: 5px;
+  
 }
 
 
@@ -252,6 +257,7 @@ margin-left: 30px;
 .sweepin-content:hover {
   cursor: pointer;
   opacity: 1.0;
+  cursor:url(../../data/icons/pointer.png),auto;
 }
 
 .sweepin-content .item, .sweepin-content .title {

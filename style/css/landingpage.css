@@ -34,22 +34,26 @@ h1{
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+	cursor:url(../../data/icons/pointer.png),auto;
 }
 
 #btn_videogallery{
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+	cursor:url(../../data/icons/pointer.png),auto;
 }
 
 #btn_information{
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+	cursor:url(../../data/icons/pointer.png),auto;
 }
 
 #btn_gotomaps{
 	width: 100%;
 	max-width: 100%;
 	height: auto;
+	cursor:url(../../data/icons/pointer.png),auto;
 }

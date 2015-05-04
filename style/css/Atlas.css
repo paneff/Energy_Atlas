@@ -48,6 +48,10 @@ body {
   bottom:0;
 }
 
+.sweepin-content{
+opacity:0.0;
+}
+
 .title {
     height: 30px;
     color:#000;
@@ -179,8 +183,8 @@ margin-left: 30px;
 
 .sweepin-panel.top {
   top: 0px;
-  width: 75px;
-  height: 28px;
+  width: 104px;
+  height: 41px;
   background:url(../../data/icons/menu.png) no-repeat;
 }
 
@@ -233,14 +237,14 @@ margin-left: 30px;
   position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 
 
 .sweepin-content:hover {
   cursor: pointer;
-  
+  opacity: 1.0;
 }
 
 .sweepin-content .item, .sweepin-content .title {

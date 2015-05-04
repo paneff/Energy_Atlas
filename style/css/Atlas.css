@@ -7,6 +7,7 @@ body {
 	left: 0;
 	bottom: 0;
 	right: 0;
+	cursor:url(../../data/icons/cursor.png),auto;
 }
 
 #singleviewmap{
@@ -36,7 +37,10 @@ body {
     border-radius: 5px;
 }
 
+.test {
+    
 
+}
 
 #basemapclone {
   position: absolute;

@@ -29,6 +29,7 @@ body {
 .info {
 	position: absolute;
 	width: 10%;
+	bottom: 18px;
 	height: 10%; 
     padding: 6px 8px;
     background: white;
@@ -171,14 +172,16 @@ margin-left: 30px;
 margin-left: 30px;
 }
 
-#selectregion_button{
-margin-left: 30px;
-}
-.accordion_level22{
+#selecttheme_button_dual{
 margin-left: 30px;
 }
 
+
 #selectyear_button{
+margin-left: 30px;
+}
+
+#selectyear_button_dual{
 margin-left: 30px;
 }
 .accordion_level32{

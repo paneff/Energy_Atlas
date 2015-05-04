@@ -211,7 +211,7 @@ function initialize() {
 	
 	
 
-	/*function highlightFeature(e) {
+/*	function highlightFeature(e) {
 			var layer = e.target;
 
 			layer.setStyle({
@@ -248,7 +248,7 @@ function initialize() {
 		}
 
 
-geojson = L.geoJson(light_test, {style: style_light, onEachFeature: onEachFeature
+geojson = L.geoJson(density, {style: style_light, onEachFeature: onEachFeature
 }).addTo(basemap);
 
 var info = L.control();
@@ -339,7 +339,7 @@ info.addTo(basemap);
 		$('.accordion_level12').slideToggle();
 		
 		//Check pollution and its clone
-		$('#singleview_request_lightpollution').click(function() {
+		$('#dual_request_lightpollution').click(function() {
 			
 			var testcheck = $(this);
 			
@@ -349,19 +349,18 @@ info.addTo(basemap);
 				basemap.removeLayer(gnp_layer);
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
+				layer.addTo(basemap);
 			}
 			
 		});
 
-
 		//Check consumption and its clone
-		$('#singleview_request_electricityconsumption').click(function() {
+		$('#dual_request_electricityconsumption').click(function() {
 			
-			var testcheck4 = $(this);
+			var testcheck1 = $(this);
 			
-			if (testcheck4.is(':checked')) {
+			if (testcheck1.is(':checked')) {
 				basemap.removeLayer(layer);
-				basemap.removeLayer(consumption_layer);
 				basemap.removeLayer(gnp_layer);
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
@@ -371,11 +370,11 @@ info.addTo(basemap);
 			
 		});
 		
-		$('#singleview_request_electricityconsumption_cloned').click(function() {
+		$('#dual_request_electricityconsumption_cloned').click(function() {
 			
-			var testcheck5 = $(this);
+			var testcheck2 = $(this);
 			
-			if (testcheck5.is(':checked')) {
+			if (testcheck2.is(':checked')) {
 				consumption_layer_cloned.addTo(basemapclone);
 			}
 			
@@ -387,11 +386,11 @@ info.addTo(basemap);
 
 
 		//Check price and its clone
-		$('#singleview_request_electricityprice').click(function() {
+		$('#dual_request_electricityprice').click(function() {
 			
-			var testcheck5 = $(this);
+			var testcheck3 = $(this);
 			
-			if (testcheck5.is(':checked')) {
+			if (testcheck3.is(':checked')) {
 				basemap.removeLayer(layer);
 				basemap.removeLayer(consumption_layer);
 				basemap.removeLayer(gnp_layer);
@@ -404,11 +403,11 @@ info.addTo(basemap);
 			
 		});
 		
-		$('#singleview_request_electricityprice_cloned').click(function() {
+		$('#dual_request_electricityprice_cloned').click(function() {
 			
-			var testcheck5 = $(this);
+			var testcheck4 = $(this);
 			
-			if (testcheck5.is(':checked')) {
+			if (testcheck4.is(':checked')) {
 				price_layer_cloned.addTo(basemapclone);
 			}
 			
@@ -420,11 +419,11 @@ info.addTo(basemap);
 
 
 		//Check gnp and its clone
-		$('#singleview_request_grossnationalproduct').click(function() {
+		$('#dual_request_grossnationalproduct').click(function() {
 			
-			var testcheck3 = $(this);
+			var testcheck5 = $(this);
 			
-			if (testcheck3.is(':checked')) {
+			if (testcheck5.is(':checked')) {
 				basemap.removeLayer(layer);
 				basemap.removeLayer(consumption_layer);
 				basemap.removeLayer(gnp_layer);
@@ -434,27 +433,25 @@ info.addTo(basemap);
 			}
 
 			
-		});
-		$('#singleview_request_grossnationalproduct_cloned').click(function() {
+		});		
+		$('#dual_request_grossnationalproduct_cloned').click(function() {
 			
-			var testcheck3 = $(this);
+			var testcheck6 = $(this);
 			
-			if (testcheck3.is(':checked')) {
+			if (testcheck6.is(':checked')) {
+				
 				gnp_layer_cloned.addTo(basemapclone);
 			}
 			
-			else {
-				basemapclone.removeLayer(gnp_layer_cloned);
-			}
 			
 		});	
 		
 		//Check and disable the checkbox
-		$('#singleview_request_populationdensity').click(function() {
+		$('#dual_request_populationdensity').click(function() {
 			
-			var testcheck2 = $(this);
+			var testcheck7 = $(this);
 			
-			if (testcheck2.is(':checked')) {
+			if (testcheck7.is(':checked')) {
 				basemap.removeLayer(layer);
 				basemap.removeLayer(consumption_layer);
 				basemap.removeLayer(gnp_layer);
@@ -464,6 +461,39 @@ info.addTo(basemap);
 			}
 			
 			
+		});		
+		$('#dual_request_populationdensity_cloned').click(function() {
+			
+			var testcheck7 = $(this);
+			
+			if (testcheck7.is(':checked')) {
+				basemap.removeLayer(layer);
+				basemap.removeLayer(consumption_layer);
+				basemap.removeLayer(gnp_layer);
+				basemap.removeLayer(price_layer);
+				basemap.removeLayer(density_layer);
+				density_layer_cloned.addTo(basemapclone);
+			}
+			
+			
+		});
+		
+		
+		$('#single_request_lightpollution').click(function() {
+			
+			var testcheck7 = $(this);
+			
+			if (testcheck7.is(':checked')) {
+				layer.addTo(basemap);
+			}
+			
+			else {
+				basemap.removeLayer(layer);
+			}
+				
+				
+			
+			
 		});
 		//*/
 
@@ -471,7 +501,7 @@ info.addTo(basemap);
 	
 
 	//-Select Year-//
-	$('.accordion_level31').click(function(){
+	/*$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
 		
 			var testcheck2 = $(this);
@@ -484,7 +514,7 @@ info.addTo(basemap);
 				basemap.removeLayer(density_layer);
 			}
 		//$('.accordion_level32').show('blind', 100);
-	});
+	});*/
 	//Selection - Radio button
 	jQuery("#singleview_request_1996").attr('checked', 'checked');
 

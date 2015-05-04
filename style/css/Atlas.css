@@ -54,7 +54,9 @@ body {
 }
 
 /*-----------------Legend-----------------*/
-
+#topicstable tr td:empty{
+width:10px;
+}
 /*-----------------Menu Buttons-----------------*/
 #home_button {
   height: 50px;

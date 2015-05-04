@@ -1,0 +1,62 @@
+body {
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+	margin: 0 0 0 0;
+	font-family: Helvetica;
+	font-size: 10pt;
+	background: #090610;
+    background-color: #000;
+    -webkt-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1{
+	color: #CCD6E0;
+	font-family: Helvetica;
+	font-size: 50pt;
+	/*margin-top: 1px;*/
+	margin-left: 15px;
+    
+    /*text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);*/
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+
+h3{
+	color: #CCD6E0;
+	font-family: Helvetica;
+	font-size: 30pt;
+	text-align: left;
+	margin-left: 19px;
+	/*margin-top: 1px;*/
+	
+    
+    /*text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);*/
+    /*text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;*/
+}
+h4{
+	color: #CCD6E0;
+	font-family: Helvetica;
+	font-size: 16pt;
+	text-align: left;
+	padding-left: 19px;
+	/*margin-top: 1px;*/
+	
+    
+    /*text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);*/
+    /*text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;*/
+}
+
+
+#btn_gotomaps{
+	width: 50%;
+	max-width: 50%;
+	height: auto;
+}

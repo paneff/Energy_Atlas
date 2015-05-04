@@ -68,13 +68,19 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
 	 			<div class="item ns accordion_level12">
 	 				<input id="singleview_request_lightpollution" type="checkbox" name="theme">Light Pollution</div>
 	 			<div class="item ns accordion_level12">
-	 				<input id="singleview_request_electricityconsumption" type="checkbox" name="theme">Electricity Consumption</div>
+	 				<input id="singleview_request_electricityconsumption" type="checkbox" name="theme">Ratio of</div>
 	 			<div class="item ns accordion_level12">
-	 				<input id="singleview_request_electricityprice" type="checkbox" name="theme">Electricity Price</div>
-	 			<div class="item ns accordion_level12">
+				<table id="topicstable">
+				<tr><td>Electricity Consumption</td><td></td><td><img src="../data/icons/econsumption.png"/></td></tr>
+				<tr><td>Electricity Price</td><td></td><td><img src="../data/icons/eprice.png"/></td></tr>
+				<tr><td>Gross National Product</td><td></td><td><img src="../data/icons/gnp.png"/></td></tr>
+				<tr><td>Population Density</td><td></td><td><img src="../data/icons/pdensity.png"/></td></tr>
+				</table>
+	 				<!--<input id="singleview_request_electricityprice" type="checkbox" name="theme">Electricity Consumption, Price--></div>
+	 			<!--<div class="item ns accordion_level12">
 	 				<input id="singleview_request_grossnationalproduct" type="checkbox" name="theme">Gross National Product</div>
 	 			<div class="item ns accordion_level12">
-	 				<input id="singleview_request_populationdensity" type="checkbox" name="theme">Population Density</div><br>
+	 				<input id="singleview_request_populationdensity" type="checkbox" name="theme">Population Density</div>--><br>
 	 		<div class="item ns accordion_level31"><button id="selectyear_button">Select Year</button></div><br>
 	 			<div class="item ns accordion_level32">
 	 				<input id="singleview_request_1996" type="radio" name="year">1996</div>
@@ -88,7 +94,7 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
  	</div>
 
 	<!----------------------------MENU SECTION---------------------------->	
-	<div id="Menu" class="legend sweepin-panel roll-over top ns notshown" style="left:50%">
+	<div id="Menu" class="legend sweepin-panel roll-over top ns" style="left:50%">
 		<div class="sweepin-content">
 			<!--<div class="title ns"></div>-->
 			

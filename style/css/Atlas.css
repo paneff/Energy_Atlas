@@ -147,8 +147,8 @@ width:10px;
   right: 0px;
   margin-top: 8px;
   margin-bottom: 8px;
-  width: 45px;
-  height: 47px;
+  width: 70px;
+  height: 51px;
   background:url(../../data/icons/infograph.png) no-repeat;
 }
 
@@ -159,23 +159,20 @@ margin-left: 30px;
 #selecttheme_button{
 margin-left: 30px;
 }
-
-#selecttheme_button_dual{
-margin-left: 30px;
-}
 .accordion_level12{
 margin-left: 30px;
 }
 
+#selectregion_button{
+margin-left: 30px;
+}
+.accordion_level22{
+margin-left: 30px;
+}
 
 #selectyear_button{
 margin-left: 30px;
 }
-
-#selectyear_button_dual{
-margin-left: 30px;
-}
-
 .accordion_level32{
 margin-left: 30px;
 }
@@ -229,6 +226,7 @@ margin-left: 30px;
   text-align: center;
   padding-top: 6px;
   padding-bottom: 6px;
+
 }
 
 .sweepin-content.left {

@@ -603,6 +603,74 @@ info.addTo(basemap);
 
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	var barChartMarker = [];
+	$('#singleview_request_electricityconsumption_single').click(function() {
+			var barchartschecked = $(this);
+			if (barchartschecked.is(':checked')) {
+				//Set options for each country separately
+				var options = [];
+				for (i = 0; i < countriescentroids1996.length; i++) { 
+				    options.push({
+					    data: {
+					        'electricityconsumption': countriescentroids1996[i].electricityconsumption,
+					        'electricityprice': countriescentroids1996[i].electricityprice,
+					        'gnp': countriescentroids1996[i].gnp,
+					        'popdensity': countriescentroids1996[i].popdensity
+					    },
+					    chartOptions: {
+					        'electricityconsumption': {
+					            fillColor: '#FEE5D9',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayText: function (value) {
+					                return value.toFixed(2);
+					            }
+					        },
+					        'electricityprice': {
+					            fillColor: '#FCAE91',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayText: function (value) {
+					                return value.toFixed(2);
+					            }
+					        },
+					        'gnp': {
+					            fillColor: '#FB6A4A',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayText: function (value) {
+					                return value.toFixed(2);
+					            }
+					        },
+					        'popdensity': {
+					            fillColor: '#CB181D',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayText: function (value) {
+					                return value.toFixed(2);
+					            }
+					        }
+					    },
+					    weight: 1,
+					    color: '#000000'//,
+					    //... // Other L.Path style options
+					}); 
+				//Add BarChart on the Map
+				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(countriescentroids1996[i].latitude, countriescentroids1996[i].longitude), options[i]);
+				barChartMarker[i].addTo(basemap);
+				}
+			}
+			else {
+				//barChartMarker = [];
+			}
+		});
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 					    			   		  	   Toast Message, Right Pannel      				               /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//When either Graph or Info Button is Clicked

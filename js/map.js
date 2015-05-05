@@ -182,7 +182,12 @@ function initialize() {
 	  
 	L.control.mousePosition().addTo(basemap);
 	
-	var layer = L.geoJson();
+	
+	var single_light_layer = L.geoJson();
+	L.geoJson(lightpollution, {style: style_light}).addTo(single_light_layer);
+	
+	
+	//var layer = L.geoJson();
 	var density_layer = L.geoJson();
 	var gnp_layer = L.geoJson();
 	var price_layer = L.geoJson();
@@ -202,7 +207,7 @@ function initialize() {
 	L.geoJson(price, {style: style_price}).addTo(price_layer_cloned);	
 	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer_cloned);	
 	
-	L.geoJson(lightpollution, {style: style_light}).addTo(layer);
+	//L.geoJson(lightpollution, {style: style_light}).addTo(layer);
 	L.geoJson(density, {style: style_density}).addTo(density_layer);
 	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
 	L.geoJson(price, {style: style_price}).addTo(price_layer);	
@@ -210,64 +215,71 @@ function initialize() {
 	
 	
 	
+	//L.geoJson(lightpollution).addTo(basemap);
+	
+	
+	
+	
 
-/*	function highlightFeature(e) {
-			var layer = e.target;
+	function highlightFeature(e) {
+			var hover_layer = e.target;
 
-			layer.setStyle({
+			hover_layer.setStyle({
 				weight: 5,
-				color: '#566',
+				color: '#ff9a00',
 				dashArray: '',
-				fillOpacity: 0.8
+				fillOpacity: 0.2
 			});
 
 			if (!L.Browser.ie && !L.Browser.opera) {
-				layer.bringToFront();
+				hover_layer.bringToFront();
 			}
 
-			info.update(layer.feature.properties);
+			//info.update(layer.feature.properties);
 		}
 
-		var geojson;
+	
 
 		function resetHighlight(e) {
 			geojson.resetStyle(e.target);
-			info.update();
+			//info.update();
 		}
+		
+		
+		var geojson;
+		// ... our listeners
+		geojson = L.geoJson();
+		
 
-		function zoomToFeature(e) {
+		/*function zoomToFeature(e) {
 			basemap.fitBounds(e.target.getBounds());
-		}
+		}*/
 
 		function onEachFeature(feature, layer) {
 			layer.on({
 				mouseover: highlightFeature,
 				mouseout: resetHighlight,
-				click: zoomToFeature
+				//click: zoomToFeature
 			});
 		}
 
 
-geojson = L.geoJson(density, {style: style_light, onEachFeature: onEachFeature
-}).addTo(basemap);
+		//var info = L.control();
+/*
+		info.onAdd = function (basemap) {
+    		this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    		this.update();
+    		return this._div;
+		};
 
-var info = L.control();
-
-info.onAdd = function (basemap) {
-    this._Infobox = L.DomUtil.create('Infobox', 'info'); // create a div with a class "info"
-    this.update();
-    return this._Infobox;
-};
-
-// method that we will use to update the control based on feature properties passed
-info.update = function (properties) {
-    this._Infobox= 'US Population Density' +  (properties ?
-        '<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
-};
-
-info.addTo(basemap);
-
+		// method that we will use to update the control based on feature properties passed
+		info.update = function (properties) {
+    		this._div= 'US Population Density' +  (properties ?
+        		'<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
+			};
 */
+		//info.addTo(basemap);
+
 	
 
 	 
@@ -484,11 +496,15 @@ info.addTo(basemap);
 			var testcheck7 = $(this);
 			
 			if (testcheck7.is(':checked')) {
-				layer.addTo(basemap);
+				//single_light_layer.addTo(basemap);
+				var light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(basemap);
+				geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
+				
 			}
 			
 			else {
-				basemap.removeLayer(layer);
+				basemap.removeLayer(geojson);
+				basemap.removeLayer(light_layer);
 			}
 				
 				

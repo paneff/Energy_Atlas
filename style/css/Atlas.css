@@ -10,6 +10,9 @@ body {
 	cursor:url(../../data/icons/cursor.png),auto;
 }
 
+
+
+
 #singleviewmap{
   position: absolute;
   left: 0;
@@ -38,10 +41,6 @@ body {
     border-radius: 5px;
 }
 
-.test {
-    
-
-}
 
 #basemapclone {
   position: absolute;
@@ -119,7 +118,13 @@ width:10px;
 #graphtext_infograph{
   height: 200px;
 }
-
+.handle {
+  background: #555;
+  background: hsla(0, 0%, 0%, 0.4);
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
 
 
 

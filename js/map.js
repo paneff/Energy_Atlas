@@ -692,6 +692,7 @@ function initialize() {
 	////////////////////// 					    			   		  	   Toast Message, Right Pannel      				               /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//When either Graph or Info Button is Clicked
+	
 	document.getElementById("graph_button").addEventListener("click", infographpanel);
 	function infographpanel() {
         var toast = $(window).AndroidToast({
@@ -705,7 +706,7 @@ function initialize() {
 		});
         toast.AndroidToast('show');
         //Make infograph icon visible
-    	$("#infoograph").removeClass( "notshown" ).addClass( "shown" );
+    	$("#infograph").removeClass( "notshown" ).addClass( "shown" );
     	//add text to the infotext_infograp div about the specific layer
 
     	//add graph title
@@ -730,7 +731,7 @@ function initialize() {
 		});
         toast.AndroidToast('show');
         //Make infograph icon visible
-    	$("#infoograph").removeClass( "notshown" ).addClass( "shown" );
+    	$("#infograph").removeClass( "notshown" ).addClass( "shown" );
     	//add text to the infotext_infograp div about the specific layer
 
     	//remove graph title

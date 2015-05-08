@@ -111,6 +111,11 @@ width:10px;
   display: block;
 }
 
+#prova{
+resize:both;
+overflow:auto;
+}
+
 
 #infotext_infograph{
   height: 200px;
@@ -118,15 +123,6 @@ width:10px;
 #graphtext_infograph{
   height: 200px;
 }
-.handle {
-  background: #555;
-  background: hsla(0, 0%, 0%, 0.4);
-  width: 20px;
-  height: 20px;
-  border-radius: 5px;
-}
-
-
 
 .mappanel {
 	position: absolute;
@@ -146,6 +142,22 @@ width:10px;
   position: absolute;
   overflow: hidden;
   display: inline;  
+}
+
+.container {
+position:absolute;
+padding-top:190px;
+
+  
+  
+  height: 190px;
+}
+
+#contain{
+padding-right:0px;
+padding-left:1185px;
+
+width: 1368px;
 }
 
 .sweepin-panel.left {

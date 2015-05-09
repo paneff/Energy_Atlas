@@ -264,8 +264,8 @@ function initialize() {
 		}
 
 
-		//var info = L.control();
-/*
+		/*var info = L.control();
+
 		info.onAdd = function (basemap) {
     		this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
     		this.update();
@@ -273,13 +273,13 @@ function initialize() {
 		};
 
 		// method that we will use to update the control based on feature properties passed
-		info.update = function (properties) {
-    		this._div= 'US Population Density' +  (properties ?
-        		'<b>' + properties.CNTR_ID + '</b><br />' : 'Hover over a state' );
+		info.update = function (props) {
+    		this._div= 'US Population Density' +  (props ?
+        		'<b>' + props.CNTR_ID + '</b><br />' : 'Hover over a state' );
 			};
-*/
-		//info.addTo(basemap);
 
+		info.addTo(basemap);
+*/
 	
 
 	 

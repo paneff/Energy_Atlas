@@ -19,6 +19,14 @@ html {
     height: 100%;
 }
 
+table{margin-left: 20px;}
+td{color: #CCD6E0;
+	font-family: Helvetica;
+	font-size: 14pt;
+	padding: 10px;
+	 
+	vertical-align: top;}
+
 h1{
 	color: #CCD6E0;
 	font-family: Helvetica;

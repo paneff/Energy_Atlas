@@ -1,8 +1,4 @@
-
-
 $(document).ready( function() {
-  var $draggable = $('.draggable').draggabilly({
-    containment: true
-	
+  $("#infograph").draggable();
+  $("#infograph").resizable({handles:"all"});
   });
-});

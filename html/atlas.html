@@ -66,8 +66,9 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
 <script src="../data/thematicdata/countriescentroids1996.js"></script>
 
 <!--move-->
-<script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-<script src='http://draggabilly.desandro.com/draggabilly.pkgd.js'></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script type="text/javascript" src="../js/drag.js"></script>
 
 </head>
@@ -160,9 +161,9 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
  	</div>
 	
 		<!----------------------------INFOGRAPH SECTION---------------------------->	
-	<div id="contain" class="container">
-		<div class="draggable">
-			<div id="infograph" class="legend sweepin-panel roll-over right ns" >
+	
+		<div id="limits">
+			<div id="infograph" class="legend sweepin-panel roll-over right ns" style="top:30%" >
 				<div id="prova" class="sweepin-content">
 					<div id="info_infograph" class="title">Information:</div>
 					<div id="infotext_infograph"></div>
@@ -170,8 +171,8 @@ Supervisors: Nicola, R. and Baer, H. Version: 21-04-2015
 					<div id="graphtext_infograph"></div>
 				</div>
 			</div>
-		</div>
-	</div>
+			</div>
+		
 
 	<!----------------------------MENU SECTION---------------------------->	
 	<div id="Menu" class="legend sweepin-panel roll-over top ns" style="left:50%">

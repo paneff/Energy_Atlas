@@ -111,10 +111,6 @@ width:10px;
   display: block;
 }
 
-#prova{
-resize:both;
-overflow:auto;
-}
 
 
 #infotext_infograph{
@@ -144,21 +140,7 @@ overflow:auto;
   display: inline;  
 }
 
-.container {
-position:absolute;
-padding-top:190px;
 
-  
-  
-  height: 190px;
-}
-
-#contain{
-padding-right:0px;
-padding-left:1185px;
-
-width: 1368px;
-}
 
 .sweepin-panel.left {
   left: 0px;
@@ -170,13 +152,16 @@ width: 1368px;
 }
 
 .sweepin-panel.right {
+position: absolute;
   right: 0px;
   margin-top: 8px;
   margin-bottom: 8px;
   width: 68px;
   height: 69px;
   background:url(../../data/icons/infograph.png) no-repeat;
+ 
 }
+
 
 .title{
 margin-left: 30px;

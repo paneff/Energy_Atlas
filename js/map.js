@@ -373,6 +373,7 @@ function initialize() {
 				layer.addTo(basemap);
 			}
 			
+			
 		});
 		
 		
@@ -533,7 +534,7 @@ function initialize() {
 			else {
 				basemap.removeLayer(geojson);
 				basemap.removeLayer(light_layer);
-				$('.accordion_level121').hide();
+				$('.accordion_level121').slideToggle();
 			}
 				
 				

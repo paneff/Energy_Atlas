@@ -65,6 +65,13 @@ opacity:0.0;
 #topicstable tr td:empty{
 width:10px;
 }
+#lighttable tr td:empty{
+width:10px;
+}
+#lighttable{
+margin-left:30px;
+}
+
 /*-----------------Menu Buttons-----------------*/
 #home_button {
   height: 50px;

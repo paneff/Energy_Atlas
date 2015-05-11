@@ -212,7 +212,7 @@ function initialize() {
 	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer_cloned);	
 	
 
-	L.geoJson(density, {style: style_denstiy}).addTo(denstiy_layer);
+	L.geoJson(density, {style: style_density}).addTo(density_layer);
 	L.geoJson(density, {style: style_density}).addTo(density_layer);
 	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
 	L.geoJson(price, {style: style_price}).addTo(price_layer);	
@@ -557,13 +557,12 @@ function initialize() {
 			
 			else {
 
-				basemap.removeLayer(geojson);
-				basemap.removeLayer(light_layer);
+
 				$('.accordion_level121').slideToggle();
 
-				//basemap.removeLayer(geojson);
+
 				basemap.removeLayer(single_light_layer);
-				$('.accordion_level121').hide();
+
 
 			}
 				
@@ -749,6 +748,8 @@ function initialize() {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	$("#singleview_request_electricityconsumption_single").prop('checked',false);
 	var barChartsLayer = L.geoJson();
 	var barChartMarker = [];
 	$('#singleview_request_electricityconsumption_single').click(function() {

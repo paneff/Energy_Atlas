@@ -381,6 +381,11 @@ function initialize() {
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
 				light_layer.addTo(basemap);
+				$('.accordion_level121').slideToggle();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 			
@@ -397,6 +402,11 @@ function initialize() {
 				basemapclone.removeLayer(price_layer_cloned);
 				basemapclone.removeLayer(density_layer_cloned);
 				light_layer_cloned.addTo(basemapclone);
+				$('.accordion_level121').slideToggle();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 		});
@@ -413,6 +423,11 @@ function initialize() {
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
 				consumption_layer.addTo(basemap);
+				$('.accordion_level123').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 			
@@ -428,6 +443,11 @@ function initialize() {
 				basemapclone.removeLayer(price_layer_cloned);
 				basemapclone.removeLayer(density_layer_cloned);
 				consumption_layer_cloned.addTo(basemapclone);
+				$('.accordion_level123').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 			
@@ -446,6 +466,11 @@ function initialize() {
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
 				price_layer.addTo(basemap);
+				$('.accordion_level124').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 
@@ -462,6 +487,11 @@ function initialize() {
 				basemapclone.removeLayer(consumption_layer_cloned);
 				basemapclone.removeLayer(density_layer_cloned);
 				price_layer_cloned.addTo(basemapclone);
+				$('.accordion_level124').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level125').hide();
+				$('.accordion_level126').hide();
 			}
 			
 			
@@ -480,6 +510,11 @@ function initialize() {
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
 				gnp_layer.addTo(basemap);
+				$('.accordion_level125').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level126').hide();
 			}
 
 			
@@ -496,6 +531,11 @@ function initialize() {
 				basemapclone.removeLayer(density_layer_cloned);
 				basemapclone.removeLayer(gnp_layer_cloned);
 				gnp_layer_cloned.addTo(basemapclone);
+				$('.accordion_level125').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level126').hide();
 			}
 			
 			
@@ -513,6 +553,11 @@ function initialize() {
 				basemap.removeLayer(price_layer);
 				basemap.removeLayer(density_layer);
 				density_layer.addTo(basemap);
+				$('.accordion_level126').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
 			}
 			
 			
@@ -528,6 +573,11 @@ function initialize() {
 				basemapclone.removeLayer(gnp_layer_cloned);
 				basemapclone.removeLayer(density_layer_cloned);
 				density_layer_cloned.addTo(basemapclone);
+				$('.accordion_level126').slideToggle();
+				$('.accordion_level121').hide();
+				$('.accordion_level123').hide();
+				$('.accordion_level124').hide();
+				$('.accordion_level125').hide();
 			}
 			
 			
@@ -923,6 +973,7 @@ function initialize() {
 	$("#singleview_request_electricityconsumption_single").prop('checked',false);
 	var barChartsLayer = L.geoJson();
 	var barChartMarker = [];
+	
 	$('#singleview_request_electricityconsumption_single').click(function() {
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {

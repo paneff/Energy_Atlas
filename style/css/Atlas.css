@@ -74,6 +74,31 @@ width:10px;
 #lighttable{
 margin-left:30px;
 }
+#ec tr td:empty{
+width:10px;
+}
+#ec{
+margin-left:30px;
+}
+#ep tr td:empty{
+width:10px;
+}
+#ep{
+margin-left:30px;
+}
+#gnpt tr td:empty{
+width:10px;
+}
+#gnpt{
+margin-left:30px;
+}
+#pd tr td:empty{
+width:10px;
+}
+#pd{
+margin-left:30px;
+}
+
 
 /*-----------------Menu Buttons-----------------*/
 #home_button {

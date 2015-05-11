@@ -344,6 +344,8 @@ function initialize() {
 	      });
 	//Hide Selection Options
 	$('.accordion_level12').hide();
+	$('.accordion_level121').hide();
+	$('.accordion_level122').hide();
 	//$('.accordion_level13').hide();
 	$('.accordion_level22').hide();
 	$('.accordion_level221').hide();
@@ -524,12 +526,13 @@ function initialize() {
 				year = 'year11'
 				light_layer.addTo(basemap);
 				geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
-				
+				$('.accordion_level121').slideToggle();
 			}
 			
 			else {
 				basemap.removeLayer(geojson);
 				basemap.removeLayer(light_layer);
+				$('.accordion_level121').hide();
 			}
 				
 				

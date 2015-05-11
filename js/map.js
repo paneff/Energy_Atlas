@@ -16,14 +16,7 @@ function initialize() {
 	
 	var year = 'year11'
 	
-	  
-  	function getColorlight(c) {
-    		return c > 8700000 ? '#f7fbff' :
-    	           c > 6500000 ? '#c6dcf0' :
-    			   c > 4350000 ? '#6fb1d6' :
-    			   c > 2170000 ? '#2277ba' :
-    						     '#042e6d' ;
-    	} 
+
 	  
 	  var stylefunctions = {
 		  lightpollution: function(feature) {
@@ -89,7 +82,14 @@ function initialize() {
 			
 	  };
 	
-
+	  
+    function getColorlight(c) {
+      		return c > 200	   ? '#f7fbff' :
+      	           c > 130 	   ? '#c6dcf0' :
+      			   c > 100     ? '#6fb1d6' :
+      			   c > 50      ? '#2277ba' :
+      						     '#042e6d' ;
+      	} 
 	
 	// functions for population density	
 			
@@ -651,7 +651,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year96';
-					single_light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
 			
@@ -664,7 +664,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year00';
-					single_light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
 		
@@ -677,7 +677,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year04';
-					single_light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
 		
@@ -690,7 +690,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year11';
-					single_light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
 		

@@ -517,6 +517,7 @@ function initialize() {
 		});
 		
 		
+		$('#single_request_lightpollution').prop("checked",false);
 		$('#single_request_lightpollution').click(function() {
 			
 			var testcheck7 = $(this);
@@ -548,14 +549,14 @@ function initialize() {
 	$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
 		
-			$('singleview_request_2011').attr('checked', true);
+			$("#singleview_request_2011").prop('checked',true);
 			
 			$('#singleview_request_1996').click(function() {
 			
 			var testcheck10 = $(this);
 		
 			if (testcheck10.is(':checked')) {
-				year = 'year11'
+				year = 'year96'
 				light_layer.addTo(basemap);
 				geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
 				
@@ -568,7 +569,7 @@ function initialize() {
 		//$('.accordion_level32').show('blind', 100);
 	});
 	//Selection - Radio button
-	jQuery("#singleview_request_1996").attr('checked', 'checked');
+
 
 
 

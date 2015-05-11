@@ -665,6 +665,7 @@ function initialize() {
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {
 				//Set options for each country separately
+				$('.accordion_level122').slideToggle();
 				var options = [];
 				for (i = 0; i < countriescentroids1996.length; i++) { 
 				    options.push({
@@ -723,6 +724,7 @@ function initialize() {
 				}
 			}
 			else {
+				$('.accordion_level122').slideToggle();
 				basemap.removeLayer(barChartsLayer);
 			}
 		});

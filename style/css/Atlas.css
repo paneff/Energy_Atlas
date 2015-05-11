@@ -65,6 +65,9 @@ opacity:0.0;
 #topicstable tr td:empty{
 width:10px;
 }
+#topicstable{
+margin-left:30px;
+}
 #lighttable tr td:empty{
 width:10px;
 }

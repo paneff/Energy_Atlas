@@ -16,18 +16,18 @@ function initialize() {
 	
 	var year = 'year11'
 	
-	function getColorlight(c) {
-  		return c > 8700000 ? '#f7fbff' :
-  	           c > 6500000 ? '#c6dcf0' :
-  			   c > 4350000 ? '#6fb1d6' :
-  			   c > 2170000 ? '#2277ba' :
-  						     '#042e6d' ;
-  	} 
-	
-
-	
-  	function style_light(feature) {
-  				return {
+	  
+  	function getColorlight(c) {
+    		return c > 8700000 ? '#f7fbff' :
+    	           c > 6500000 ? '#c6dcf0' :
+    			   c > 4350000 ? '#6fb1d6' :
+    			   c > 2170000 ? '#2277ba' :
+    						     '#042e6d' ;
+    	} 
+	  
+	  var stylefunctions = {
+		  lightpollution: function(feature) {
+			  return {
   					weight: 1,
   					opacity: 0.7,
   					color: 'grey',
@@ -35,9 +35,61 @@ function initialize() {
   					fillOpacity: 1,
   					smoothFactor: 0,
   					fillColor: getColorlight(feature.properties[year])
-  				};
-  			}
+  					};
+			  },
+			  
+		  gnp: function(feature) {
+			 return {
+	 			   weight: 2,
+			  	   opacity: 1,
+				   color: 'black',
+			       dashArray: '1',
+				   fillOpacity: 1,
+				   smoothFactor: 0,
+				   fillColor: getColor_gnp(feature.properties[year])
+						};
+			}, 
 			
+			density: function(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+		  			fillColor: getColor_density(feature.properties[year])
+						};
+			},
+			
+			
+			price: function(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+					fillColor: getColor_price(feature.properties[year])
+						};
+			},
+			
+			consumption: function(feature) {
+				return {
+					weight: 2,
+					opacity: 1,
+					color: 'black',
+					dashArray: '1',
+					fillOpacity: 1,
+					smoothFactor: 0,
+					fillColor: getColor_consumption(feature.properties[year])
+						};
+			}
+			
+	  };
+	
+
 	
 	// functions for population density	
 			
@@ -51,18 +103,6 @@ function initialize() {
 								 '#000000' ;
 			} 
 	
-	function style_density(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-		  			fillColor: getColor_density(feature.properties[year])
-						};
-					}
-			
 			
 			
 	// functions for gnp		
@@ -77,20 +117,7 @@ function initialize() {
 								 '#000000' ;
 					} 
 	
-					
-	function style_gnp(feature) {
-				return {
-	 			   weight: 2,
-			  	   opacity: 1,
-				   color: 'black',
-			       dashArray: '1',
-				   fillOpacity: 1,
-				   smoothFactor: 0,
-				   fillColor: getColor_gnp(feature.properties[year])
-						};
-				}
-				
-				
+
 	
 	
 	// functions for price
@@ -104,19 +131,7 @@ function initialize() {
 					   c > 1   ? '#fff795' :
 								 '#000000' ;
 				} 
-	
-	function style_price(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColor_price(feature.properties[year])
-						};
-					}
-								
+		
 								
 								
 	// functions for consumption
@@ -131,18 +146,7 @@ function initialize() {
 					   c > 1   ? '#fddad7' :
 								 '#000000' ;
 				} 
-	
-	function style_consumption(feature) {
-				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColor_consumption(feature.properties[year])
-						};
-					}
+
 						
 
 
@@ -187,7 +191,7 @@ function initialize() {
 	
 	
 	var single_light_layer = L.geoJson();
-	L.geoJson(lightpollution, {style: style_light}).addTo(single_light_layer);
+	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(single_light_layer);
 	
 	
 	var light_layer = L.geoJson();
@@ -195,7 +199,7 @@ function initialize() {
 	var gnp_layer = L.geoJson();
 	var price_layer = L.geoJson();
 	var consumption_layer = L.geoJson();
-	var templayer = L.geoJson();
+	
 
 	
 	var light_layer_cloned = L.geoJson();
@@ -205,19 +209,27 @@ function initialize() {
 	var consumption_layer_cloned = L.geoJson();
 	
 	
-	L.geoJson(lightpollution, {style: style_light}).addTo(light_layer_cloned);
-	L.geoJson(density, {style: style_density}).addTo(density_layer_cloned);
-	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer_cloned);
-	L.geoJson(price, {style: style_price}).addTo(price_layer_cloned);	
-	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer_cloned);	
+	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer_cloned);
+	L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer_cloned);
+	L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer_cloned);
+	L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer_cloned);	
+	L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer_cloned);	
 	
 
-	L.geoJson(density, {style: style_density}).addTo(density_layer);
-	L.geoJson(density, {style: style_density}).addTo(density_layer);
-	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
-	L.geoJson(price, {style: style_price}).addTo(price_layer);	
-	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer);	
-	L.geoJson(lightpollution, {style: style_light}).addTo(light_layer);
+	L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
+	L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
+	L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer);	
+	L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);	
+	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
+	
+	
+	var data = {
+		gnp: gnp,
+		price: price,
+		lightpollution: lightpollution,
+		conspumtion: consumption,
+		density: density
+		}
 	
 	
 	//L.geoJson(lightpollution).addTo(basemap);
@@ -636,18 +648,45 @@ function initialize() {
 			});
 			
 			
+			
+		
+			
+			
+			
 			$('#dual_request_1996').click(function() {
 			
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
 
-					var temp = $('input:radio[name=theme]:checked').val
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
 					
-					basemap.removeLayer(gnp);
+					var templayer96 = L.geoJson();
+				
+					basemap.removeLayer(data[temp]);
 					year = 'year96';
 					
-					templayer = L.geoJson(temp, {style: style_gnp}).addTo(templayer);
-					templayer.addTo(basemap);
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer96);
+					templayer96.addTo(basemap);
+				
+					}
+		
+		
+			});
+			
+			$('#dual_request_2000').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer00 = L.geoJson();
+					
+					basemap.removeLayer(data[temp]);
+					year = 'year00';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer00);
+					templayer00.addTo(basemap);
 				
 					}
 		
@@ -655,13 +694,145 @@ function initialize() {
 			});
 			
 			
+			$('#dual_request_2004').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer04 = L.geoJson();
+					
+					basemap.removeLayer(data[temp]);
+					year = 'year04';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer04);
+					templayer04.addTo(basemap);
+				
+					}
+		
+		
+			});
+			
+			
+			
+			$('#dual_request_2011').prop("checked",true);
+			$('#dual_request_2011').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer11 = L.geoJson();
+					
+					basemap.removeLayer(data[temp]);
+					year = 'year11';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer11);
+					templayer11.addTo(basemap);
+				
+					}
+		
+		
+			});
+			
+			
+			
+			$('#dual_request_1996_cloned').click(function() {
+			
+				var testcheck10 = $(this);
+				if (testcheck10.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer96 = L.geoJson();
+				
+					basemapclone.removeLayer(data[temp]);
+					year = 'year96';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer96);
+					templayer96.addTo(basemapclone);
+				
+					}
+		
+		
+			});
+			
+			$('#dual_request_2000_cloned').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer00 = L.geoJson();
+					
+					basemapclone.removeLayer(data[temp]);
+					year = 'year00';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer00);
+					templayer00.addTo(basemapclone);
+				
+					}
+		
+		
+			});
+			
+			
+			$('#dual_request_2004_cloned').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer04 = L.geoJson();
+					
+					basemapclone.removeLayer(data[temp]);
+					year = 'year04';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer04);
+					templayer04.addTo(basemapclone);
+				
+					}
+		
+		
+			});
+			
+			
+			
+			$('#dual_request_2011_cloned').prop("checked",true);
+			$('#dual_request_2011_cloned').click(function() {
+			
+				var testcheck = $(this);
+				if (testcheck.is(':checked')) {
+
+					var temp = $('input:radio[name=theme]').filter(":checked").val()
+					
+					var templayer11 = L.geoJson();
+					
+					basemapclone.removeLayer(data[temp]);
+					year = 'year11';
+					
+					L.geoJson(data[temp], {style: stylefunctions[temp]}).addTo(templayer11);
+					templayer11.addTo(basemapclone);
+				
+					}
+		
+		
+			});
+			
 
 		//$('.accordion_level32').show('blind', 100);
 	});
 	//Selection - Radio button
 
 
-
+	$('.accordion_level123').hide();
+	$('.accordion_level124').hide();
+	$('.accordion_level125').hide();
+	$('.accordion_level126').hide();
 
 	//-------------------------------------------------------Menu-------------------------------------------------------//
 	$('#home_button').click(function(){ window.location = 'landingpage.html'});

@@ -13,9 +13,8 @@ function initialize() {
 	
 	// funtions for light pollution
 	  
-	  /*function get_year(a) {
-		  return { 'features.properties.'+a};
-	  }*/
+	
+	var year = 'year11'
 	
 	function getColorlight(c) {
   		return c > 8700000 ? '#f7fbff' :
@@ -25,6 +24,8 @@ function initialize() {
   						     '#042e6d' ;
   	} 
 	
+
+	
   	function style_light(feature) {
   				return {
   					weight: 1,
@@ -33,7 +34,7 @@ function initialize() {
   					dashArray: '1',
   					fillOpacity: 1,
   					smoothFactor: 0,
-  					fillColor: getColorlight(feature.properties.sum)
+  					fillColor: getColorlight(feature.properties[year])
   				};
   			}
 			
@@ -58,7 +59,7 @@ function initialize() {
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,
-		  			fillColor: getColor_density(feature.properties.year11)
+		  			fillColor: getColor_density(feature.properties[year])
 						};
 					}
 			
@@ -85,7 +86,7 @@ function initialize() {
 			       dashArray: '1',
 				   fillOpacity: 1,
 				   smoothFactor: 0,
-				   fillColor: getColor_gnp(feature.properties.year11)
+				   fillColor: getColor_gnp(feature.properties[year])
 						};
 				}
 				
@@ -112,7 +113,7 @@ function initialize() {
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,
-					fillColor: getColor_price(feature.properties.year11)
+					fillColor: getColor_price(feature.properties[year])
 						};
 					}
 								
@@ -139,7 +140,7 @@ function initialize() {
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,
-					fillColor: getColor_consumption(feature.properties.year11)
+					fillColor: getColor_consumption(feature.properties[year])
 						};
 					}
 						
@@ -157,6 +158,8 @@ function initialize() {
 	  	crs: crs,
 	  	worldCopyJump: true
 	}); 
+	
+	
 	  
 
 	L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
@@ -186,8 +189,12 @@ function initialize() {
 	var single_light_layer = L.geoJson();
 	L.geoJson(lightpollution, {style: style_light}).addTo(single_light_layer);
 	
+	var layer = L.geoJson();
+	L.geoJson(lightpollution, {style: style_light}).addTo(layer);
+	
 	
 	//var layer = L.geoJson();
+	var light_layer = L.geoJson();
 	var density_layer = L.geoJson();
 	var gnp_layer = L.geoJson();
 	var price_layer = L.geoJson();
@@ -212,13 +219,13 @@ function initialize() {
 	L.geoJson(gnp, {style: style_gnp}).addTo(gnp_layer);
 	L.geoJson(price, {style: style_price}).addTo(price_layer);	
 	L.geoJson(consumption, {style: style_consumption}).addTo(consumption_layer);	
-	
+	L.geoJson(lightpollution, {style: style_light}).addTo(light_layer);
 	
 	
 	//L.geoJson(lightpollution).addTo(basemap);
 	
 	
-	
+	//layer.addTo(basemap)
 	
 
 	function highlightFeature(e) {
@@ -365,6 +372,23 @@ function initialize() {
 			}
 			
 		});
+		
+		
+		$('#dual_request_lightpollution_cloned').click(function() {
+			
+			var testcheck = $(this);
+			
+			if (testcheck.is(':checked')) {
+				basemap.removeLayer(layer_cloned);
+				basemap.removeLayer(consumption_layer_cloned);
+				basemap.removeLayer(gnp_layer_cloned);
+				basemap.removeLayer(price_layer_cloned);
+				basemap.removeLayer(density_layer_cloned);
+				layer.addTo(basemapclone);
+			}
+			
+		});
+
 
 		//Check consumption and its clone
 		$('#dual_request_electricityconsumption').click(function() {
@@ -497,7 +521,8 @@ function initialize() {
 			
 			if (testcheck7.is(':checked')) {
 				//single_light_layer.addTo(basemap);
-				var light_layer = L.geoJson(lightpollution, {style: style_light}).addTo(basemap);
+				year = 'year11'
+				light_layer.addTo(basemap);
 				geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
 				
 			}
@@ -517,20 +542,28 @@ function initialize() {
 	
 
 	//-Select Year-//
-	/*$('.accordion_level31').click(function(){
+	$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
 		
-			var testcheck2 = $(this);
+			$('singleview_request_2011').attr('checked', true);
+			
+			$('#singleview_request_1996').click(function() {
+			
+			var testcheck10 = $(this);
 		
-			if (testcheck2.is(':checked')) {
-				get_year(1996);
+			if (testcheck10.is(':checked')) {
+				year = 'year11'
+				light_layer.addTo(basemap);
+				geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
+				
 			}
 		
 			else {
-				basemap.removeLayer(density_layer);
+			
 			}
+		});
 		//$('.accordion_level32').show('blind', 100);
-	});*/
+	});
 	//Selection - Radio button
 	jQuery("#singleview_request_1996").attr('checked', 'checked');
 

@@ -885,7 +885,7 @@ function initialize() {
 	$('.accordion_level126').hide();
 
 	//-------------------------------------------------------Menu-------------------------------------------------------//
-	$('#home_button').click(function(){ window.location = 'landingpage.html'});
+	$('#home_button').click(function(){ window.location = 'index.html'});
 	$('#help_button').click(function(){ window.location = 'helppage.html'});
 	
 

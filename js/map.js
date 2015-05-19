@@ -33,9 +33,9 @@ function initialize() {
 			  
 		  gnp: function(feature) {
 			 return {
-	 			   weight: 2,
-			  	   opacity: 1,
-				   color: 'black',
+	 			   weight: 1,
+			  	   opacity: 0.7,
+				   color: 'gray',
 			       dashArray: '1',
 				   fillOpacity: 1,
 				   smoothFactor: 0,
@@ -45,9 +45,9 @@ function initialize() {
 			
 			density: function(feature) {
 				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
+					weight: 1,
+					opacity: 0.7,
+					color: 'gray',
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,
@@ -58,9 +58,9 @@ function initialize() {
 			
 			price: function(feature) {
 				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
+					weight: 1,
+					opacity: 0.7,
+					color: 'gray',
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,
@@ -70,9 +70,9 @@ function initialize() {
 			
 			consumption: function(feature) {
 				return {
-					weight: 2,
-					opacity: 1,
-					color: 'black',
+					weight: 1,
+					opacity: 0.7,
+					color: 'gray',
 					dashArray: '1',
 					fillOpacity: 1,
 					smoothFactor: 0,

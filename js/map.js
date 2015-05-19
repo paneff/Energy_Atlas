@@ -885,7 +885,7 @@ function initialize() {
 	$('.accordion_level126').hide();
 
 	//-------------------------------------------------------Menu-------------------------------------------------------//
-	$('#home_button').click(function(){ window.location = 'index.html'});
+	$('#home_button').click(function(){ window.location = '../index.html'});
 	$('#help_button').click(function(){ window.location = 'helppage.html'});
 	
 
@@ -921,6 +921,8 @@ function initialize() {
 		//Add Legend
 		//$("#legend_basemap").clone(true).attr('id', 'legend_basemapclone').appendTo("#basemapclone");
 		//$("#current_users").clone(false).find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
+		
+		
 		$("#legend_dual").clone(true).appendTo("#basemapclone").find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
 		//$("#legend_dual").clone(true).appendTo("#basemapclone");
 	}

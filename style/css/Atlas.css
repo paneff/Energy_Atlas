@@ -227,9 +227,10 @@ margin-left: 30px;
 
 .sweepin-panel.top {
   top: 0px;
-  width: 111px;
-  height: 39px;
-  background:url(../../data/icons/menu.png) no-repeat;
+  margin-left: -73px;
+  width: 146px;
+  height: 43px;
+  background:url(../../data/icons/navigation.png) no-repeat;
 }
 
 .sweepin-panel.roll-over:hover, .sweepin-panel.clicked {

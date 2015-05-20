@@ -698,21 +698,19 @@ function initialize() {
 	
 
 	//-Select Year-//
+	/////////////////////////////////////							Extract year from selection       									   /////////////////////////////////////
 	$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
 		
-			$("#singleview_request_2011").prop('checked',true);
+			//$("#singleview_request_2011").prop('checked',true);
 			
 			$('#singleview_request_1996').click(function() {
-			
 				var testcheck10 = $(this);
-		
-				
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
+					console.log(year);
 					year = 'year96';
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
-				
 					}
 			
 			});
@@ -724,6 +722,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year00';
+					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
@@ -737,6 +736,7 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year04';
+					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
@@ -750,18 +750,13 @@ function initialize() {
 				if (testcheck10.is(':checked')) {
 					basemap.removeLayer(single_light_layer);
 					year = 'year11';
+					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
 				
 					}
 		
 		
 			});
-			
-			
-			
-		
-			
-			
 			
 			$('#dual_request_1996').click(function() {
 			
@@ -1058,7 +1053,8 @@ function initialize() {
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {
 				//Use right folder based on selected year
-				year='year96';
+				//year='year96';
+				console.log('in the barcharts function:' + year);
 				switch(year) {
 				    case 'year96':
 				        barchartsFile=barcharts1996;

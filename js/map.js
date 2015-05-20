@@ -1049,24 +1049,42 @@ function initialize() {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	$("#singleview_request_electricityconsumption_single").prop('checked',false);
+	$("#singleview_request_barcharts").prop('checked',false);
 	var barChartsLayer = L.geoJson();
 	var barChartMarker = [];
 	
-	$('#singleview_request_electricityconsumption_single').click(function() {
+	console.log (year);
+	$('#singleview_request_barcharts').click(function() {
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {
+				//Use right folder based on selected year
+				year='year96';
+				switch(year) {
+				    case 'year96':
+				        barchartsFile=barcharts1996;
+				        break;
+				    case 'year00':
+				        barchartsFile=barcharts2000;
+				        break;
+				    case 'year04':
+				        barchartsFile=barcharts2004;
+				        break;
+				    case 'year11':
+				        barchartsFile=barcharts2011;
+				        break;
+				}
+
+				//Create the barcharts
 				//Set options for each country separately
 				$('.accordion_level122').slideToggle();
 				var options = [];
 				for (i = 0; i < countriescentroids1996.length; i++) { 
 				    options.push({
 					    data: {
-					        'electricityconsumption': countriescentroids1996[i].electricityconsumption,
-					        'electricityprice': countriescentroids1996[i].electricityprice,
-					        'gnp': countriescentroids1996[i].gnp,
-					        'popdensity': countriescentroids1996[i].popdensity
+					        'electricityconsumption': barchartsFile[i].electricityconsumption,
+					        'electricityprice': barchartsFile[i].electricityprice,
+					        'gnp': barchartsFile[i].gnp,
+					        'popdensity': barchartsFile[i].popdensity
 					    },
 					    chartOptions: {
 					        'electricityconsumption': {
@@ -1111,7 +1129,7 @@ function initialize() {
 					    fillOpacity: 1
 					}); 
 				//Add BarChart on the Map
-				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(countriescentroids1996[i].latitude, countriescentroids1996[i].longitude), options[i]);
+				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(barchartsFile[i].latitude, barchartsFile[i].longitude), options[i]);
 				barChartMarker[i].addTo(barChartsLayer);
 				barChartsLayer.addTo(basemap);
 				}

@@ -1,12 +1,39 @@
 body {
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
-    font-family: Garamond, Helvetica;
+    font-family:  Helvetica;
     font-size: 12pt;
-    background: black;
+    background: #04010B;
     height: 100%;
     width: 100%;
     margin: 0px 0px 0px 0px;
+}
+
+h1{
+    color: #CCD6E0;
+    font-family: Helvetica;
+    font-size: 40pt;
+    margin-top: 10px;
+    padding: 20px;
+    text-align: center;
+    /*text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);*/
+    text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+h2{
+    color: #CCD6E0;
+    font-family: Helvetica;
+    font-size: 14pt;
+    text-align: justify;
+    }
+#btn_back{
+	cursor:url(../../data/icons/pointer.png),auto;
+}
+#btn_gotomaps{
+	top: 
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	cursor:url(../../data/icons/pointer.png),auto;
 }
 
 #row1{
@@ -16,16 +43,103 @@ body {
     margin: 0;
 }
 
-#row2{
-    height: 60%;
+#textbox{
+	position: absolute;
+    top: 35%; left: 5%; bottom: 50%; right: 70%;
+    height: 30%;
+	width: 30%;
     max-height: 60%;
     min-height: 60%;
     margin: 0;
+	text-align: center;
 }
 
+#wikipediabox{
+	position: absolute;
+    top: 10%; left: 45%; bottom: 0%; right: 5%;
+    height: 30%;
+	width: 50%;
+    max-height: 60%;
+    min-height: 60%;
+    margin: 0;
+	text-align: center;
+}
 #row3{
-    height: 15%;
+	top: 90%;
+    height: 90%;
     max-height: 15%;
     min-height: 15%;
     margin: 0;
 }
+
+
+#title_information{
+    width: 45%;
+    max-width: 45%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+
+.captionOrange, .captionBlack
+        {
+            color: #fff;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .captionOrange
+        {
+            background: #EB5100;
+            background-color: rgba(235, 81, 0, 0.6);
+        }
+        .captionBlack
+        {
+        	font-size:16px;
+            background: #000;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        a.captionOrange, A.captionOrange:active, A.captionOrange:visited
+        {
+        	color: #ffffff;
+        	text-decoration: none;
+        }
+        a.captionOrange:hover
+        {
+            color: #eb5100;
+            text-decoration: underline;
+            background-color: #eeeeee;
+            background-color: rgba(238, 238, 238, 0.7);
+        }
+        .bricon
+        {
+            background: #04010B;
+        }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

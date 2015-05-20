@@ -7,172 +7,239 @@ function initialize() {
 	 		4096, 2048, 1024, 512
 	  		],
 	  })
-	  
-	  
-/////////// functions for the styling of the individual layers/////////////	  
 	
-	// funtions for light pollution
-	  
-	
-	var year = 'year11'
-	
-
-	  
-	  var stylefunctions = {
-		  lightpollution: function(feature) {
-			  return {
-  					weight: 1,
-  					opacity: 0.7,
-  					color: 'grey',
-  					dashArray: '1',
-  					fillOpacity: 1,
-  					smoothFactor: 0,
-  					fillColor: getColorlight(feature.properties[year])
-  					};
-			  },
-			  
-		  gnp: function(feature) {
-			 return {
-	 			   weight: 1,
-			  	   opacity: 0.7,
-				   color: 'gray',
-			       dashArray: '1',
-				   fillOpacity: 1,
-				   smoothFactor: 0,
-				   fillColor: getColor_gnp(feature.properties[year])
-						};
-			}, 
-			
-			density: function(feature) {
-				return {
-					weight: 1,
-					opacity: 0.7,
-					color: 'gray',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-		  			fillColor: getColor_density(feature.properties[year])
-						};
-			},
-			
-			
-			price: function(feature) {
-				return {
-					weight: 1,
-					opacity: 0.7,
-					color: 'gray',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColor_price(feature.properties[year])
-						};
-			},
-			
-			consumption: function(feature) {
-				return {
-					weight: 1,
-					opacity: 0.7,
-					color: 'gray',
-					dashArray: '1',
-					fillOpacity: 1,
-					smoothFactor: 0,
-					fillColor: getColor_consumption(feature.properties[year])
-						};
-			}
-			
-	  };
-	
-	  
-    function getColorlight(c) {
-      		return c > 200	   ? '#f7fbff' :
-      	           c > 130 	   ? '#c6dcf0' :
-      			   c > 100     ? '#6fb1d6' :
-      			   c > 50      ? '#2277ba' :
-      						     '#042e6d' ;
-      	} 
-	
-	// functions for population density	
-			
-	function getColor_density(c) {
-				return c > 170 ? '#980501' :
-			           c > 140 ? '#C70601' :
-					   c > 110 ? '#FE2722' :
-					   c > 80  ? '#FE4C48' :
-					   c > 50  ? '#FF8582' :
-					   c > 1   ? '#FFE7DC' :
-								 '#000000' ;
-			} 
-	
-			
-			
-	// functions for gnp		
-					
-	function getColor_gnp(c) {
-				return c > 170 ? '#A75E34' :
-					   c > 140 ? '#CD702D' :
-					   c > 110 ? '#E78836' :
-					   c > 80  ? '#FAA74A' :
-					   c > 50  ? '#FEC870' :
-					   c > 1   ? '#FFE1A5' :
-								 '#000000' ;
-					} 
-	
-
-	
-	
-	// functions for price
-	
-	function getColor_price(c) {
-				return c > 170 ? '#ee6619' :
-					   c > 140 ? '#f6861f' :
-			    	   c > 110 ? '#fbaa19' :
-					   c > 80  ? '#ffc907' :
-					   c > 50  ? '#fff333' :
-					   c > 1   ? '#fff795' :
-								 '#000000' ;
-				} 
-		
-								
-								
-	// functions for consumption
-	
-	
-	function getColor_consumption(c) {
-				return c > 170 ? '#7a0177' :
-					   c > 140 ? '#c5258a' :
-					   c > 110 ? '#f768a1' :
-					   c > 80  ? '#fa9fb5' :
-					   c > 50  ? '#fcc5c0' :
-					   c > 1   ? '#fddad7' :
-								 '#000000' ;
-				} 
-
-						
-
-
-
-
-
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////// 															Single View										   /////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-	///////////////////////////////////////////////////////////////////////////////////Basemap/////////////////////////////////////////////////////////////////////////////////
-    basemap = new L.Map('basemap', {
+	basemap = new L.Map('basemap', {
 	  	crs: crs,
 	  	worldCopyJump: true
 	}); 
 	
-	
-	  
-
 	L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
 	  	format: 'image/png',
 		layers: 'basemap',
 	 	maxZoom: 4,
 	  	minZoom: 0,
 		continuousWorld: true
-	}).addTo(basemap);
+	}).addTo(basemap);  
+
+	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
+	  
+	L.control.mousePosition().addTo(basemap);
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	/////////////////////////////////////												Styles       									   /////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
+
+	/////////////////////////////////////							Stripes for the Overlay View       									   /////////////////////////////////////
+
+   		
+   		var stripes1 = new L.StripePattern({
+			// patternContentUnits: 'objectBoundingBox',
+	  		// patternUnits: 'objectBoundingBox',
+	        weight: 0.5,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes1.addTo(basemap);
+
+	    var stripes2 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 1,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes2.addTo(basemap);
+
+	    var stripes3 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 1.5,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes3.addTo(basemap);
+
+	    var stripes4 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 2,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes4.addTo(basemap);
+
+	    var stripes5 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 2.50,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes5.addTo(basemap);
+
+	    var stripes6 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 3,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes6.addTo(basemap);
+
+	    var stripes7 = new L.StripePattern({
+	      // patternContentUnits: 'objectBoundingBox',
+	      //   patternUnits: 'objectBoundingBox',
+	        weight: 3.5,
+	        angle: 45,
+		    color: 'black'
+	    });
+	    stripes7.addTo(basemap);
+
+	/////////////////////////////////////							      Themes' Styles      							     		   /////////////////////////////////////
+
+	var year = 'year11'
+	  
+	var stylefunctions = {
+		lightpollution: function(feature) {
+			return {
+				weight: 1,
+				opacity: 0.7,
+				color: 'grey',
+				dashArray: '1',
+				fillOpacity: 1,
+				smoothFactor: 0,
+				fillColor: getColorlight(feature.properties[year])
+				};
+			},
+			  
+		gnp: function(feature) {
+			return {
+ 			   weight: 1,
+		  	   opacity: 0.7,
+			   color: 'gray',
+		       dashArray: '1',
+			   fillOpacity: 1,
+			   smoothFactor: 0,
+			   fillColor: getColor_gnp(feature.properties[year])
+					};
+			}, 
+			
+		density: function(feature) {
+			return {
+				weight: 1,
+				opacity: 0.7,
+				color: 'gray',
+				dashArray: '1',
+				fillOpacity: 1,
+				smoothFactor: 0,
+	  			fillColor: getColor_density(feature.properties[year])
+					};
+			},
+			
+		price: function(feature) {
+			return {
+				weight: 1,
+				opacity: 0.7,
+				color: 'gray',
+				dashArray: '1',
+				fillOpacity: 1,
+				smoothFactor: 0,
+				fillColor: getColor_price(feature.properties[year])
+					};
+			},
+			
+		consumption: function(feature) {
+			return {
+				weight: 1,
+				opacity: 0.7,
+				color: 'gray',
+				dashArray: '1',
+				fillOpacity: 1,
+				smoothFactor: 0,
+				fillColor: getColor_consumption(feature.properties[year])
+					};
+			}
+			
+	  };
+
+	/////////////////////////////////////							      Choose Colour based on Value      			     		   ///////////////////////////////////// 
+    function getColorlight(c) {
+  		return c > 200	   ? '#f7fbff' :
+  	           c > 130 	   ? '#c6dcf0' :
+  			   c > 100     ? '#6fb1d6' :
+  			   c > 50      ? '#2277ba' :
+  						     '#042e6d' ;
+      	}
+
+    //test based on light pollution data
+    function getPatternDense_light(c) {
+  		return c > 200 ? stripes1 :
+  	           c > 130 ? stripes2 :
+  			   c > 100 ? stripes4 :
+  			   c > 50 ? stripes6 :
+  						stripes7 ;
+  		}  
+			
+	function getColor_density(c) {
+		return c > 170 ? '#980501' :
+	           c > 140 ? '#C70601' :
+			   c > 110 ? '#FE2722' :
+			   c > 80  ? '#FE4C48' :
+			   c > 50  ? '#FF8582' :
+			   c > 1   ? '#FFE7DC' :
+						 '#000000' ;
+		} 
+						
+	function getColor_gnp(c) {
+		return c > 170 ? '#A75E34' :
+			   c > 140 ? '#CD702D' :
+			   c > 110 ? '#E78836' :
+			   c > 80  ? '#FAA74A' :
+			   c > 50  ? '#FEC870' :
+			   c > 1   ? '#FFE1A5' :
+						 '#000000' ;
+			} 
+	
+	
+	function getColor_price(c) {
+		return c > 170 ? '#ee6619' :
+			   c > 140 ? '#f6861f' :
+	    	   c > 110 ? '#fbaa19' :
+			   c > 80  ? '#ffc907' :
+			   c > 50  ? '#fff333' :
+			   c > 1   ? '#fff795' :
+						 '#000000' ;
+		} 
+	
+	function getColor_consumption(c) {
+		return c > 170 ? '#7a0177' :
+			   c > 140 ? '#c5258a' :
+			   c > 110 ? '#f768a1' :
+			   c > 80  ? '#fa9fb5' :
+			   c > 50  ? '#fcc5c0' :
+			   c > 1   ? '#fddad7' :
+						 '#000000' ;
+		} 
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////// 															Single View										   /////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	///////////////////////////////////////////////////////////////////////////////////Basemap/////////////////////////////////////////////////////////////////////////////////
+ //    basemap = new L.Map('basemap', {
+	//   	crs: crs,
+	//   	worldCopyJump: true
+	// }); 
+	
+	
+	  
+
+	// L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
+	//   	format: 'image/png',
+	// 	layers: 'basemap',
+	//  	maxZoom: 4,
+	//   	minZoom: 0,
+	// 	continuousWorld: true
+	// }).addTo(basemap);
 	
 	
 	
@@ -185,9 +252,9 @@ function initialize() {
 	})//.addTo(basemap);//*/
 	
 	
-	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
+	// basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 	  
-	L.control.mousePosition().addTo(basemap);
+	// L.control.mousePosition().addTo(basemap);
 	
 	
 	var single_light_layer = L.geoJson();
@@ -230,37 +297,30 @@ function initialize() {
 		conspumtion: consumption,
 		density: density
 		}
-	
-	
-	//L.geoJson(lightpollution).addTo(basemap);
-	
-	
-	//layer.addTo(basemap)
-	
 
 	function highlightFeature(e) {
-			var hover_layer = e.target;
+		var hover_layer = e.target;
 
-			hover_layer.setStyle({
-				weight: 5,
-				color: '#ff9a00',
-				dashArray: '',
-				fillOpacity: 0.2
-			});
+		hover_layer.setStyle({
+			weight: 5,
+			color: '#ff9a00',
+			dashArray: '',
+			fillOpacity: 0.2
+		});
 
-			if (!L.Browser.ie && !L.Browser.opera) {
-				hover_layer.bringToFront();
-			}
+		if (!L.Browser.ie && !L.Browser.opera) {
+			hover_layer.bringToFront();
+		}
 
-			//info.update(layer.feature.properties);
+		//info.update(layer.feature.properties);
 		}
 
 	
 
-		function resetHighlight(e) {
-			geojson.resetStyle(e.target);
-			//info.update();
-		}
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		//info.update();
+	}
 		
 		
 		var geojson;
@@ -965,6 +1025,24 @@ function initialize() {
 		basemapclone.invalidateSize();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
+
+		//Add Pattern Layer
+		// Style function using a pattern
+	    function myStyle(feature) {
+	      //var pattern = feature.properties.sum > 4000000 ? stripes1 : stripes2;
+	      return {
+	        weight: 0.5,
+	        color: 'black',
+	        smoothFactor: 0,
+	        fillOpacity: 1,
+	        fillPattern: getPatternDense_light(feature.properties[year])
+	      };
+	    }
+
+	    // Create the pattern layer and add the style function
+	    var patternLayer = L.geoJson(lightpollution);
+	    patternLayer.setStyle(myStyle);
+	    patternLayer.addTo(basemap);
 	}
 
 	
@@ -992,7 +1070,7 @@ function initialize() {
 					    },
 					    chartOptions: {
 					        'electricityconsumption': {
-					            fillColor: '#FEE5D9',
+					            fillColor: '#7A0177',
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
@@ -1001,7 +1079,7 @@ function initialize() {
 					            }
 					        },
 					        'electricityprice': {
-					            fillColor: '#FCAE91',
+					            fillColor: '#F6861F',
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
@@ -1010,7 +1088,7 @@ function initialize() {
 					            }
 					        },
 					        'gnp': {
-					            fillColor: '#FB6A4A',
+					            fillColor: '#A75E34',
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
@@ -1019,7 +1097,7 @@ function initialize() {
 					            }
 					        },
 					        'popdensity': {
-					            fillColor: '#CB181D',
+					            fillColor: '#990501',
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
@@ -1029,8 +1107,8 @@ function initialize() {
 					        }
 					    },
 					    weight: 1,
-					    color: '#000000'//,
-					    //... // Other L.Path style options
+					    color: '#000000',
+					    fillOpacity: 1
 					}); 
 				//Add BarChart on the Map
 				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(countriescentroids1996[i].latitude, countriescentroids1996[i].longitude), options[i]);
@@ -1043,57 +1121,5 @@ function initialize() {
 				basemap.removeLayer(barChartsLayer);
 			}
 		});
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////// 					    			   		  	   Toast Message, Right Pannel      				               /////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//When either Graph or Info Button is Clicked
-	document.getElementById("graph_button").addEventListener("click", infographpanel);
-	function infographpanel() {
-        var toast = $(window).AndroidToast({
-			message : "Mouse over the infograph icon on the right.",
-	        fadeInTime : "700",
-	        fadeOutTime : "700",
-	        easing: "swing",
-	        stayTime: "5000",
-	        maxWidth: "400",
-	        bottomPosition: "610"
-		});
-        toast.AndroidToast('show');
-        //Make infograph icon visible
-    	$("#infograph").removeClass( "notshown" ).addClass( "shown" );
-    	//add text to the infotext_infograp div about the specific layer
-
-    	//add graph title
-    	$("#graph_infograph").prepend("Graph:");
-    	//add graph text
-
-    	//add graph
-
-    }
-
-
-    document.getElementById("info_button").addEventListener("click", infopanel);
-	function infopanel() {
-        var toast = $(window).AndroidToast({
-			message : "Mouse over the infograph icon on the right.",
-	        fadeInTime : "700",
-	        fadeOutTime : "700",
-	        easing: "swing",
-	        stayTime: "5000",
-	        maxWidth: "400",
-	        bottomPosition: "610"
-		});
-        toast.AndroidToast('show');
-        //Make infograph icon visible
-    	$("#infograph").removeClass( "notshown" ).addClass( "shown" );
-    	//add text to the infotext_infograp div about the specific layer
-
-    	//remove graph title
-    	$("#graph_infograph").empty();
-    	//remove graph text
-
-    	//remove graph
-
-    }
 		
   }

@@ -2609,7 +2609,7 @@ var TextFunctions = TextFunctions || {
  * Functions that support additions to the basic SVG Path features provided by Leaflet
  */
 var PathFunctions = PathFunctions || {
-	__updateStyle: L.Path.prototype._updateStyle,
+	__updateStyleDVF: L.Path.prototype._updateStyleDVF,
 
 	_createDefs: function () {
 		this._defs = this._createElement('defs');
@@ -2936,8 +2936,8 @@ var PathFunctions = PathFunctions || {
 		}
 	},
 
-	_updateStyle: function (layer) {
-		this.__updateStyle.call(this, layer);
+	_updateStyleDVF: function (layer) {
+		this.__updateStyleDVF.call(this, layer);
 
 		var context = layer ? layer : this;
 		
@@ -2982,7 +2982,7 @@ var PathFunctions = PathFunctions || {
 if (L.SVG) {
 	// Potential fix for working with 0.8
 	var SVGStyleFunctions = L.Util.extend(PathFunctions, {
-		__updateStyle: L.SVG.prototype._updateStyle
+		__updateStyleDVF: L.SVG.prototype._updateStyleDVF
 	});
 
 	var SVGTextFunctions = L.Util.extend(TextFunctions, {

@@ -33,7 +33,7 @@ function initialize() {
 
 	/////////////////////////////////////							Stripes for the Overlay View       									   /////////////////////////////////////
 
-   		
+   	
    		var stripes1 = new L.StripePattern({
 			// patternContentUnits: 'objectBoundingBox',
 	  		// patternUnits: 'objectBoundingBox',
@@ -252,7 +252,7 @@ function initialize() {
 	 	maxZoom: 4,
 	  	minZoom: 0,
 		continuousWorld: true
-	})//.addTo(basemap);//*/
+	})
 	
 	
 	// basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
@@ -889,6 +889,10 @@ function initialize() {
 		$('.accordion_level12').hide();
 		$('.accordion_level32').hide();
 		$('[name="theme"]').prop('type', 'radio');
+		//Remove Layers from other Views
+		if (basemap.hasLayer(barChartsLayer)===true) {
+			basemap.removeLayer(barChartsLayer);
+		}
 		if (basemap.hasLayer(patternLayer)===true) {
     		basemap.removeLayer(patternLayer);
  			basemapclone.removeLayer(patternLayer);
@@ -930,25 +934,13 @@ function initialize() {
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-//<<<<<<< HEAD
-		//patternLayer.clearLayers();
-		//console.log(basemap.hasLayer(patternLayer));
+		//Remove Layers from other Views
 		if (basemap.hasLayer(patternLayer)===true) {
 			basemap.removeLayer(patternLayer);
-			// stripes1.removeFrom(basemap);
-			// stripes2.removeFrom(basemap);
-			// stripes3.removeFrom(basemap);
-			// stripes4.removeFrom(basemap);
-			// stripes5.removeFrom(basemap);
-			// stripes6.removeFrom(basemap);
-			// stripes7.removeFrom(basemap);
 		}
-		//console.log('Back to Single View remove layer'+ basemap.hasLayer(patternLayer));
-//=======
 		basemap.removeLayer(light_layer);
 		$('.accordion_level121').hide();
 		$('#single_request_lightpollution').off()
-//>>>>>>> origin/cleaned-up-folder
 	}
 		
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -967,6 +959,11 @@ function initialize() {
 		basemapclone.invalidateSize();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
+		//Remove Layers from other Views
+		if (basemap.hasLayer(barChartsLayer)===true) {
+			basemap.removeLayer(barChartsLayer);
+		}
+		//Add Pattern Layer
 		stripes1.addTo(basemap);
 		stripes2.addTo(basemap);
 		stripes3.addTo(basemap);
@@ -974,10 +971,7 @@ function initialize() {
 		stripes5.addTo(basemap);
 		stripes6.addTo(basemap);
 		stripes7.addTo(basemap);
-		//Add Pattern Layer
-		// Style function using a pattern
 	    function myStyle(feature) {
-	      //var pattern = feature.properties.sum > 4000000 ? stripes1 : stripes2;
 	      return {
 	        weight: 0.5,
 	        color: 'white',
@@ -987,31 +981,9 @@ function initialize() {
 	        fillPattern: getPatternDense_light(feature.properties[year])
 	      };
 	    }
-
-
-	    if (basemap.hasLayer(patternLayer)===true) {
-  			basemap.removeLayer(patternLayer);
-		}
-		console.log(basemap.hasLayer(patternLayer));
-	    // Create the pattern layer and add the style function
 	    patternLayer = L.geoJson(lightpollution);
 	    patternLayer.setStyle(myStyle);
 	    patternLayer.addTo(basemap);
-	    //console.log('Overlay View add stripes and layer'+basemap.hasLayer(patternLayer));
-	    //Test remove
-	 //    if (basemap.hasLayer(patternLayer)===true) {
-  // 			basemap.removeLayer(patternLayer);
-		// }
-		// console.log(basemap.hasLayer(patternLayer));
-		// stripes1.removeFrom(basemap);
-		// stripes2.removeFrom(basemap);
-		// stripes3.removeFrom(basemap);
-		// stripes4.removeFrom(basemap);
-		// stripes5.removeFrom(basemap);
-		// stripes6.removeFrom(basemap);
-		// stripes7.removeFrom(basemap);
-		//basemap.removeLayer(patternLayer);
-		//console.log('Overlay View remove layer'+basemap.hasLayer(patternLayer));
 	}
 
 	

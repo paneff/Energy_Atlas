@@ -930,7 +930,7 @@ function initialize() {
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		//patternLayer.clearLayers();
 		//console.log(basemap.hasLayer(patternLayer));
 		if (basemap.hasLayer(patternLayer)===true) {
@@ -944,11 +944,11 @@ function initialize() {
 			// stripes7.removeFrom(basemap);
 		}
 		//console.log('Back to Single View remove layer'+ basemap.hasLayer(patternLayer));
-=======
+//=======
 		basemap.removeLayer(light_layer);
 		$('.accordion_level121').hide();
 		$('#single_request_lightpollution').off()
->>>>>>> origin/cleaned-up-folder
+//>>>>>>> origin/cleaned-up-folder
 	}
 		
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -994,7 +994,7 @@ function initialize() {
 		}
 		console.log(basemap.hasLayer(patternLayer));
 	    // Create the pattern layer and add the style function
-	    var patternLayer = L.geoJson(lightpollution);
+	    patternLayer = L.geoJson(lightpollution);
 	    patternLayer.setStyle(myStyle);
 	    patternLayer.addTo(basemap);
 	    //console.log('Overlay View add stripes and layer'+basemap.hasLayer(patternLayer));

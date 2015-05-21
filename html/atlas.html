@@ -141,8 +141,13 @@ Version: 20-05-2015
 
 				
 	 			<div class="item ns accordion_level12">
-	 				<input id="dual_request_lightpollution" type="radio" value="lightpollution" name="theme">Light Pollution</div>
-					<div class="item ns accordion_level121">
+					<div id="dual_container_lightpollution">
+						<input id="dual_request_lightpollution" type="radio" value="consumption" name="theme"><label for="dual_request_lightpollution">Lightpollution</label>
+					</div>
+				</div>
+					
+					
+				<div class="item ns accordion_level121">
 				<table id="lighttable">
 				<tr><td>200%</td><td></td><td><img src="../data/icons/lp1.png"/></td></tr>
 				<tr><td>156-200%</td><td></td><td><img src="../data/icons/lp2.png"/></td></tr>
@@ -150,54 +155,73 @@ Version: 20-05-2015
 				<tr><td>61-105%</td><td></td><td><img src="../data/icons/lp4.png"/></td></tr>
 				<tr><td>14-60%</td><td></td><td><img src="../data/icons/lp5.png"/></td></tr>
 				</table>
-			</div>
+				</div>
+
 
 
 	 			<div class="item ns accordion_level12">
-
-	 				<input id="dual_request_electricityconsumption" type="radio" value="consumption" name="theme">Electricity Consumption</div>
-						<div class="item ns accordion_level123">
-				<table id="ec">
-				<tr><td>>200%</td><td></td><td><img src="../data/icons/ec1.png"/></td></tr>
-				<tr><td>156-200%</td><td></td><td><img src="../data/icons/ec2.png"/></td></tr>
-				<tr><td>106-155%</td><td></td><td><img src="../data/icons/ec3.png"/></td></tr>
-				<tr><td>61-105%</td><td></td><td><img src="../data/icons/ec4.png"/></td></tr>
-				<tr><td>14-60%</td><td></td><td><img src="../data/icons/ec5.png"/></td></tr>
-				</table>
-			</div>
+					<div id="dual_container_electricityconsumption">
+						<input id="dual_request_electricityconsumption" type="radio" value="consumption" name="theme"><label for="dual_request_electricityconsumption">Electricty Consumption</label>
+					</div>
+				</div>	
+						
+				<div class="item ns accordion_level123">
+					<table id="ec">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/ec1.png"/></td></tr>
+						<tr><td>156-200%</td><td></td><td><img src="../data/icons/ec2.png"/></td></tr>
+						<tr><td>106-155%</td><td></td><td><img src="../data/icons/ec3.png"/></td></tr>
+						<tr><td>61-105%</td><td></td><td><img src="../data/icons/ec4.png"/></td></tr>
+						<tr><td>14-60%</td><td></td><td><img src="../data/icons/ec5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
 	 			<div class="item ns accordion_level12">
-	 				<input id="dual_request_electricityprice" type="radio" value="price" name="theme">Electricity Price</div>
-								<div class="item ns accordion_level124">
-				<table id="ep">
-				<tr><td>>170%</td><td></td><td><img src="../data/icons/ep1.png"/></td></tr>
-				<tr><td>141-170%</td><td></td><td><img src="../data/icons/ep2.png"/></td></tr>
-				<tr><td>111-140%</td><td></td><td><img src="../data/icons/ep3.png"/></td></tr>
-				<tr><td>81-110%</td><td></td><td><img src="../data/icons/ep4.png"/></td></tr>
-				<tr><td>50-80%</td><td></td><td><img src="../data/icons/ep5.png"/></td></tr>
-				</table>
-			</div>
+					<div id="dual_container_electricityprice">
+						<input id="dual_request_electricityprice" type="radio" value="consumption" name="theme"><label for="dual_request_electricityprice">Electricty Price</label>
+					</div>
+				</div>
+												
+				<div class="item ns accordion_level124">
+					<table id="ep">
+						<tr><td>>170%</td><td></td><td><img src="../data/icons/ep1.png"/></td></tr>
+						<tr><td>141-170%</td><td></td><td><img src="../data/icons/ep2.png"/></td></tr>
+						<tr><td>111-140%</td><td></td><td><img src="../data/icons/ep3.png"/></td></tr>
+						<tr><td>81-110%</td><td></td><td><img src="../data/icons/ep4.png"/></td></tr>
+						<tr><td>50-80%</td><td></td><td><img src="../data/icons/ep5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
 	 			<div class="item ns accordion_level12">
 	 				<input id="dual_request_grossnationalproduct" type="radio" value="gnp" name="theme">Gross National Product</div>
-								<div class="item ns accordion_level125">
-				<table id="gnpt">
-				<tr><td>>200%</td><td></td><td><img src="../data/icons/gnp1.png"/></td></tr>
-				<tr><td>136-200%</td><td></td><td><img src="../data/icons/gnp2.png"/></td></tr>
-				<tr><td>101-135%</td><td></td><td><img src="../data/icons/gnp3.png"/></td></tr>
-				<tr><td>56-100%</td><td></td><td><img src="../data/icons/gnp4.png"/></td></tr>
-				<tr><td>25-55%</td><td></td><td><img src="../data/icons/gnp5.png"/></td></tr>
-				</table>
-			</div>
+								
+				<div class="item ns accordion_level125">
+					<table id="gnpt">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/gnp1.png"/></td></tr>
+						<tr><td>136-200%</td><td></td><td><img src="../data/icons/gnp2.png"/></td></tr>
+						<tr><td>101-135%</td><td></td><td><img src="../data/icons/gnp3.png"/></td></tr>
+						<tr><td>56-100%</td><td></td><td><img src="../data/icons/gnp4.png"/></td></tr>
+						<tr><td>25-55%</td><td></td><td><img src="../data/icons/gnp5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
 	 			<div class="item ns accordion_level12">
 	 				<input id="dual_request_populationdensity" type="radio" value="density" name="theme">Population Density</div>
-								<div class="item ns accordion_level126">
-				<table id="pd">
-				<tr><td>>200%</td><td></td><td><img src="../data/icons/pd1.png"/></td></tr>
-				<tr><td>150-200%</td><td></td><td><img src="../data/icons/pd2.png"/></td></tr>
-				<tr><td>100-150%</td><td></td><td><img src="../data/icons/pd3.png"/></td></tr>
-				<tr><td>50-100%</td><td></td><td><img src="../data/icons/pd4.png"/></td></tr>
-				<tr><td>20-50%</td><td></td><td><img src="../data/icons/pd5.png"/></td></tr>
-				</table>
-			</div><br>
+				
+				<div class="item ns accordion_level126">
+					<table id="pd">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/pd1.png"/></td></tr>
+						<tr><td>150-200%</td><td></td><td><img src="../data/icons/pd2.png"/></td></tr>
+						<tr><td>100-150%</td><td></td><td><img src="../data/icons/pd3.png"/></td></tr>
+						<tr><td>50-100%</td><td></td><td><img src="../data/icons/pd4.png"/></td></tr>
+						<tr><td>20-50%</td><td></td><td><img src="../data/icons/pd5.png"/></td></tr>
+					</table>
+				</div><br>
 
 	 			
 				

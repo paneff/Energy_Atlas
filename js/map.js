@@ -24,6 +24,9 @@ function initialize() {
 	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 	  
 	L.control.mousePosition().addTo(basemap);
+
+	//Declare Some Layers
+	var patternLayer = L.geoJson();
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////												Styles       									   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -38,7 +41,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes1.addTo(basemap);
+	    
 
 	    var stripes2 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -47,7 +50,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes2.addTo(basemap);
+	    
 
 	    var stripes3 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -56,7 +59,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes3.addTo(basemap);
+	    
 
 	    var stripes4 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -65,7 +68,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes4.addTo(basemap);
+	    
 
 	    var stripes5 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -74,7 +77,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes5.addTo(basemap);
+	    
 
 	    var stripes6 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -83,7 +86,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes6.addTo(basemap);
+	    
 
 	    var stripes7 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
@@ -92,7 +95,7 @@ function initialize() {
 	        angle: 45,
 		    color: 'black'
 	    });
-	    stripes7.addTo(basemap);
+	    
 
 	/////////////////////////////////////							      Themes' Styles      							     		   /////////////////////////////////////
 
@@ -956,6 +959,7 @@ function initialize() {
 	// });
 	//Once dualview_button is Clicked Change Height and Width of the divs Basemap, Basemapclone
 	function dualview() {
+		console.log(basemap.hasLayer(patternLayer));
 		$('#basemap').height('100%');
 		$('#basemap').width('50%');
 		basemap.invalidateSize();
@@ -970,9 +974,12 @@ function initialize() {
 		$('.accordion_level12').hide();
 		$('.accordion_level32').hide();
 		$('[name="theme"]').prop('type', 'radio');
-		
-		
-		
+		if (basemap.hasLayer(patternLayer)===true) {
+    		basemap.removeLayer(patternLayer);
+ 			basemapclone.removeLayer(patternLayer);
+		}
+		//console.log(basemap.hasLayer(patternLayer));
+
 		//Add Legend
 		//$("#legend_basemap").clone(true).attr('id', 'legend_basemapclone').appendTo("#basemapclone");
 		//$("#current_users").clone(false).find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
@@ -1003,6 +1010,19 @@ function initialize() {
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
+		//patternLayer.clearLayers();
+		//console.log(basemap.hasLayer(patternLayer));
+		if (basemap.hasLayer(patternLayer)===true) {
+			basemap.removeLayer(patternLayer);
+			// stripes1.removeFrom(basemap);
+			// stripes2.removeFrom(basemap);
+			// stripes3.removeFrom(basemap);
+			// stripes4.removeFrom(basemap);
+			// stripes5.removeFrom(basemap);
+			// stripes6.removeFrom(basemap);
+			// stripes7.removeFrom(basemap);
+		}
+		//console.log('Back to Single View remove layer'+ basemap.hasLayer(patternLayer));
 	}
 		
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1021,24 +1041,51 @@ function initialize() {
 		basemapclone.invalidateSize();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
-
+		stripes1.addTo(basemap);
+		stripes2.addTo(basemap);
+		stripes3.addTo(basemap);
+		stripes4.addTo(basemap);
+		stripes5.addTo(basemap);
+		stripes6.addTo(basemap);
+		stripes7.addTo(basemap);
 		//Add Pattern Layer
 		// Style function using a pattern
 	    function myStyle(feature) {
 	      //var pattern = feature.properties.sum > 4000000 ? stripes1 : stripes2;
 	      return {
 	        weight: 0.5,
-	        color: 'black',
+	        color: 'white',
 	        smoothFactor: 0,
+	        opacity: 0,
 	        fillOpacity: 1,
 	        fillPattern: getPatternDense_light(feature.properties[year])
 	      };
 	    }
 
+
+	    if (basemap.hasLayer(patternLayer)===true) {
+  			basemap.removeLayer(patternLayer);
+		}
+		console.log(basemap.hasLayer(patternLayer));
 	    // Create the pattern layer and add the style function
 	    var patternLayer = L.geoJson(lightpollution);
 	    patternLayer.setStyle(myStyle);
 	    patternLayer.addTo(basemap);
+	    //console.log('Overlay View add stripes and layer'+basemap.hasLayer(patternLayer));
+	    //Test remove
+	 //    if (basemap.hasLayer(patternLayer)===true) {
+  // 			basemap.removeLayer(patternLayer);
+		// }
+		// console.log(basemap.hasLayer(patternLayer));
+		// stripes1.removeFrom(basemap);
+		// stripes2.removeFrom(basemap);
+		// stripes3.removeFrom(basemap);
+		// stripes4.removeFrom(basemap);
+		// stripes5.removeFrom(basemap);
+		// stripes6.removeFrom(basemap);
+		// stripes7.removeFrom(basemap);
+		//basemap.removeLayer(patternLayer);
+		//console.log('Overlay View remove layer'+basemap.hasLayer(patternLayer));
 	}
 
 	

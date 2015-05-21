@@ -493,6 +493,7 @@ function initialize() {
 			
 		});
 		
+		$('#dual_request_electricityconsumption_cloned').off(); 
 		$('#dual_request_electricityconsumption_cloned').click(function() {
 			
 			var testcheck2 = $(this);
@@ -537,6 +538,7 @@ function initialize() {
 			
 		});
 		
+		$('#dual_request_electricityprice_cloned').off();
 		$('#dual_request_electricityprice_cloned').click(function() {
 			
 			var testcheck4 = $(this);
@@ -578,7 +580,9 @@ function initialize() {
 			}
 
 			
-		});		
+		});	
+			
+		$('#dual_request_grossnationalproduct_cloned').off();
 		$('#dual_request_grossnationalproduct_cloned').click(function() {
 			
 			var testcheck6 = $(this);
@@ -621,7 +625,9 @@ function initialize() {
 			}
 			
 			
-		});		
+		});	
+		
+		$('#dual_request_populationdensity_cloned').off()	
 		$('#dual_request_populationdensity_cloned').click(function() {
 			
 			var testcheck7 = $(this);
@@ -672,7 +678,7 @@ function initialize() {
 			if (testcheck7.is(':checked')) {
 				//single_light_layer.addTo(basemap);
 				year = 'year11'
-				single_light_layer.addTo(basemap);
+				single_light_layer.addTo(basemap).bringToBack();
 				//geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
 				$('.accordion_level121').slideToggle();
 			}
@@ -710,7 +716,7 @@ function initialize() {
 					basemap.removeLayer(single_light_layer);
 					console.log(year);
 					year = 'year96';
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
 					}
 			
 			});
@@ -723,7 +729,7 @@ function initialize() {
 					basemap.removeLayer(single_light_layer);
 					year = 'year00';
 					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
 				
 					}
 		
@@ -737,7 +743,7 @@ function initialize() {
 					basemap.removeLayer(single_light_layer);
 					year = 'year04';
 					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
 				
 					}
 		
@@ -751,7 +757,7 @@ function initialize() {
 					basemap.removeLayer(single_light_layer);
 					year = 'year11';
 					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap);
+					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
 				
 					}
 		
@@ -1128,7 +1134,7 @@ function initialize() {
 				//Add BarChart on the Map
 				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(barchartsFile[i].latitude, barchartsFile[i].longitude), options[i]);
 				barChartMarker[i].addTo(barChartsLayer);
-				barChartsLayer.addTo(basemap);
+				barChartsLayer.addTo(basemap).bringToFront();
 				}
 			}
 			else {

@@ -895,11 +895,11 @@ function initialize() {
 		
 		$("#legend_dual").clone(true).appendTo("#basemapclone").find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
 		//$("#legend_dual").clone(true).appendTo("#basemapclone");
-		$('#dual_request_electricityconsumption').hide(); 
-		$('#dual_request_electricityprice').hide(); 
+		$('#dual_container_electricityconsumption').hide(); 
+		$('#dual_container_electricityprice').hide(); 
 		$('#dual_request_grossnationalproduct').hide(); 
 		$('#dual_request_populationdensity').hide(); 
-		$('#dual_request_lightpollution_cloned').hide(); 
+		$('#dual_container_lightpollution_cloned').hide(); 
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

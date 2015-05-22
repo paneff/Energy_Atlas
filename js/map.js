@@ -42,7 +42,7 @@ function initialize() {
    		var stripes1 = new L.StripePattern({
 			// patternContentUnits: 'objectBoundingBox',
 	  		// patternUnits: 'objectBoundingBox',
-	        weight: 0.5,
+	  		weight: 0.5,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -51,7 +51,7 @@ function initialize() {
 	    var stripes2 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
 	      //   patternUnits: 'objectBoundingBox',
-	        weight: 1,
+	      	weight: 1,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -60,7 +60,7 @@ function initialize() {
 	    var stripes3 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
 	      //   patternUnits: 'objectBoundingBox',
-	        weight: 1.5,
+	      	weight: 1.5,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -78,7 +78,7 @@ function initialize() {
 	    var stripes5 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
 	      //   patternUnits: 'objectBoundingBox',
-	        weight: 2.50,
+	        weight: 3,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -87,7 +87,7 @@ function initialize() {
 	    var stripes6 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
 	      //   patternUnits: 'objectBoundingBox',
-	        weight: 3,
+	        weight: 4,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -96,7 +96,7 @@ function initialize() {
 	    var stripes7 = new L.StripePattern({
 	      // patternContentUnits: 'objectBoundingBox',
 	      //   patternUnits: 'objectBoundingBox',
-	        weight: 3.5,
+	        weight: 5,
 	        angle: 45,
 		    color: 'black'
 	    });
@@ -170,6 +170,7 @@ function initialize() {
 	  };
 
 	/////////////////////////////////////							      Choose Colour based on Value      			     		   ///////////////////////////////////// 
+	/////////////////////////////////////							      			or stripes1 		     			     		   ///////////////////////////////////// 
     function getColorlight(c) {
   		return c > 200	   ? '#f7fbff' :
   	           c > 130 	   ? '#c6dcf0' :
@@ -178,7 +179,7 @@ function initialize() {
   						     '#042e6d' ;
       	}
 
-    //test based on light pollution data
+    //
     function getPatternDense_light(c) {
   		return c > 200 ? stripes1 :
   	           c > 130 ? stripes2 :
@@ -196,7 +197,17 @@ function initialize() {
 			   c > 1   ? '#FFE7DC' :
 						 '#000000' ;
 		} 
-						
+
+	function getPatternDense_density(c) {
+		return c > 170 ? stripes1 :
+	           c > 140 ? stripes2 :
+			   c > 110 ? stripes3 :
+			   c > 80  ? stripes4 :
+			   c > 50  ? stripes5 :
+			   c > 1   ? stripes6 :
+						 stripes7 ;
+		} 
+
 	function getColor_gnp(c) {
 		return c > 170 ? '#A75E34' :
 			   c > 140 ? '#CD702D' :
@@ -205,8 +216,18 @@ function initialize() {
 			   c > 50  ? '#FEC870' :
 			   c > 1   ? '#FFE1A5' :
 						 '#000000' ;
-			} 
-	
+			}
+
+	function getPatternDense_gnp(c) {
+		return c > 170 ? stripes1 :
+			   c > 140 ? stripes2 :
+			   c > 110 ? stripes3 :
+			   c > 80  ? stripes4 :
+			   c > 50  ? stripes5 :
+			   c > 1   ? stripes6 :
+						 stripes7 ;
+			}
+		
 	
 	function getColor_price(c) {
 		return c > 170 ? '#ee6619' :
@@ -216,7 +237,17 @@ function initialize() {
 			   c > 50  ? '#fff333' :
 			   c > 1   ? '#fff795' :
 						 '#000000' ;
-		} 
+		}
+
+	function getPatternDense_price(c) {
+	return c > 170 ? stripes1 :
+		   c > 140 ? stripes2 :
+		   c > 110 ? stripes3 :
+		   c > 80  ? stripes4 :
+		   c > 50  ? stripes5 :
+		   c > 1   ? stripes6 :
+					 stripes7 ;
+		}
 	
 	function getColor_consumption(c) {
 		return c > 170 ? '#7a0177' :
@@ -226,7 +257,17 @@ function initialize() {
 			   c > 50  ? '#fcc5c0' :
 			   c > 1   ? '#fddad7' :
 						 '#000000' ;
-		} 
+		}
+
+	function getPatternDense_consumption(c) {
+	return c > 170 ? stripes1 :
+		   c > 140 ? stripes2 :
+		   c > 110 ? stripes3 :
+		   c > 80  ? stripes4 :
+		   c > 50  ? stripes5 :
+		   c > 1   ? stripes6 :
+					 stripes7 ;
+		}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 															Single View										   /////////////////////////////////////////
@@ -1019,8 +1060,6 @@ function initialize() {
 						alert("allowed only 2");
 					}
 			if ($('input:checked').length===3){
-			//}
-		    //if ($(('input[type=checkbox]:checked').length === 2) && $(('input[type=radio]:checked').length === 1)) {
 				overlaySelectedCheckboxes = [];
 				$('#overlayview_legend input[type=checkbox]:checked').each(function() {
 					overlaySelectedCheckboxes.push($(this).attr('id'));
@@ -1049,7 +1088,7 @@ function initialize() {
 						break;
 				}
 				console.log(year);
-				//Find which theme is selected
+				//Find which theme is selected first - Theme in colour fill
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
 						L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
@@ -1072,36 +1111,57 @@ function initialize() {
 						density_layer.addTo(basemap);
 						break;
 				}
-				console.log('layer selected');
+				console.log('colour layer selected');
+				//Find which theme is selected second i Theme in pattern fill
+				switch(toBePatterned) {
+					case "overlayview_request_lightpollution":
+						respColourFun=lightpollution;
+						respPatternFun=getPatternDense_light;
+						break;
+					case "overlayview_request_electricityconsumption":
+						respColourFun=consumption;
+						respPatternFun=getPatternDense_light;
+						break;
+					case "overlayview_request_electricityprice":
+						respColourFun=price;
+						respPatternFun=getPatternDense_light;
+						break;
+					case "overlayview_request_grossnationalproduct":
+						respColourFun=gnp;
+						respPatternFun=getPatternDense_light;
+						break;
+					case "overlayview_request_populationdensity":
+						respColourFun=density;
+						respPatternFun=getPatternDense_light;
+						break;
+				}
+				console.log('pattern layer selected');
+				//Add Pattern Layer
+				stripes1.addTo(basemap);
+				stripes2.addTo(basemap);
+				stripes3.addTo(basemap);
+				stripes4.addTo(basemap);
+				stripes5.addTo(basemap);
+				stripes6.addTo(basemap);
+				stripes7.addTo(basemap);
+			    function myPatternStyle(feature) {
+			      return {
+			        weight: 0.5,
+			        color: 'white',
+			        smoothFactor: 0,
+			        opacity: 0,
+			        fillOpacity: 1,
+			        fillPattern: respPatternFun(feature.properties[year])
+			      };
+			    }
+			    patternLayer = L.geoJson(respColourFun);
+			    patternLayer.setStyle(myPatternStyle);
+			    patternLayer.addTo(basemap);
 			}
 			else{
 				console.log($('input:checked').length);
 			}
 		});
-		
-
-
-		//Add Pattern Layer
-		stripes1.addTo(basemap);
-		stripes2.addTo(basemap);
-		stripes3.addTo(basemap);
-		stripes4.addTo(basemap);
-		stripes5.addTo(basemap);
-		stripes6.addTo(basemap);
-		stripes7.addTo(basemap);
-	    function myStyle(feature) {
-	      return {
-	        weight: 0.5,
-	        color: 'white',
-	        smoothFactor: 0,
-	        opacity: 0,
-	        fillOpacity: 1,
-	        fillPattern: getPatternDense_light(feature.properties[year])
-	      };
-	    }
-	    patternLayer = L.geoJson(lightpollution);
-	    patternLayer.setStyle(myStyle);
-	    patternLayer.addTo(basemap);
 	}
 
 	

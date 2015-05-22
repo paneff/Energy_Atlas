@@ -147,13 +147,34 @@ margin-left:30px;
 }
 
 
+#info_infograph{
+	position: relative;
+width: 300px;
+left: 0px;
+top: 0px;
+background-color: yellow;
+}
 
 #infotext_infograph{
-  height: 200px;
+position: relative;
+width: 300px;
+left: 0px;
+top: 0px;
+background-color: blue;
 }
+
+#graph_infograph{
+width: 300px;
+height: 200px;
+background-color: green;
+}
+
 #graphtext_infograph{
-  height: 200px;
+width: 300px;
+background-color: red; 
+height: 350px;
 }
+
 
 .mappanel {
 	position: absolute;
@@ -201,6 +222,9 @@ position: absolute;
 .title{
 margin-left: 30px;
 }
+
+
+
 
 #selecttheme_button{
 margin-left: 30px;

@@ -469,7 +469,7 @@ function initialize() {
 		$('#dual_request_electricityconsumption_cloned').off(); 
 		//$('#dual_request_electricityconsumption_cloned').after('<p>Electicty Consumption</p>');
 		
-		//$('<p>atdsfadfadfe</p>').appendTo('#dual_request_electricityconsumption');
+		
 		$('#dual_request_electricityconsumption_cloned').click(function() {
 			
 			var testcheck2 = $(this);
@@ -487,7 +487,13 @@ function initialize() {
 				$('.accordion_level126').hide();
 			}
 			
-			
+		
+			$("#graphtext_infograph img:last-child").remove()
+			$( "p" ).empty();
+			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the Electricty Consumption and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="consumption11" alt = "testtest" img src="../data/graphs/consumption_lightpollution.png" style="width:450px;height:230px">')
+		
 		});
 
 
@@ -511,6 +517,12 @@ function initialize() {
 				$('.accordion_level125').hide();
 				$('.accordion_level126').hide();
 			}
+			
+			$("#graphtext_infograph img:last-child").remove()
+			$( "p" ).empty();
+			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the electricty price and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="price11" alt = "testtest" img src="../data/graphs/price_lightpollution.png" style="width:450px;height:230px">')
 			
 			
 		});
@@ -538,6 +550,11 @@ function initialize() {
 				$('.accordion_level124').hide();
 				$('.accordion_level126').hide();
 			}
+			$("#graphtext_infograph img:last-child").remove()
+			$( "p" ).empty();
+			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the GNP and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="gnp11" alt = "testtest" img src="../data/graphs/gnp_lightpollution11.png" style="width:450px;height:230px">')
 			
 			
 		});	
@@ -564,7 +581,12 @@ function initialize() {
 				$('.accordion_level125').hide();
 			}
 			
-			
+			$("#graphtext_infograph img:last-child").remove()
+			$( "p" ).empty();
+			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the population density and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="density11" alt = "testtest" img src="../data/graphs/density_lightpollution11.png" style="width:450px;height:230px">')
+		
 		});
 		
 		
@@ -915,8 +937,8 @@ function initialize() {
 		//$("#legend_dual").clone(true).appendTo("#basemapclone");
 		$('#dual_container_electricityconsumption').hide(); 
 		$('#dual_container_electricityprice').hide(); 
-		$('#dual_request_grossnationalproduct').hide(); 
-		$('#dual_request_populationdensity').hide(); 
+		$('#dual_container_grossnationalproduct').hide(); 
+		$('#dual_container_populationdensity').hide(); 
 		$('#dual_container_lightpollution_cloned').hide(); 
 	}
 

@@ -463,7 +463,7 @@ function initialize() {
 		$('#dual_request_electricityconsumption_cloned').off(); 
 		//$('#dual_request_electricityconsumption_cloned').after('<p>Electicty Consumption</p>');
 		
-		//$('<p>atdsfadfadfe</p>').appendTo('#dual_request_electricityconsumption');
+		
 		$('#dual_request_electricityconsumption_cloned').click(function() {
 			
 			var testcheck2 = $(this);
@@ -481,8 +481,7 @@ function initialize() {
 				$('.accordion_level126').hide();
 			}
 			
-			
-		});
+				});
 
 
 		//Check price and its clone
@@ -532,6 +531,10 @@ function initialize() {
 				$('.accordion_level124').hide();
 				$('.accordion_level126').hide();
 			}
+			
+			$('<p>The graph below shows the realtion between <br> the two selected themems. On the x-axis is the GNP<br> and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="gnplight00" alt = "testtest" img src="../data/graphs/gnp_lightpollution00.png" style="width:450px;height:230px">')
 			
 			
 		});	
@@ -908,8 +911,8 @@ function initialize() {
 		//$("#legend_dual").clone(true).appendTo("#basemapclone");
 		$('#dual_container_electricityconsumption').hide(); 
 		$('#dual_container_electricityprice').hide(); 
-		$('#dual_request_grossnationalproduct').hide(); 
-		$('#dual_request_populationdensity').hide(); 
+		$('#dual_container_grossnationalproduct').hide(); 
+		$('#dual_container_populationdensity').hide(); 
 		$('#dual_container_lightpollution_cloned').hide(); 
 	}
 

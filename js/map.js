@@ -1049,28 +1049,26 @@ function initialize() {
 						break;
 				}
 				console.log(year);
-				
-				L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
-				L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
-				L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer);	
-				L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);	
-				L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
-				
 				//Find which theme is selected
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
+						L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
 						light_layer.addTo(basemap);
 						break;
 					case "overlayview_request_electricityconsumption":
+						L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);
 						consumption_layer.addTo(basemap);
 						break;
 					case "overlayview_request_electricityprice":
+						L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer);	
 						price_layer.addTo(basemap);
 						break;
 					case "overlayview_request_grossnationalproduct":
+						L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
 						gnp_layer.addTo(basemap);
 						break;
 					case "overlayview_request_populationdensity":
+						L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
 						density_layer.addTo(basemap);
 						break;
 				}

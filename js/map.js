@@ -27,6 +27,11 @@ function initialize() {
 
 	//Declare Some Layers
 	var patternLayer = L.geoJson();
+	//Declare Some Variables
+	var overlaySelectedCheckboxes=[];
+	var overlaySelectedRadioButton=[];
+	var toBeFilled=[];
+	var toBePatterned=[];
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////												Styles       									   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -360,7 +365,8 @@ function initialize() {
 
 		info.addTo(basemap);
 */
-	
+		//Hide legend for overlay view
+		$("#overlayview_legend").hide();
 
 	 
 
@@ -849,8 +855,8 @@ function initialize() {
 
 		//$('.accordion_level32').show('blind', 100);
 	});
-	//Selection - Radio button
 
+	//Selection - Radio button
 
 	$('.accordion_level123').hide();
 	$('.accordion_level124').hide();
@@ -888,6 +894,7 @@ function initialize() {
 		$("#legend_dual").show();
 		$('.accordion_level12').hide();
 		$('.accordion_level32').hide();
+		$("#overlayview_legend").hide();
 		$('[name="theme"]').prop('type', 'radio');
 		//Remove Layers from other Views
 		if (basemap.hasLayer(barChartsLayer)===true) {
@@ -931,6 +938,7 @@ function initialize() {
 		$("#legend_dual").hide();
 		$('.accordion_level12').hide();
 		$('.accordion_level32').hide();
+		$("#overlayview_legend").hide();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
@@ -950,6 +958,9 @@ function initialize() {
 	document.getElementById("overlayview_button").addEventListener("click", overlayview);
 	//Once overlay_button is Clicked Change Height and Width of the divs Basemap, Basemapclone
 	function overlayview() {
+		//Legend
+		$("#legend_basemap").hide();
+		$("#overlayview_legend").show();
 		$('#basemap').height('100%');
 		$('#basemap').width('100%');
 		basemap.invalidateSize();
@@ -957,12 +968,99 @@ function initialize() {
 		$('#basemapclone').height('100%');
 		$('#basemapclone').width('0%');
 		basemapclone.invalidateSize();
-		//Legend
-		$('[name="theme"]').prop('type', 'checkbox');
 		//Remove Layers from other Views
 		if (basemap.hasLayer(barChartsLayer)===true) {
 			basemap.removeLayer(barChartsLayer);
 		}
+		if (basemap.hasLayer(patternLayer)===true) {
+			basemap.removeLayer(patternLayer);
+		}
+		//Uncheck the checkboxes that had been checked before
+		$('#overlayview_request_lightpollution').prop("checked",false);
+		$('#overlayview_request_electricityconsumption').prop("checked",false);
+		$('#overlayview_request_electricityprice').prop("checked",false);
+		$('#overlayview_request_grossnationalproduct').prop("checked",false);
+		$('#ooverlayview_request_populationdensity').prop("checked",false);
+		//Uncheck the radiobuttons that had been checked before
+		$('#overlayview_request_1996').prop("checked",false);
+		$('#overlayview_request_2000').prop("checked",false);
+		$('#overlayview_request_2004').prop("checked",false);
+		$('#overlayview_request_2011').prop("checked",false);
+
+		//If two themes are selected and a year are selected
+		//Find which theme was selected first and depict it in colour fill
+		//Find which was selected second and depict it in colour fill
+		$('#overlayview_legend input').on('change', function (e) {
+			console.log('something changed');
+			if ($('input[type=checkbox]:checked').length > 2) {
+						$(this).prop('checked', false);
+						alert("allowed only 2");
+					}
+			if ($('input:checked').length===3){
+			//}
+		    //if ($(('input[type=checkbox]:checked').length === 2) && $(('input[type=radio]:checked').length === 1)) {
+				overlaySelectedCheckboxes = [];
+				$('#overlayview_legend input[type=checkbox]:checked').each(function() {
+					overlaySelectedCheckboxes.push($(this).attr('id'));
+				});
+				console.log(overlaySelectedCheckboxes);
+				toBeFilled=overlaySelectedCheckboxes[0];
+				toBePatterned=overlaySelectedCheckboxes[1];
+
+				overlaySelectedRadioButton = [];
+				$('#overlayview_legend input[type=radio]:checked').each(function() {
+					overlaySelectedRadioButton=($(this).attr('id'));
+				});
+				//Find which year is selected
+				switch(overlaySelectedRadioButton) {
+					case "overlayview_request_1996":
+						year='year96';
+						break;
+					case "overlayview_request_2000":
+						year='year00';
+						break;
+					case "overlayview_request_2004":
+						year='year04';
+						break;
+					case "overlayview_request_2011":
+						year='year11';
+						break;
+				}
+				console.log(year);
+				
+				L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
+				L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
+				L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer);	
+				L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);	
+				L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
+				
+				//Find which theme is selected
+				switch(toBeFilled) {
+					case "overlayview_request_lightpollution":
+						light_layer.addTo(basemap);
+						break;
+					case "overlayview_request_electricityconsumption":
+						consumption_layer.addTo(basemap);
+						break;
+					case "overlayview_request_electricityprice":
+						price_layer.addTo(basemap);
+						break;
+					case "overlayview_request_grossnationalproduct":
+						gnp_layer.addTo(basemap);
+						break;
+					case "overlayview_request_populationdensity":
+						density_layer.addTo(basemap);
+						break;
+				}
+				console.log('layer selected');
+			}
+			else{
+				console.log($('input:checked').length);
+			}
+		});
+		
+
+
 		//Add Pattern Layer
 		stripes1.addTo(basemap);
 		stripes2.addTo(basemap);
@@ -994,7 +1092,6 @@ function initialize() {
 	var barChartsLayer = L.geoJson();
 	var barChartMarker = [];
 	
-	console.log (year);
 	$('#singleview_request_barcharts').click(function() {
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {

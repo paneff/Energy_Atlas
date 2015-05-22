@@ -77,17 +77,12 @@ Version: 20-05-2015
 	</div>
 
 	<!----------------------------LEGEND SECTION---------------------------->
+	<!--Single View Legend-->
  	<div id="legend_basemap" class="legend sweepin-panel roll-over left ns" style="top:30%">
  		<div class="sweepin-content">
  			<div class="title">Topics</div>
 	 		<div class="item ns accordion_level11"><button id="selecttheme_button">Select Theme</button></div><br>
-	 			<!--
-	 			Light Pollution Data are already presented in the Single Map View
-	 			By default all the rest of the data are overlayed on the Light Pollution Map
-	 			and there is no possibility to uncheck any layer
-	 			-->
 
-				
 	 			<div class="item ns accordion_level12">
 	 				<input id="satellite_image" type="checkbox" name="theme">Satellite Image</div>
 				<div class="item ns accordion_level12">
@@ -127,18 +122,12 @@ Version: 20-05-2015
  	</div>
 	
 	
-	<!----------------------------LEGEND for the dualview---------------------------->
+	<!--Dual View Legend-->
 	
  	<div id="legend_dual" class="legend sweepin-panel roll-over left ns" style="top:30%">
  		<div class="sweepin-content">
  			<div class="title">Topics</div>
 	 		<div class="item ns accordion_level11"><button id="selecttheme_button_dual">Select Theme</button></div><br>
-	 			<!--
-	 			Light Pollution Data are already presented in the Single Map View
-	 			By default all the rest of the data are overlayed on the Light Pollution Map
-	 			and there is no possibility to uncheck any layer
-	 			-->
-
 				
 	 			<div class="item ns accordion_level12">
 					<div id="dual_container_lightpollution">
@@ -238,45 +227,142 @@ Version: 20-05-2015
  		</div>
  	</div>
 	
-		<!----------------------------INFOGRAPH SECTION---------------------------->	
-	
-		<div id="limits">
-			<div id="infograph" class="legend sweepin-panel roll-over right ns" style="top:30%" >
-				<div id="prova" class="sweepin-content">
-					<div id="info_infograph" class="title">Information:</div>
-					<div id="infotext_infograph"></div>
-					<div id="graph_infograph" class="title"></div>
-					<div id="graphtext_infograph"></div>
+
+ 	<!--Overlay View Legend-->
+ 	<div id="overlayview_legend" class="legend sweepin-panel roll-over left ns" style="top:30%">
+ 		<div class="sweepin-content">
+ 			<div class="title">Topics</div>
+	 		<div class="item ns accordion_level11"><button id="selecttheme_button_overlayview">Select Theme</button></div><br>
+				
+	 			<div class="item ns accordion_level12">
+					<div id="overlayview_container_lightpollution">
+						<input id="overlayview_request_lightpollution" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_lightpollution">Lightpollution</label>
+					</div>
 				</div>
-			</div>
-			</div>
-		
+					
+					
+				<div class="item ns accordion_level121">
+				<table id="lighttable_overlayview">
+				<tr><td>200%</td><td></td><td><img src="../data/icons/lp1.png"/></td></tr>
+				<tr><td>156-200%</td><td></td><td><img src="../data/icons/lp2.png"/></td></tr>
+				<tr><td>106-155%</td><td></td><td><img src="../data/icons/lp3.png"/></td></tr>
+				<tr><td>61-105%</td><td></td><td><img src="../data/icons/lp4.png"/></td></tr>
+				<tr><td>14-60%</td><td></td><td><img src="../data/icons/lp5.png"/></td></tr>
+				</table>
+				</div>
 
-	<!----------------------------MENU SECTION---------------------------->	
-	<div id="Menu" class="legend sweepin-panel roll-over top ns" style="left:50%">
-		<div class="sweepin-content">
-			<!--<div class="title ns"></div>-->
-			
-			<button type="button" class="btn" id="home_button" title="home"></button>
-			<button type="button" class="btn" id="singleview_button" title="single view"></button>
-			<button type="button" class="btn" id="dualview_button" title="dual view"></button>
-			<button type="button" class="btn" id="overlayview_button" title="overlay view"></button>
-			<button type="button" class="btn" id="help_button" title="help"></button>
-			
-	  </div>	  
-	</div>
+
+
+	 			<div class="item ns accordion_level12">
+					<div id="overlayview_container_electricityconsumption">
+						<input id="overlayview_request_electricityconsumption" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_electricityconsumption">Electricty Consumption</label>
+					</div>
+				</div>	
+						
+				<div class="item ns accordion_level123">
+					<table id="ec_overlayview">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/ec1.png"/></td></tr>
+						<tr><td>156-200%</td><td></td><td><img src="../data/icons/ec2.png"/></td></tr>
+						<tr><td>106-155%</td><td></td><td><img src="../data/icons/ec3.png"/></td></tr>
+						<tr><td>61-105%</td><td></td><td><img src="../data/icons/ec4.png"/></td></tr>
+						<tr><td>14-60%</td><td></td><td><img src="../data/icons/ec5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
+	 			<div class="item ns accordion_level12">
+					<div id="overlayview_container_electricityprice">
+						<input id="overlayview_request_electricityprice" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_electricityprice">Electricty Price</label>
+					</div>
+				</div>
+												
+				<div class="item ns accordion_level124">
+					<table id="ep_overlayview">
+						<tr><td>>170%</td><td></td><td><img src="../data/icons/ep1.png"/></td></tr>
+						<tr><td>141-170%</td><td></td><td><img src="../data/icons/ep2.png"/></td></tr>
+						<tr><td>111-140%</td><td></td><td><img src="../data/icons/ep3.png"/></td></tr>
+						<tr><td>81-110%</td><td></td><td><img src="../data/icons/ep4.png"/></td></tr>
+						<tr><td>50-80%</td><td></td><td><img src="../data/icons/ep5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
+	 			<div class="item ns accordion_level12">
+	 				<input id="overlayview_request_grossnationalproduct" type="checkbox" value="gnp" name="overlayview_theme">Gross National Product</div>
+								
+				<div class="item ns accordion_level125">
+					<table id="gnpt_overlayview">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/gnp1.png"/></td></tr>
+						<tr><td>136-200%</td><td></td><td><img src="../data/icons/gnp2.png"/></td></tr>
+						<tr><td>101-135%</td><td></td><td><img src="../data/icons/gnp3.png"/></td></tr>
+						<tr><td>56-100%</td><td></td><td><img src="../data/icons/gnp4.png"/></td></tr>
+						<tr><td>25-55%</td><td></td><td><img src="../data/icons/gnp5.png"/></td></tr>
+					</table>
+				</div>
+				
+				
+				
+	 			<div class="item ns accordion_level12">
+	 				<input id="overlayview_request_populationdensity" type="checkbox" value="density" name="overlayview_theme">Population Density</div>
+				
+				<div class="item ns accordion_level126">
+					<table id="pd_overlayview">
+						<tr><td>>200%</td><td></td><td><img src="../data/icons/pd1.png"/></td></tr>
+						<tr><td>150-200%</td><td></td><td><img src="../data/icons/pd2.png"/></td></tr>
+						<tr><td>100-150%</td><td></td><td><img src="../data/icons/pd3.png"/></td></tr>
+						<tr><td>50-100%</td><td></td><td><img src="../data/icons/pd4.png"/></td></tr>
+						<tr><td>20-50%</td><td></td><td><img src="../data/icons/pd5.png"/></td></tr>
+					</table>
+				</div><br>
+
+	 			
+				
+				<div class="item ns accordion_level31"><button id="selectyear_button_overlayview">Select Year</button></div><br>
+	 			
+				<div class="item ns accordion_level32">
+	 				<input id="overlayview_request_1996" type="radio" name="year">1996</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="overlayview_request_2000" type="radio" name="year">2000</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="overlayview_request_2004" type="radio" name="year">2004</div>
+	 			<div class="item ns accordion_level32">
+	 				<input id="overlayview_request_2011" type="radio" name="year">2011</div>
+ 		</div>
+ 	</div>
+
+
+	<!----------------------------INFOGRAPH SECTION---------------------------->	
+
+	<div id="limits">
+		<div id="infograph" class="legend sweepin-panel roll-over right ns" style="top:30%" >
+			<div id="prova" class="sweepin-content">
+				<div id="info_infograph" class="title">Information:</div>
+				<div id="infotext_infograph"></div>
+				<div id="graph_infograph" class="title"></div>
+				<div id="graphtext_infograph"></div>
+			</div>
+		</div>
+		</div>
 	
 
-	
-	
-	
-	<!----------------------------INFO WINDOW---------------------------->	
-		<!-- <div id="Infobox" class="info"><b>Country Information</b> </br>hover over a country</div> -->
+<!----------------------------MENU SECTION---------------------------->	
+<div id="Menu" class="legend sweepin-panel roll-over top ns" style="left:50%">
+	<div class="sweepin-content">
+		<!--<div class="title ns"></div>-->
 		
-	
+		<button type="button" class="btn" id="home_button" title="home"></button>
+		<button type="button" class="btn" id="singleview_button" title="single view"></button>
+		<button type="button" class="btn" id="dualview_button" title="dual view"></button>
+		<button type="button" class="btn" id="overlayview_button" title="overlay view"></button>
+		<button type="button" class="btn" id="help_button" title="help"></button>
+		
+  </div>	  
+</div>
+
 	
 </body>
-
 
 </html>
 

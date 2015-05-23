@@ -33,7 +33,9 @@ function initialize() {
 	var toBeFilled=[];
 	var toBePatterned=[];
 	
-
+	var respLayer_col=[];
+	var respLayer_pat=[];
+	var respLayer_temp=[];
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////												Styles       									   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -971,7 +973,6 @@ function initialize() {
 		}
 		if (basemap.hasLayer(patternLayer)===true) {
     		basemap.removeLayer(patternLayer);
- 			basemapclone.removeLayer(patternLayer);
 		}
 		if (basemap.hasLayer(single_light_layer)===true) {
 			basemap.removeLayer(single_light_layer);
@@ -1103,18 +1104,8 @@ function initialize() {
 		if (basemap.hasLayer(patternLayer)===true) {
 			basemap.removeLayer(patternLayer);
 		}
-		//Uncheck the checkboxes that had been checked before
+		//Uncheck the checkboxes and radios that had been checked before
 		$('input').prop("checked",false);
-		// $('#overlayview_request_lightpollution').prop("checked",false);
-		// $('#overlayview_request_electricityconsumption').prop("checked",false);
-		// $('#overlayview_request_electricityprice').prop("checked",false);
-		// $('#overlayview_request_grossnationalproduct').prop("checked",false);
-		// $('#ooverlayview_request_populationdensity').prop("checked",false);
-		// //Uncheck the radiobuttons that had been checked before
-		// $('#overlayview_request_1996').prop("checked",false);
-		// $('#overlayview_request_2000').prop("checked",false);
-		// $('#overlayview_request_2004').prop("checked",false);
-		// $('#overlayview_request_2011').prop("checked",false);
 		//Style buttons
 		$("#selecttheme_button_overlayview").button({
            icons: {

@@ -533,8 +533,8 @@ function initialize() {
 		
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>This data shows how much electric energy the people consume in the different years. It is measured in tonnes of oil equivalent. Tonnes of oil equivalent, abbreviated as toe, is a normalized unit of energy. By convention it is equivalent to the approximate amount of energy that can be extracted from one tonne of crude oil. It is a standardized unit, assigned a net calorific value of 41 868 kilojoules/kg and may be used to compare the energy from different sources. (Eurostat 2015) The averages in Europe which represents 100% are: </p>').appendTo('#infotext_infograph');
-			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
+			$('<p>This data shows how much electric energy the people consume in the different years. It is measured in tonnes of oil equivalent. Tonnes of oil equivalent, abbreviated as toe, is a normalized unit of energy. By convention it is equivalent to the approximate amount of energy that can be extracted from one tonne of crude oil. It is a standardized unit, assigned a net calorific value of 41 868 kilojoules/kg and may be used to compare the energy from different sources. (Eurostat 2015) The averages in Europe which represents 100% are: </p><p>The europe averages:</p>1996	486	kg oil equivalent/habitant<p>2000	540	kg oil equivalent /habitant</p><p>2004	577	kg oil equivalent /habitant</p><p>2011	644	kg oil equivalent /habitant</p>').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and consumption</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="consumption11" alt = "testtest" img src="../data/graphs/consumption_lightpollution.png" style="width:450px;height:230px">')
 		
 		});
@@ -626,7 +626,7 @@ function initialize() {
 			
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The population density is measured in habitants/m2 The average in Europe shows 100% in each year.</p>').appendTo('#infotext_infograph');
+			$('<p>The population density is measured in habitants/m2 The average in Europe shows 100% in each year.</p><p>The densityaverages of europe are:</p><p>1996	91.2	inhab./km2</p><p>2000	90.8	inhab./km2</p><p>2004	91.3	inhab./km2</p><p>2011	91.1	inhab./km2</p>').appendTo('#infotext_infograph');
 			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="density11" alt = "testtest" img src="../data/graphs/density_lightpollution11.png" style="width:450px;height:230px">')
 		

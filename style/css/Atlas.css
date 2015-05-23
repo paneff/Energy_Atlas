@@ -160,18 +160,18 @@ position: relative;
 width: 300px;
 left: 0px;
 top: 0px;
-background-color: blue;
+
 }
 
 #graph_infograph{
 width: 300px;
 height: 200px;
-background-color: green;
+
 }
 
 #graphtext_infograph{
 width: 300px;
-background-color: red; 
+
 height: 350px;
 }
 

@@ -563,9 +563,9 @@ function initialize() {
 			
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The data source of the price is a survey from EUROSTAT, where they show the price for electricity for the households in Euro/kwh. The averages in Europe over the years are:</p>').appendTo('#infotext_infograph');
-			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
-			$('#graphtext_infograph').prepend('<img id="price11" alt = "testtest" img src="../data/graphs/price_lightpollution.png" style="width:450px;height:230px">')
+			$('<p>The data source of the price is a survey from EUROSTAT, where they show the price for electricity of the households in Euro/kwh. The average prices in Europe over the years are:</p><p> 1996	0.048	euro/kwh</p><p>2000	0.049	euro/kwh</p><p>2004	0.063	euro/kwh</p><p>2011	0.098	euro/kwh</p> ').appendTo('#infotext_infograph');
+			$('<p>Relation between Lightpollution and electricity price</p>').appendTo('#graph_infograph');
+			$('#graphtext_infograph').prepend('<img id="price11" alt = "Price" img src="../data/graphs/price_lightpollution.png" style="width:450px;height:230px">')
 			
 			
 		});

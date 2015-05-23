@@ -54,86 +54,30 @@ h2{
 	text-align: center;
 }
 
-#wikipediabox{
+#linkbox{
 	position: absolute;
-    top: 10%; left: 45%; bottom: 0%; right: 5%;
+    top: 35%; left: 55%; bottom: 50%; right: 5%;
     height: 30%;
-	width: 50%;
+	width: 30%;
     max-height: 60%;
     min-height: 60%;
     margin: 0;
 	text-align: center;
 }
+
+
+
 #row3{
-	top: 90%;
-    height: 90%;
-    max-height: 15%;
-    min-height: 15%;
+	position: absolute;
+    top: 85%; left: 30%; bottom: 2%; right: 50%;
+    height: 30%;
+	width: 40%;
     margin: 0;
+	text-align: center;
 }
 
 
-#title_information{
-    width: 45%;
-    max-width: 45%;
-    height: 90%;
-    margin: 0 auto;
-}
 
-
-.captionOrange, .captionBlack
-        {
-            color: #fff;
-            font-size: 20px;
-            line-height: 30px;
-            text-align: center;
-            border-radius: 4px;
-        }
-        .captionOrange
-        {
-            background: #EB5100;
-            background-color: rgba(235, 81, 0, 0.6);
-        }
-        .captionBlack
-        {
-        	font-size:16px;
-            background: #000;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        a.captionOrange, A.captionOrange:active, A.captionOrange:visited
-        {
-        	color: #ffffff;
-        	text-decoration: none;
-        }
-        a.captionOrange:hover
-        {
-            color: #eb5100;
-            text-decoration: underline;
-            background-color: #eeeeee;
-            background-color: rgba(238, 238, 238, 0.7);
-        }
-        .bricon
-        {
-            background: #04010B;
-        }
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

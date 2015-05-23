@@ -66,7 +66,7 @@ div.leaflet-div-icon div div.legend-box  {
 }
 
 div.leaflet-div-icon div div.key {
-	margin: 2px 4px 0px 0px;
+	margin: 4px 4px 0px 0px;
 	font-weight: bold;
 	line-height: 10px;
 	display: inline-block;
@@ -206,7 +206,7 @@ text.leaflet-svg-text {
 	text-anchor: middle;
 }
 
-/* -----------------------------Added to make the popups look better (209-236)----------------------------- */
+/* -----------------------------Added to make the popups look better (209-243)----------------------------- */
 
 div.leaflet-div-icon .title {
 
@@ -233,5 +233,15 @@ div.leaflet-div-icon div div {
 div.leaflet-div-icon div div.key {
 
                 line-height: 17px !important;
+
+}
+
+hr {
+	width: 100%; 
+	color: black; 
+	height: 1px; 
+	background-color:black;
+	margin: 0;
+	padding: 0;
 
 }

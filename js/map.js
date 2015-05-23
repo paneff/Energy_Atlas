@@ -945,20 +945,18 @@ function initialize() {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//When Dual View Button is Clicked
 	document.getElementById("dualview_button").addEventListener("click", dualview);
-	//it can also be writen with jquery, I am doing something wrong that's why I have it as a comment
-	// $("dualview_button").click(function(){
-		//   	$(".legend").clone().appendTo("#basemapclone");
-	// });
 	//Once dualview_button is Clicked Change Height and Width of the divs Basemap, Basemapclone
 	function dualview() {
 		console.log(basemap.hasLayer(patternLayer));
 		$('#basemap').height('100%');
 		$('#basemap').width('50%');
 		basemap.invalidateSize();
+		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 		$('#basemapclone').css({"position": "absolute", "left": "50%"});
 		$('#basemapclone').height('100%');
 		$('#basemapclone').width('50%');
 		basemapclone.invalidateSize();
+		basemapclone.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 		basemap.sync(basemapclone);
 		basemapclone.sync(basemap);
 		$("#legend_basemap").hide();
@@ -1039,6 +1037,7 @@ function initialize() {
 		$('#basemapclone').height('100%');
 		$('#basemapclone').width('0%');
 		basemapclone.invalidateSize();
+		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 		//Remove Layers from other Views
 		if (basemap.hasLayer(barChartsLayer)===true) {
 			basemap.removeLayer(barChartsLayer);

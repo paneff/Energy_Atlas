@@ -1210,7 +1210,11 @@ function initialize() {
 		console.log('button clicked');
 
 		function switchRepresentation() {
+			basemap.removeLayer(patternLayer);
+			basemap.removeLayer(respLayer_col);
+
 			L.geoJson(respColourFun_pat, {style: stylefunctions[respStyleFun_pat]}).addTo(respLayer_pat);
+			respLayer_pat.addTo(basemap);
 			console.log('colour layer added');
 
 			respColourFun_temp=respColourFun_pat;

@@ -1,5 +1,9 @@
 function initialize() {
-	  
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////									Initialise Map View       									   /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
+	//Set Projection	  
 	var crs = new L.Proj.CRS('epsg:102014',
 	  '+proj=lcc +lat_1=43 +lat_2=62 +lat_0=30 +lon_0=10 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs',
 	  {
@@ -7,12 +11,12 @@ function initialize() {
 	 		4096, 2048, 1024, 512
 	  		],
 	  })
-	
+	//Add basemap	
 	basemap = new L.Map('basemap', {
 	  	crs: crs,
 	  	worldCopyJump: true
 	}); 
-	
+	//Call basemap from wms (qgis cloud)	
 	L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
 	  	format: 'image/png',
 		layers: 'basemap',
@@ -20,32 +24,27 @@ function initialize() {
 	  	minZoom: 0,
 		continuousWorld: true
 	}).addTo(basemap);  
-
-	basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-	  
+	//Set initial view (geographical center and zoom)
+	basemap.setView([51, 12], 0);
+	//Add mouseposition indicator	  
 	L.control.mousePosition().addTo(basemap);
 
-	//Declare Some Layers
+	//Declare variables etc that should be global
 	var patternLayer = L.geoJson();
-	//Declare Some Variables
 	var overlaySelectedCheckboxes=[];
 	var overlaySelectedRadioButton=[];
 	var toBeFilled=[];
 	var toBePatterned=[];
-	
 	var respLayer_col=[];
 	var respLayer_pat=[];
 	var respLayer_temp=[];
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////												Styles       									   /////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////												Styles       									   /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
 
-	/////////////////////////////////////							Stripes for the Overlay View       									   /////////////////////////////////////
+/////////////////////////////////////							Stripes for the Overlay View       									   /////////////////////////////////////
 
-   	
    		var stripes1 = new L.StripePattern({
-			// patternContentUnits: 'objectBoundingBox',
-	  		// patternUnits: 'objectBoundingBox',
 	  		weight: 0.5,
 	        angle: 45,
 		    color: 'black'
@@ -53,8 +52,6 @@ function initialize() {
 	    
 
 	    var stripes2 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	      	weight: 1,
 	        angle: 45,
 		    color: 'black'
@@ -62,8 +59,6 @@ function initialize() {
 	    
 
 	    var stripes3 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	      	weight: 1.5,
 	        angle: 45,
 		    color: 'black'
@@ -71,8 +66,6 @@ function initialize() {
 	    
 
 	    var stripes4 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	        weight: 2,
 	        angle: 45,
 		    color: 'black'
@@ -80,8 +73,6 @@ function initialize() {
 	    
 
 	    var stripes5 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	        weight: 3,
 	        angle: 45,
 		    color: 'black'
@@ -89,8 +80,6 @@ function initialize() {
 	    
 
 	    var stripes6 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	        weight: 4,
 	        angle: 45,
 		    color: 'black'
@@ -98,16 +87,13 @@ function initialize() {
 	    
 
 	    var stripes7 = new L.StripePattern({
-	      // patternContentUnits: 'objectBoundingBox',
-	      //   patternUnits: 'objectBoundingBox',
 	        weight: 5,
 	        angle: 45,
 		    color: 'black'
 	    });
 	    
 
-	/////////////////////////////////////							      Themes' Styles      							     		   /////////////////////////////////////
-
+/////////////////////////////////////							      Themes' Styles      							     		   /////////////////////////////////////
 	var year = 'year11'
 	  
 	var stylefunctions = {
@@ -169,12 +155,11 @@ function initialize() {
 				smoothFactor: 0,
 				fillColor: getColor_consumption(feature.properties[year])
 					};
-			}
-			
+			}			
 	  };
 
-	/////////////////////////////////////							      Choose Colour based on Value      			     		   ///////////////////////////////////// 
-	/////////////////////////////////////							      			or stripes1 		     			     		   ///////////////////////////////////// 
+/////////////////////////////////////							      Choose Colour based on Value      			     		   ///////////////////////////////////// 
+/////////////////////////////////////							       			or stripes 		     			     		      ///////////////////////////////////// 
     function getColorlight(c) {
   		return c > 200	   ? '#f7fbff' :
   	           c > 130 	   ? '#c6dcf0' :
@@ -183,7 +168,6 @@ function initialize() {
   						     '#042e6d' ;
       	}
 
-    //
     function getPatternDense_light(c) {
   		return c > 200 ? stripes1 :
   	           c > 130 ? stripes2 :
@@ -273,29 +257,12 @@ function initialize() {
 					 stripes7 ;
 		}
 
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////// 															Single View										   /////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////// 															Single View										   /////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	///////////////////////////////////////////////////////////////////////////////////Basemap/////////////////////////////////////////////////////////////////////////////////
- //    basemap = new L.Map('basemap', {
-	//   	crs: crs,
-	//   	worldCopyJump: true
-	// }); 
-	
-	
-	  
-
-	// L.tileLayer.wms('http://wms.qgiscloud.com/paneff/basemap', {
-	//   	format: 'image/png',
-	// 	layers: 'basemap',
-	//  	maxZoom: 4,
-	//   	minZoom: 0,
-	// 	continuousWorld: true
-	// }).addTo(basemap);
-	
-	
-	
+//////////////////////                                                             Basemap                                         /////////////////////////////////////////
+	//Call satellite image from wms
 	var satellite = L.tileLayer.wms('http://geocarto.ethz.ch/cgi-bin/satellite_image/qgis_mapserv.fcgi', {
 	  	format: 'image/png',
 		layers: 'satellite_image',
@@ -303,38 +270,27 @@ function initialize() {
 	  	minZoom: 0,
 		continuousWorld: true
 	})
-	
-	
-	// basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-	  
-	// L.control.mousePosition().addTo(basemap);
-	
-	
+	//Declare and Initialise Layers (for both single and dual views)
 	var single_light_layer = L.geoJson();
 	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(single_light_layer);
-	
-	
+
 	var light_layer = L.geoJson();
 	var density_layer = L.geoJson();
 	var gnp_layer = L.geoJson();
 	var price_layer = L.geoJson();
 	var consumption_layer = L.geoJson();
-	
 
-	
 	var light_layer_cloned = L.geoJson();
 	var density_layer_cloned = L.geoJson();
 	var gnp_layer_cloned = L.geoJson();
 	var price_layer_cloned = L.geoJson();
 	var consumption_layer_cloned = L.geoJson();
 	
-	
 	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer_cloned);
 	L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer_cloned);
 	L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer_cloned);
 	L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer_cloned);	
 	L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer_cloned);	
-	
 
 	L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
 	L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
@@ -342,7 +298,7 @@ function initialize() {
 	L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);	
 	L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
 	
-	
+	//Retrieve data from js other js files (json or geojson format)
 	var data = {
 		gnp: gnp,
 		price: price,
@@ -351,6 +307,7 @@ function initialize() {
 		density: density
 		}
 
+	//????????????????????????????	
 	function highlightFeature(e) {
 		var hover_layer = e.target;
 
@@ -365,7 +322,6 @@ function initialize() {
 			hover_layer.bringToFront();
 		}
 
-		//info.update(layer.feature.properties);
 		}
 
 	
@@ -380,11 +336,6 @@ function initialize() {
 		// ... our listeners
 		geojson = L.geoJson();
 		
-
-		/*function zoomToFeature(e) {
-			basemap.fitBounds(e.target.getBounds());
-		}*/
-
 		function onEachFeature(feature, layer) {
 			layer.on({
 				mouseover: highlightFeature,
@@ -413,10 +364,8 @@ function initialize() {
 		//Hide legend for overlay view
 		$("#overlayview_legend").hide();
 
-	 
-
-
-	// ///////////////////////////////////////////////////////////////////////////////////BasemapClone/////////////////////////////////////////////////////////////////////////// 
+//////////////////////                                                           BasemapClone                                       /////////////////////////////////////////
+	//Add basemapclone
  	basemapclone = new L.Map('basemapclone', {
 	  	crs: crs,
 	  	zoomControl: false,
@@ -431,17 +380,14 @@ function initialize() {
 		continuousWorld: true
 	}).addTo(basemapclone);
 	  
-	basemapclone.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
+	basemapclone.setView([51, 12], 0);
 	  
 	L.control.mousePosition().addTo(basemapclone);
 
-
-	/////////////////////////////////////////////////////////////////////////////////////Legend/////////////////////////////////////////////////////////////////////////////////////
-	$("#legend_dual").hide();
+//////////////////////                                                      Basemap Clone Legend                                   /////////////////////////////////////////
+	$("#legend_dual").hide(); 
 	
 	//Add Icons to some Buttons
-	
-	
 	$("#selecttheme_button").button({
            icons: {
               primary: "ui-icon-carat-1-s"
@@ -460,24 +406,20 @@ function initialize() {
            }
         });
 
-
 	$("#selectyear_button_dual").button({
 	         icons: {
 	             primary: "ui-icon-carat-1-s"
 	           }
 	      });
-	//Hide Selection Options
+	//Hide selection options
 	$('.accordion_level12').hide();
 	$('.accordion_level121').hide();
 	$('.accordion_level122').hide();
-	//$('.accordion_level13').hide();
-	$('.accordion_level22').hide();
-	$('.accordion_level221').hide();
-	$('.accordion_level222').hide();
-	$('.accordion_level23').hide();
+	// $('.accordion_level22').hide();
+	// $('.accordion_level221').hide();
+	// $('.accordion_level222').hide();
+	// $('.accordion_level23').hide();
 	$('.accordion_level32').hide();
-	//$('.accordion_level33').hide();
-
 
 	//---Select Theme---//
 	$('.accordion_level11').click(function(){
@@ -504,13 +446,8 @@ function initialize() {
 			
 			
 		});
-		
-		
 
 		//Check consumption and its clone
-
-		
-		
 		$('#dual_request_electricityconsumption_cloned').off(); 
 		//$('#dual_request_electricityconsumption_cloned').after('<p>Electicty Consumption</p>');
 		
@@ -635,22 +572,28 @@ function initialize() {
 		});
 		
 		
-		
+		// Single view - If satellite image checkbox is checked
+		//close light pollution layer and legend, disable year selection and check the respective year
 		$('#satellite_image').prop("checked",false);
 		$('#satellite_image').click(function() {
 			
 			var testcheck7 = $(this);
 			
 			if (testcheck7.is(':checked')) {
+				satellite.addTo(basemap);
+				$('#legend_basemap input[type=radio]').prop("disabled",true);
+				$('#singleview_request_2011').prop("checked",true); //it only checks the radiobutton of the respective year
+				
 				if (basemap.hasLayer(single_light_layer)===true) {
 					basemap.removeLayer(single_light_layer);
+					$('.accordion_level121').hide();
 					$('#single_request_lightpollution').prop("checked",false);
 				}
-				satellite.addTo(basemap);
 			}
 			
 			else {
 				basemap.removeLayer(satellite);
+				$('#legend_basemap input[type=radio]').prop("disabled",false);
 			}
 				
 				
@@ -658,30 +601,26 @@ function initialize() {
 			
 		});
 		
-		
+		// Single view - If light pollution checkbox is checked
+		//close satellite image layer, enable year selection
 		$('#single_request_lightpollution').prop("checked",false);
 		$('#single_request_lightpollution').click(function() {
 			
 			var testcheck7 = $(this);
 			
 			if (testcheck7.is(':checked')) {
-				//single_light_layer.addTo(basemap);
 				year = 'year11'
 				if (basemap.hasLayer(satellite)===true) {
 					basemap.removeLayer(satellite);
 					$('#satellite_image').prop("checked",false);
+					$('#legend_basemap input').prop("disabled",false);
 				}
 				single_light_layer.addTo(basemap).bringToBack();
-				//geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
 				$('.accordion_level121').slideToggle();
 			}
 			
 			else {
-
-
-				$('.accordion_level121').hide(100);
-
-
+				$('.accordion_level121').hide();
 				basemap.removeLayer(single_light_layer);
 
 
@@ -1040,8 +979,10 @@ function initialize() {
 		$("#overlayview_legend").hide();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
-		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-		//Remove Layers from other Views
+		//Sets the initial view of the map
+		basemap.setView([51, 12], 0);
+		//Uncheck the checkboxes and radios that had been checked before
+		$('input').prop("checked",false);
 		//Remove Layers from other Views
 		if (basemap.hasLayer(barChartsLayer)===true) {
 			basemap.removeLayer(barChartsLayer);

@@ -205,44 +205,11 @@ text.leaflet-svg-text {
 	text-anchor: middle;
 }
 
-/* -----------------------------Added to make the popups look better (209-289)----------------------------- */
-div.leaflet-div-icon .title {
-
-                display:none;
-
-}
-
-div.leaflet-div-icon {
-
-                height:auto !important;
-
-                width:auto !important;
-
-}
-
-'popdensity': {
-
-    fillColor: '#CB181D',
-
-    minValue: 0,
-
-    maxValue: 200,
-
-    maxHeight: 200,
-
-    displayName: "Population Density <br>"  + countriescentroids1996[i].name,
-
-    displayText: function (value) {
-
-        return value.toFixed(2);
-
-    }
-
-}
+/* -----------------------------Added to make the popups look better (209-236)----------------------------- */
 
 div.leaflet-div-icon .title {
 
-                display:none;
+                display:none !important;
 
 }
 
@@ -265,25 +232,5 @@ div.leaflet-div-icon div div {
 div.leaflet-div-icon div div.key {
 
                 line-height: 17px !important;
-
-}
-
-'popdensity': {
-
-    fillColor: '#CB181D',
-
-    minValue: 0,
-
-    maxValue: 200,
-
-    maxHeight: 200,
-
-    displayName: "Population Density <br>"  + countriescentroids1996[i].name,
-
-    displayText: function (value) {
-
-        return value.toFixed(2);
-
-    }
 
 }

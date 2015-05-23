@@ -32,6 +32,8 @@ function initialize() {
 	var overlaySelectedRadioButton=[];
 	var toBeFilled=[];
 	var toBePatterned=[];
+	
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/////////////////////////////////////												Styles       									   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -1049,6 +1051,22 @@ function initialize() {
 		$('#overlayview_request_2000').prop("checked",false);
 		$('#overlayview_request_2004').prop("checked",false);
 		$('#overlayview_request_2011').prop("checked",false);
+		//Style buttons
+		$("#selecttheme_button_overlayview").button({
+           icons: {
+              primary: "ui-icon-carat-1-s"
+           }
+        });
+		$("#selectyear_button_overlayview").button({
+	           icons: {
+	              primary: "ui-icon-carat-1-s"
+	           }
+	        });
+		$("#switchRepresentation_button").button({
+           icons: {
+              primary: "ui-icon-transfer-e-w"
+           }
+        });
 
 		//If two themes are selected and a year are selected
 		//Find which theme was selected first and depict it in colour fill
@@ -1091,48 +1109,71 @@ function initialize() {
 				//Find which theme is selected first - Theme in colour fill
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
-						L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer);
-						light_layer.addTo(basemap);
+						respColourFun_col=lightpollution;
+						respPatternFun_col=getPatternDense_light;
+						respLayer_col=light_layer;
+						respStyleFun_col='lightpollution';
+						
 						break;
 					case "overlayview_request_electricityconsumption":
-						L.geoJson(consumption, {style: stylefunctions['consumption']}).addTo(consumption_layer);
-						consumption_layer.addTo(basemap);
+						respColourFun_col=consumption;
+						respPatternFun_col=getPatternDense_light;
+						respLayer_col=consumption_layer;
+						respStyleFun_col='consumption';
 						break;
 					case "overlayview_request_electricityprice":
-						L.geoJson(price, {style: stylefunctions['price']}).addTo(price_layer);	
-						price_layer.addTo(basemap);
+						respColourFun_col=price;
+						respPatternFun_col=getPatternDense_light;
+						respLayer_col=price_layer;
+						respStyleFun_col='price';
 						break;
 					case "overlayview_request_grossnationalproduct":
-						L.geoJson(gnp, {style: stylefunctions['gnp']}).addTo(gnp_layer);
-						gnp_layer.addTo(basemap);
+						respColourFun_col=gnp;
+						respPatternFun_col=getPatternDense_light;
+						respLayer_col=gnp_layer;
+						respStyleFun_col='gnp';
 						break;
 					case "overlayview_request_populationdensity":
-						L.geoJson(density, {style: stylefunctions['density']}).addTo(density_layer);
-						density_layer.addTo(basemap);
+						respColourFun_col=density;
+						respPatternFun_col=getPatternDense_light;
+						respLayer_col=density_layer;
+						respStyleFun_col='density';
 						break;
 				}
+				L.geoJson(respColourFun_col, {style: stylefunctions[respStyleFun_col]}).addTo(respLayer_col);
+				respLayer_col.addTo(basemap);
 				console.log('colour layer selected');
-				//Find which theme is selected second i Theme in pattern fill
+				//Find which theme is selected second - Theme in pattern fill
 				switch(toBePatterned) {
 					case "overlayview_request_lightpollution":
-						respColourFun=lightpollution;
-						respPatternFun=getPatternDense_light;
+						respColourFun_pat=lightpollution;
+						respPatternFun_pat=getPatternDense_light;
+						respLayer_pat=light_layer;
+						respStyleFun_pat='lightpollution';
 						break;
 					case "overlayview_request_electricityconsumption":
-						respColourFun=consumption;
-						respPatternFun=getPatternDense_light;
+						respColourFun_pat=consumption;
+						respPatternFun_pat=getPatternDense_light;
+						respLayer_pat=consumption_layer;
+						respStyleFun_pat='consumption';
 						break;
 					case "overlayview_request_electricityprice":
-						respColourFun=price;
-						respPatternFun=getPatternDense_light;
+						respColourFun_pat=price;
+						respPatternFun_pat=getPatternDense_light;
+						respLayer_pat=price_layer;
+						respStyleFun_pat='price';
 						break;
 					case "overlayview_request_grossnationalproduct":
-						respColourFun=gnp;
-						respPatternFun=getPatternDense_light;
+						respColourFun_pat=gnp;
+						respPatternFun_pat=getPatternDense_light;
+						respLayer_pat=gnp_layer;
+						respStyleFun_pat='gnp';
 						break;
 					case "overlayview_request_populationdensity":
-						respColourFun=density;
-						respPatternFun=getPatternDense_light;
+						respColourFun_pat=density;
+						respPatternFun_pat=getPatternDense_light;
+						respLayer_pat=density_layer;
+						respStyleFun_pat='density';
 						break;
 				}
 				console.log('pattern layer selected');
@@ -1151,17 +1192,57 @@ function initialize() {
 			        smoothFactor: 0,
 			        opacity: 0,
 			        fillOpacity: 1,
-			        fillPattern: respPatternFun(feature.properties[year])
+			        fillPattern: respPatternFun_pat(feature.properties[year])
 			      };
 			    }
-			    patternLayer = L.geoJson(respColourFun);
+			    patternLayer = L.geoJson(respColourFun_pat);
 			    patternLayer.setStyle(myPatternStyle);
 			    patternLayer.addTo(basemap);
+			    console.log('pattern layer added');
 			}
 			else{
 				console.log($('input:checked').length);
 			}
 		});
+		//When switch button is clicked switch the representation
+
+		document.getElementById("switchRepresentation_button").addEventListener("click", switchRepresentation);
+		console.log('button clicked');
+
+		function switchRepresentation() {
+			L.geoJson(respColourFun_pat, {style: stylefunctions[respStyleFun_pat]}).addTo(respLayer_pat);
+			console.log('colour layer added');
+
+			respColourFun_temp=respColourFun_pat;
+			respPatternFun_temp=respPatternFun_pat;
+			respLayer_temp=respLayer_pat;
+			respStyleFun_temp=respStyleFun_pat;
+
+			respColourFun_pat=respColourFun_col;
+			respPatternFun_pat=respPatternFun_col;
+			respLayer_pat=respLayer_col;
+			respStyleFun_pat=respStyleFun_col;
+
+			function myPatternStyle(feature) {
+		      return {
+		        weight: 0.5,
+		        color: 'white',
+		        smoothFactor: 0,
+		        opacity: 0,
+		        fillOpacity: 1,
+		        fillPattern: respPatternFun_col(feature.properties[year])
+		      };
+		    }
+		    patternLayer = L.geoJson(respColourFun_col);
+		    patternLayer.setStyle(myPatternStyle);
+		    patternLayer.addTo(basemap);
+		    console.log('pattern layer added');
+
+			respColourFun_col=respColourFun_temp;
+			respPatternFun_col=respPatternFun_temp;
+			respLayer_col=respLayer_temp;
+			respStyleFun_col=respStyleFun_temp;
+		}
 	}
 
 	

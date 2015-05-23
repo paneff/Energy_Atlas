@@ -1001,7 +1001,7 @@ function initialize() {
 		if (basemap.hasLayer(respLayer_pat)===true) {
 			basemap.removeLayer(respLayer_pat);
 		}
-		//console.log(basemap.hasLayer(patternLayer));
+		console.log(basemap.hasLayer(patternLayer));
 
 		//Add Legend
 		//$("#legend_basemap").clone(true).attr('id', 'legend_basemapclone').appendTo("#basemapclone");
@@ -1097,13 +1097,7 @@ function initialize() {
 		$('#basemapclone').width('0%');
 		basemapclone.invalidateSize();
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
-		//Remove Layers from other Views
-		if (basemap.hasLayer(barChartsLayer)===true) {
-			basemap.removeLayer(barChartsLayer);
-		}
-		if (basemap.hasLayer(patternLayer)===true) {
-			basemap.removeLayer(patternLayer);
-		}
+
 		//Uncheck the checkboxes and radios that had been checked before
 		$('input').prop("checked",false);
 		//Style buttons
@@ -1124,6 +1118,9 @@ function initialize() {
         });
 
 		//Remove any layers added in other views
+		if (basemap.hasLayer(barChartsLayer)===true) {
+			basemap.removeLayer(barChartsLayer);
+		}
 		if (basemap.hasLayer(single_light_layer)===true) {
 			basemap.removeLayer(single_light_layer);
 		}
@@ -1144,6 +1141,15 @@ function initialize() {
 		}
 		if (basemap.hasLayer(satellite)===true) {
 			basemap.removeLayer(satellite);
+		}
+		if (basemap.hasLayer(patternLayer)===true) {
+			basemap.removeLayer(patternLayer);
+		}
+		if (basemap.hasLayer(respLayer_col)===true) {
+			basemap.removeLayer(respLayer_col);
+		}
+		if (basemap.hasLayer(respLayer_pat)===true) {
+			basemap.removeLayer(respLayer_pat);
 		}
 		//If two themes are selected and a year are selected
 		//Find which theme was selected first and depict it in colour fill
@@ -1284,15 +1290,15 @@ function initialize() {
 		//When switch button is clicked switch the representation
 
 		document.getElementById("switchRepresentation_button").addEventListener("click", switchRepresentation);
-		console.log('button clicked');
 
 		function switchRepresentation() {
+			console.log('switch button clicked');
 			basemap.removeLayer(patternLayer);
 			basemap.removeLayer(respLayer_col);
+			basemap.removeLayer(respLayer_pat);
 
 			L.geoJson(respColourFun_pat, {style: stylefunctions[respStyleFun_pat]}).addTo(respLayer_pat);
 			respLayer_pat.addTo(basemap);
-			console.log('colour layer added');
 
 			respColourFun_temp=respColourFun_pat;
 			respPatternFun_temp=respPatternFun_pat;
@@ -1317,7 +1323,6 @@ function initialize() {
 		    patternLayer = L.geoJson(respColourFun_col);
 		    patternLayer.setStyle(myPatternStyle);
 		    patternLayer.addTo(basemap);
-		    console.log('pattern layer added');
 
 			respColourFun_col=respColourFun_temp;
 			respPatternFun_col=respPatternFun_temp;

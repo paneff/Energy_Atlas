@@ -980,7 +980,7 @@ function initialize() {
 			basemap.removeLayer(light_layer);
 		}
 		if (basemap.hasLayer(consumption_layer)===true) {
-			basemap.removeLayer(comsumption_layer);
+			basemap.removeLayer(consumption_layer);
 		}
 		if (basemap.hasLayer(price_layer)===true) {
 			basemap.removeLayer(price_layer);
@@ -1039,10 +1039,41 @@ function initialize() {
 		$('[name="theme"]').prop('type', 'checkbox');
 		basemap.setView([51, 12], 0); //Sets the initial view of the map (geographical center and zoom)
 		//Remove Layers from other Views
-		if (basemap.hasLayer(patternLayer)===true) {
-			basemap.removeLayer(patternLayer);
+		//Remove Layers from other Views
+		if (basemap.hasLayer(barChartsLayer)===true) {
+			basemap.removeLayer(barChartsLayer);
 		}
-		basemap.removeLayer(light_layer);
+		if (basemap.hasLayer(patternLayer)===true) {
+    		basemap.removeLayer(patternLayer);
+ 			basemapclone.removeLayer(patternLayer);
+		}
+		if (basemap.hasLayer(single_light_layer)===true) {
+			basemap.removeLayer(single_light_layer);
+		}
+		if (basemap.hasLayer(light_layer)===true) {
+			basemap.removeLayer(light_layer);
+		}
+		if (basemap.hasLayer(consumption_layer)===true) {
+			basemap.removeLayer(consumption_layer);
+		}
+		if (basemap.hasLayer(price_layer)===true) {
+			basemap.removeLayer(price_layer);
+		}
+		if (basemap.hasLayer(gnp_layer)===true) {
+			basemap.removeLayer(gnp_layer);
+		}
+		if (basemap.hasLayer(density_layer)===true) {
+			basemap.removeLayer(density_layer);
+		}
+		if (basemap.hasLayer(satellite)===true) {
+			basemap.removeLayer(satellite);
+		}
+		if (basemap.hasLayer(respLayer_col)===true) {
+			basemap.removeLayer(respLayer_col);
+		}
+		if (basemap.hasLayer(respLayer_pat)===true) {
+			basemap.removeLayer(respLayer_pat);
+		}
 		$('.accordion_level121').hide();
 		$('#single_request_lightpollution').off()
 	}
@@ -1109,7 +1140,7 @@ function initialize() {
 			basemap.removeLayer(light_layer);
 		}
 		if (basemap.hasLayer(consumption_layer)===true) {
-			basemap.removeLayer(comsumption_layer);
+			basemap.removeLayer(consumption_layer);
 		}
 		if (basemap.hasLayer(price_layer)===true) {
 			basemap.removeLayer(price_layer);

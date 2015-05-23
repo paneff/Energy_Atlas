@@ -531,7 +531,7 @@ function initialize() {
 		
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the Electricty Consumption and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>This data shows how much electric energy the people consume in the different years. It is measured in tonnes of oil equivalent. Tonnes of oil equivalent, abbreviated as toe, is a normalized unit of energy. By convention it is equivalent to the approximate amount of energy that can be extracted from one tonne of crude oil. It is a standardized unit, assigned a net calorific value of 41 868 kilojoules/kg and may be used to compare the energy from different sources. (Eurostat 2015) The averages in Europe which represents 100% are: </p>').appendTo('#infotext_infograph');
 			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="consumption11" alt = "testtest" img src="../data/graphs/consumption_lightpollution.png" style="width:450px;height:230px">')
 		
@@ -561,7 +561,7 @@ function initialize() {
 			
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the electricty price and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>The data source of the price is a survey from EUROSTAT, where they show the price for electricity for the households in Euro/kwh. The averages in Europe over the years are:</p>').appendTo('#infotext_infograph');
 			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="price11" alt = "testtest" img src="../data/graphs/price_lightpollution.png" style="width:450px;height:230px">')
 			
@@ -593,7 +593,7 @@ function initialize() {
 			}
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the GNP and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>“is the market value of all the products and services produced in one year by labour and property supplied by the citizens of a country”(Wikipedia 2015) The atlas shows for each country and year the percentage in relation to the whole Europe. </p>').appendTo('#infotext_infograph');
 			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="gnp11" alt = "testtest" img src="../data/graphs/gnp_lightpollution11.png" style="width:450px;height:230px">')
 			
@@ -602,7 +602,7 @@ function initialize() {
 		
 		//Check and disable the checkbox
 
-		
+		//density
 		$('#dual_request_populationdensity_cloned').off()	
 		$('#dual_request_populationdensity_cloned').click(function() {
 			
@@ -624,7 +624,7 @@ function initialize() {
 			
 			$("#graphtext_infograph img:last-child").remove()
 			$( "p" ).empty();
-			$('<p>The graph below shows the realtion between the two selected themems. On the x-axis is the population density and on the y-axis the lightpollution</p>').appendTo('#infotext_infograph');
+			$('<p>The population density is measured in habitants/m2 The average in Europe shows 100% in each year.</p>').appendTo('#infotext_infograph');
 			$('<p>Relation between Lightpollution and GNP</p>').appendTo('#graph_infograph');
 			$('#graphtext_infograph').prepend('<img id="density11" alt = "testtest" img src="../data/graphs/density_lightpollution11.png" style="width:450px;height:230px">')
 		

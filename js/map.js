@@ -1380,7 +1380,6 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
-					            displayName: "<b>"+barchartsFile[i].name + "<br> </b>Electricity Consumption",
 					            displayText: function (value) {
 					                return value.toFixed(2);
 					            }
@@ -1390,7 +1389,6 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
-					            displayName: "<b>"+barchartsFile[i].name + "<br> </b>Electricity Price",
 					            displayText: function (value) {
 					                return value.toFixed(2);
 					            }
@@ -1400,7 +1398,6 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
-					            displayName: "<b>"+barchartsFile[i].name + "<br> </b>Gross National Product",
 					            displayText: function (value) {
 					                return value.toFixed(2);
 					            }
@@ -1410,7 +1407,6 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
-					            displayName: "<b>"+barchartsFile[i].name + "<br> </b>Population Density",
 					            displayText: function (value) {
 					                return value.toFixed(2);
 					            }

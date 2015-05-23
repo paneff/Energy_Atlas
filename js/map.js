@@ -1380,8 +1380,9 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Electricity Consumption",
 					            displayText: function (value) {
-					                return value.toFixed(2);
+					                return value.toFixed(2)+"%";
 					            }
 					        },
 					        'electricityprice': {
@@ -1389,8 +1390,9 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Electricity Price",
 					            displayText: function (value) {
-					                return value.toFixed(2);
+					                return value.toFixed(2)+"%";
 					            }
 					        },
 					        'gnp': {
@@ -1398,8 +1400,9 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Gross National Product",
 					            displayText: function (value) {
-					                return value.toFixed(2);
+					                return value.toFixed(2)+"%";
 					            }
 					        },
 					        'popdensity': {
@@ -1407,8 +1410,9 @@ function initialize() {
 					            minValue: 0,
 					            maxValue: 200,
 					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Population Density",
 					            displayText: function (value) {
-					                return value.toFixed(2);
+					                return value.toFixed(2)+"%";
 					            }
 					        }
 					    },

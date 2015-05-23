@@ -71,22 +71,22 @@ Version: 20-05-2015
 <body onload="initialize()">
 	<!----------------------------MAP SECTION---------------------------->
 	<div id="singleviewmap">
-		<div id="basemap" style="position:absolute;left:0;top:0px;right:0;bottom:0"></div>
-		<div id="basemapclone"></div>
+		<div id="basemap" style="cursor: url(../data/icons/pan.png),auto; position:absolute;left:0;top:0px;right:0;bottom:0;"></div>
+		<div id="basemapclone" style="cursor: url(../data/icons/pan.png),auto;"></div>
 
 	</div>
 
 	<!----------------------------LEGEND SECTION---------------------------->
 	<!--Single View Legend-->
  	<div id="legend_basemap" class="legend sweepin-panel roll-over left ns" style="top:30%">
- 		<div class="sweepin-content">
+ 		<div class="sweepin-content" style="cursor: url(../data/icons/cursor.png),auto;">
  			<div class="title">Topics</div>
-	 		<div class="item ns accordion_level11"><button id="selecttheme_button">Select Theme</button></div><br>
+	 		<div class="item ns accordion_level11"><button id="selecttheme_button" style="cursor: url(../data/icons/pointer.png),auto;">Select Theme</button></div><br>
 
 	 			<div class="item ns accordion_level12">
-	 				<input id="satellite_image" type="checkbox" name="theme">Satellite Image</div>
+	 				<input id="satellite_image" type="checkbox" name="theme" style="cursor: url(../data/icons/cursor.png),auto;">Satellite Image</div>
 				<div class="item ns accordion_level12">
-	 				<input id="single_request_lightpollution" type="checkbox" name="theme">Light Pollution</div>
+	 				<input id="single_request_lightpollution" type="checkbox" name="theme" style="cursor: url(../data/icons/cursor.png),auto;">Light Pollution</div>
 					<div class="item ns accordion_level121">
 				<table id="lighttable">
 				<tr><td>200%</td><td></td><td><img src="../data/icons/lp1.png"/></td></tr>
@@ -99,7 +99,7 @@ Version: 20-05-2015
 			</div><br>
 
 	 			<div class="item ns accordion_level12">
-	 				<input id="singleview_request_barcharts" type="checkbox" name="theme">Ratio of</div>
+	 				<input id="singleview_request_barcharts" type="checkbox" name="theme" style="cursor: url(../data/icons/cursor.png),auto;">Ratio of</div>
 	 			<div class="item ns accordion_level122">
 				<table id="topicstable">
 				<tr><td>Electricity Consumption</td><td></td><td><img src="../data/icons/econsumption.png"/></td></tr>
@@ -111,15 +111,15 @@ Version: 20-05-2015
 			</div>
 			<br>
 	
-	 		<div class="item ns accordion_level31"><button id="selectyear_button">Select Year</button></div><br>
+	 		<div class="item ns accordion_level31"><button id="selectyear_button" style="cursor: url(../data/icons/pointer.png),auto;">Select Year</button></div><br>
 	 			<div class="item ns accordion_level32">
-	 				<input id="singleview_request_1996" type="radio" name="year">1996</div>
+	 				<input id="singleview_request_1996" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">1996</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="singleview_request_2000" type="radio" name="year">2000</div>
+	 				<input id="singleview_request_2000" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2000</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="singleview_request_2004" type="radio" name="year">2004</div>
+	 				<input id="singleview_request_2004" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2004</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="singleview_request_2011" type="radio" name="year">2011</div>
+	 				<input id="singleview_request_2011" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2011</div>
  		</div>
  	</div>
 	
@@ -127,13 +127,13 @@ Version: 20-05-2015
 	<!--Dual View Legend-->
 	
  	<div id="legend_dual" class="legend sweepin-panel roll-over left ns" style="top:30%">
- 		<div class="sweepin-content">
+ 		<div class="sweepin-content" style="cursor: url(../data/icons/cursor.png),auto;">
  			<div class="title">Topics</div>
-	 		<div class="item ns accordion_level11"><button id="selecttheme_button_dual">Select Theme</button></div><br>
+	 		<div class="item ns accordion_level11"><button id="selecttheme_button_dual" style="cursor: url(../data/icons/pointer.png),auto;">Select Theme</button></div><br>
 				
 	 			<div class="item ns accordion_level12">
 					<div id="dual_container_lightpollution">
-						<input id="dual_request_lightpollution" type="radio" value="lightpollution" name="theme"><label for="dual_request_lightpollution">&nbsp Lightpollution</label>
+						<input id="dual_request_lightpollution" type="radio" value="lightpollution" name="theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="dual_request_lightpollution">&nbsp Lightpollution</label>
 					</div>
 				</div>
 					
@@ -153,7 +153,7 @@ Version: 20-05-2015
 
 	 			<div class="item ns accordion_level12">
 					<div id="dual_container_electricityconsumption">
-						<input id="dual_request_electricityconsumption" type="radio" value="consumption" name="theme"><label for="dual_request_electricityconsumption">&nbsp Electricty Consumption</label>
+						<input id="dual_request_electricityconsumption" type="radio" value="consumption" name="theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="dual_request_electricityconsumption">&nbsp Electricty Consumption</label>
 					</div>
 				</div>	
 						
@@ -172,7 +172,7 @@ Version: 20-05-2015
 				
 	 			<div class="item ns accordion_level12">
 					<div id="dual_container_electricityprice">
-						<input id="dual_request_electricityprice" type="radio" value="price" name="theme"><label for="dual_request_electricityprice">&nbsp Electricty Price</label>
+						<input id="dual_request_electricityprice" type="radio" value="price" name="theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="dual_request_electricityprice">&nbsp Electricty Price</label>
 					</div>
 				</div>
 												
@@ -191,7 +191,7 @@ Version: 20-05-2015
 				
 	 			<div class="item ns accordion_level12">
 					<div id="dual_container_grossnationalproduct">
-						<input id="dual_request_grossnationalproduct" type="radio" value="gnp" name="theme"><label for="dual_request_grossnationalproduct">&nbsp Gross National Product</label>
+						<input id="dual_request_grossnationalproduct" type="radio" value="gnp" name="theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="dual_request_grossnationalproduct">&nbsp Gross National Product</label>
 					</div>
 				</div>
 								
@@ -210,7 +210,7 @@ Version: 20-05-2015
 				
 	 			<div class="item ns accordion_level12">
 	 				<div id = "dual_container_populationdensity">
-						<input id="dual_request_populationdensity" type="radio" value="density" name="theme"><label for="dual_request_populationdensity">&nbsp Population Density</label>
+						<input id="dual_request_populationdensity" type="radio" value="density" name="theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="dual_request_populationdensity">&nbsp Population Density</label>
 					</div>
 				
 				</div>
@@ -228,29 +228,29 @@ Version: 20-05-2015
 
 	 			
 				
-				<div class="item ns accordion_level31"><button id="selectyear_button_dual">Select Year</button></div><br>
+				<div class="item ns accordion_level31"><button id="selectyear_button_dual" style="cursor: url(../data/icons/pointer.png),auto;">Select Year</button></div><br>
 	 			
 				<div class="item ns accordion_level32">
-	 				<input id="dual_request_1996" type="radio" name="year">1996</div>
+	 				<input id="dual_request_1996" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">1996</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="dual_request_2000" type="radio" name="year">2000</div>
+	 				<input id="dual_request_2000" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2000</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="dual_request_2004" type="radio" name="year">2004</div>
+	 				<input id="dual_request_2004" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2004</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="dual_request_2011" type="radio" name="year">2011</div>
+	 				<input id="dual_request_2011" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2011</div>
  		</div>
  	</div>
 	
 
  	<!--Overlay View Legend-->
  	<div id="overlayview_legend" class="legend sweepin-panel roll-over left ns" style="top:30%">
- 		<div class="sweepin-content">
+ 		<div class="sweepin-content" style="cursor: url(../data/icons/cursor.png),auto;">
  			<div class="title">Topics</div>
-	 		<div class="item ns accordion_level11"><button id="selecttheme_button_overlayview">Select Theme</button></div><br>
+	 		<div class="item ns accordion_level11"><button id="selecttheme_button_overlayview" style="cursor: url(../data/icons/pointer.png),auto;">Select Theme</button></div><br>
 				
 	 			<div class="item ns accordion_level12">
 					<div id="overlayview_container_lightpollution">
-						<input id="overlayview_request_lightpollution" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_lightpollution">Lightpollution</label>
+						<input id="overlayview_request_lightpollution" type="checkbox" value="consumption" name="overlayview_theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="overlayview_request_lightpollution">Lightpollution</label>
 					</div>
 				</div>
 					
@@ -270,7 +270,7 @@ Version: 20-05-2015
 
 	 			<div class="item ns accordion_level12">
 					<div id="overlayview_container_electricityconsumption">
-						<input id="overlayview_request_electricityconsumption" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_electricityconsumption">Electricty Consumption</label>
+						<input id="overlayview_request_electricityconsumption" type="checkbox" value="consumption" name="overlayview_theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="overlayview_request_electricityconsumption">Electricty Consumption</label>
 					</div>
 				</div>	
 						
@@ -289,7 +289,7 @@ Version: 20-05-2015
 				
 	 			<div class="item ns accordion_level12">
 					<div id="overlayview_container_electricityprice">
-						<input id="overlayview_request_electricityprice" type="checkbox" value="consumption" name="overlayview_theme"><label for="overlayview_request_electricityprice">Electricty Price</label>
+						<input id="overlayview_request_electricityprice" type="checkbox" value="consumption" name="overlayview_theme" style="cursor: url(../data/icons/cursor.png),auto;"><label for="overlayview_request_electricityprice">Electricty Price</label>
 					</div>
 				</div>
 												
@@ -307,7 +307,7 @@ Version: 20-05-2015
 				
 				
 	 			<div class="item ns accordion_level12">
-	 				<input id="overlayview_request_grossnationalproduct" type="checkbox" value="gnp" name="overlayview_theme">Gross National Product</div>
+	 				<input id="overlayview_request_grossnationalproduct" type="checkbox" value="gnp" name="overlayview_theme" style="cursor: url(../data/icons/cursor.png),auto;">Gross National Product</div>
 								
 				<div class="item ns accordion_level125">
 					<table id="gnpt_overlayview">
@@ -323,7 +323,7 @@ Version: 20-05-2015
 				
 				
 	 			<div class="item ns accordion_level12">
-	 				<input id="overlayview_request_populationdensity" type="checkbox" value="density" name="overlayview_theme">Population Density</div>
+	 				<input id="overlayview_request_populationdensity" type="checkbox" value="density" name="overlayview_theme" style="cursor: url(../data/icons/cursor.png),auto;">Population Density</div>
 				
 				<div class="item ns accordion_level126">
 					<table id="pd_overlayview">
@@ -338,17 +338,17 @@ Version: 20-05-2015
 
 	 			
 				
-				<div class="item ns accordion_level31"><button id="selectyear_button_overlayview">Select Year</button></div><br>
+				<div class="item ns accordion_level31"><button id="selectyear_button_overlayview" style="cursor: url(../data/icons/pointer.png),auto;">Select Year</button></div><br>
 	 			
 				<div class="item ns accordion_level32">
-	 				<input id="overlayview_request_1996" type="radio" name="year">1996</div>
+	 				<input id="overlayview_request_1996" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">1996</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="overlayview_request_2000" type="radio" name="year">2000</div>
+	 				<input id="overlayview_request_2000" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2000</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="overlayview_request_2004" type="radio" name="year">2004</div>
+	 				<input id="overlayview_request_2004" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2004</div>
 	 			<div class="item ns accordion_level32">
-	 				<input id="overlayview_request_2011" type="radio" name="year">2011</div><br>
-	 			<div class="item ns"><button id="switchRepresentation_button">Switch Representation</button></div><br>
+	 				<input id="overlayview_request_2011" type="radio" name="year" style="cursor: url(../data/icons/cursor.png),auto;">2011</div><br>
+	 			<div class="item ns"><button id="switchRepresentation_button" style="cursor: url(../data/icons/pointer.png),auto;">Switch Representation</button></div><br>
  		</div>
  	</div>
 
@@ -359,7 +359,7 @@ Version: 20-05-2015
 
 	<div id="limits">
 		<div id="infograph" class="legend sweepin-panel roll-over right ns" style="top:30%" >
-			<div id="prova" class="sweepin-content">
+			<div id="prova" class="sweepin-content" style="cursor: url(../data/icons/cursor.png),auto;">
 				<div id="info_infograph" class="title">Information:</div>
 				<div id="infotext_infograph"></div>
 				<div id="graph_infograph" class="title"></div>
@@ -371,14 +371,14 @@ Version: 20-05-2015
 
 <!----------------------------MENU SECTION---------------------------->	
 <div id="Menu" class="legend sweepin-panel roll-over top ns" style="left:50%">
-	<div class="sweepin-content">
+	<div class="sweepin-content" style="cursor: url(../data/icons/cursor.png),auto;">
 		<!--<div class="title ns"></div>-->
 		
-		<button type="button" class="btn" id="home_button" title="home"></button>
-		<button type="button" class="btn" id="singleview_button" title="single view"></button>
-		<button type="button" class="btn" id="dualview_button" title="dual view"></button>
-		<button type="button" class="btn" id="overlayview_button" title="overlay view"></button>
-		<button type="button" class="btn" id="help_button" title="help"></button>
+		<button type="button" class="btn" id="home_button" title="home" style="cursor: url(../data/icons/pointer.png),auto;"></button>
+		<button type="button" class="btn" id="singleview_button" title="single view" style="cursor: url(../data/icons/pointer.png),auto;"></button>
+		<button type="button" class="btn" id="dualview_button" title="dual view" style="cursor: url(../data/icons/pointer.png),auto;"></button>
+		<button type="button" class="btn" id="overlayview_button" title="overlay view" style="cursor: url(../data/icons/pointer.png),auto;"></button>
+		<button type="button" class="btn" id="help_button" title="help" style="cursor: url(../data/icons/pointer.png),auto;"></button>
 		
   </div>	  
 </div>

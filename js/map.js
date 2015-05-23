@@ -1068,6 +1068,28 @@ function initialize() {
            }
         });
 
+		//Remove any layers added in other views
+		if (basemap.hasLayer(single_light_layer)===true) {
+			basemap.removeLayer(single_light_layer);
+		}
+		if (basemap.hasLayer(light_layer)===true) {
+			basemap.removeLayer(light_layer);
+		}
+		if (basemap.hasLayer(consumption_layer)===true) {
+			basemap.removeLayer(comsumption_layer);
+		}
+		if (basemap.hasLayer(price_layer)===true) {
+			basemap.removeLayer(price_layer);
+		}
+		if (basemap.hasLayer(gnp_layer)===true) {
+			basemap.removeLayer(gnp_layer);
+		}
+		if (basemap.hasLayer(density_layer)===true) {
+			basemap.removeLayer(density_layer);
+		}
+		if (basemap.hasLayer(satellite)===true) {
+			basemap.removeLayer(satellite);
+		}
 		//If two themes are selected and a year are selected
 		//Find which theme was selected first and depict it in colour fill
 		//Find which was selected second and depict it in colour fill

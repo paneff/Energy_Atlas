@@ -640,6 +640,9 @@ function initialize() {
 			var testcheck7 = $(this);
 			
 			if (testcheck7.is(':checked')) {
+				if (basemap.hasLayer(single_light_layer)===true) {
+					basemap.removeLayer(single_light_layer);
+				}
 				satellite.addTo(basemap);
 			}
 			
@@ -661,6 +664,9 @@ function initialize() {
 			if (testcheck7.is(':checked')) {
 				//single_light_layer.addTo(basemap);
 				year = 'year11'
+				if (basemap.hasLayer(satellite)===true) {
+					basemap.removeLayer(satellite);
+				}
 				single_light_layer.addTo(basemap).bringToBack();
 				//geojson = L.geoJson(lightpollution, {style: style_light,onEachFeature: onEachFeature}).addTo(basemap);
 				$('.accordion_level121').slideToggle();

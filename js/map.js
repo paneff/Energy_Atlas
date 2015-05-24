@@ -30,6 +30,7 @@ function initialize() {
 	L.control.mousePosition().addTo(basemap);
 
 	//Declare variables etc that should be global
+	var barChartsLayer = L.geoJson();
 	var patternLayer = L.geoJson();
 	var overlaySelectedCheckboxes=[];
 	var overlaySelectedRadioButton=[];
@@ -421,7 +422,8 @@ function initialize() {
 	// $('.accordion_level23').hide();
 	$('.accordion_level32').hide();
 
-	//---Select Theme---//
+
+/////////////////////////////////                                                      Select Theme                                  /////////////////////////////////////////
 	$('.accordion_level11').click(function(){
 		$('.accordion_level12').slideToggle();
 		
@@ -592,8 +594,8 @@ function initialize() {
 			}
 			
 			else {
-				basemap.removeLayer(satellite);
 				$('#legend_basemap input[type=radio]').prop("disabled",false);
+				basemap.removeLayer(satellite);
 			}
 				
 				
@@ -975,14 +977,17 @@ function initialize() {
 		$("#legend_basemap").show();
 		$("#legend_dual").hide();
 		$('.accordion_level12').hide();
+		$('.accordion_level121').hide();
+		$('.accordion_level122').hide();
 		$('.accordion_level32').hide();
 		$("#overlayview_legend").hide();
 		//Legend
 		$('[name="theme"]').prop('type', 'checkbox');
+		$('#legend_basemap input[type=radio]').prop("disabled",false);
+		$('input').prop("checked",false);
+
 		//Sets the initial view of the map
 		basemap.setView([51, 12], 0);
-		//Uncheck the checkboxes and radios that had been checked before
-		$('input').prop("checked",false);
 		//Remove Layers from other Views
 		if (basemap.hasLayer(barChartsLayer)===true) {
 			basemap.removeLayer(barChartsLayer);
@@ -1278,16 +1283,14 @@ function initialize() {
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	$("#singleview_request_barcharts").prop('checked',false);
-	var barChartsLayer = L.geoJson();
+	//$("#singleview_request_barcharts").prop('checked',false);
 	var barChartMarker = [];
 	
 	$('#singleview_request_barcharts').click(function() {
+		
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {
 				//Use right folder based on selected year
-				//year='year96';
-				console.log('in the barcharts function:' + year);
 				switch(year) {
 				    case 'year96':
 				        barchartsFile=barcharts1996;
@@ -1306,8 +1309,16 @@ function initialize() {
 				//Create the barcharts
 				//Set options for each country separately
 				$('.accordion_level122').slideToggle();
+
+				//Remove any layers added in other views
+				
+					basemap.removeLayer(barChartsLayer);
+				
+				console.log(basemap.hasLayer(barChartsLayer)===true);
+				console.log('in the barcharts function:' + year);
+
 				var options = [];
-				for (i = 0; i < countriescentroids1996.length; i++) { 
+				for (i = 0; i < barchartsFile.length; i++) { 
 				    options.push({
 					    data: {
 					        'electricityconsumption': barchartsFile[i].electricityconsumption,
@@ -1362,6 +1373,9 @@ function initialize() {
 					    fillOpacity: 1
 					}); 
 				//Add BarChart on the Map
+				if (basemap.hasLayer(barChartsLayer)){
+					basemap.removeLayer(barChartsLayer);
+				}
 				barChartMarker[i] = new L.BarChartMarker(new L.LatLng(barchartsFile[i].latitude, barchartsFile[i].longitude), options[i]);
 				barChartMarker[i].addTo(barChartsLayer);
 				barChartsLayer.addTo(basemap).bringToFront();

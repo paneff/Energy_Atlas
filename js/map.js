@@ -417,10 +417,6 @@ function initialize() {
 	$('.accordion_level12').hide();
 	$('.accordion_level121').hide();
 	$('.accordion_level122').hide();
-	// $('.accordion_level22').hide();
-	// $('.accordion_level221').hide();
-	// $('.accordion_level222').hide();
-	// $('.accordion_level23').hide();
 	$('.accordion_level32').hide();
 
 
@@ -441,19 +437,24 @@ function initialize() {
 				basemap.removeLayer(density_layer);
 				light_layer.addTo(basemap);
 				$('.accordion_level121').slideToggle();
-				$('.accordion_level123').hide();
-				$('.accordion_level124').hide();
-				$('.accordion_level125').hide();
-				$('.accordion_level126').hide();
+				$('#singleview_request_2011').prop('checked',true);
 			}
 			
+			else {
+				$('.accordion_level121').hide();
+			}
+				
 			
 		});
+		
+		$('#container_lighttable_cloned').hide();
+		$('#container_gnpt').hide();
+		$('#container_pd').hide(); 
+		$('#container_ep').hide(); 
+		$('#container_ec').hide();  
 
 		//Check consumption and its clone
-		$('#dual_request_electricityconsumption_cloned').off(); 
-		//$('#dual_request_electricityconsumption_cloned').after('<p>Electicty Consumption</p>');
-		
+		$('#dual_request_electricityconsumption_cloned').off(); //prevent to adress the wrong map
 		
 		$('#dual_request_electricityconsumption_cloned').click(function() {
 			
@@ -466,7 +467,6 @@ function initialize() {
 				basemapclone.removeLayer(density_layer_cloned);
 				consumption_layer_cloned.addTo(basemapclone);
 				$('.accordion_level123').slideToggle();
-				$('.accordion_level121').hide();
 				$('.accordion_level124').hide();
 				$('.accordion_level125').hide();
 				$('.accordion_level126').hide();
@@ -497,7 +497,6 @@ function initialize() {
 				basemapclone.removeLayer(density_layer_cloned);
 				price_layer_cloned.addTo(basemapclone);
 				$('.accordion_level124').slideToggle();
-				$('.accordion_level121').hide();
 				$('.accordion_level123').hide();
 				$('.accordion_level125').hide();
 				$('.accordion_level126').hide();
@@ -530,7 +529,6 @@ function initialize() {
 				basemapclone.removeLayer(gnp_layer_cloned);
 				gnp_layer_cloned.addTo(basemapclone);
 				$('.accordion_level125').slideToggle();
-				$('.accordion_level121').hide();
 				$('.accordion_level123').hide();
 				$('.accordion_level124').hide();
 				$('.accordion_level126').hide();
@@ -560,7 +558,6 @@ function initialize() {
 				basemapclone.removeLayer(density_layer_cloned);
 				density_layer_cloned.addTo(basemapclone);
 				$('.accordion_level126').slideToggle();
-				$('.accordion_level121').hide();
 				$('.accordion_level123').hide();
 				$('.accordion_level124').hide();
 				$('.accordion_level125').hide();
@@ -641,10 +638,11 @@ function initialize() {
 
 	//-Select Year-//
 	/////////////////////////////////////							Extract year from selection       									   /////////////////////////////////////
+	
 	$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
 		
-			//$("#singleview_request_2011").prop('checked',true);
+			$('#singleview_request_2011').prop('checked',true);
 			
 			$('#singleview_request_1996').click(function() {
 				var testcheck10 = $(this);
@@ -653,6 +651,7 @@ function initialize() {
 					console.log(year);
 					year = 'year96';
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
+					$('#single_request_lightpollution').prop("checked",true);
 					}
 			
 			});
@@ -666,7 +665,7 @@ function initialize() {
 					year = 'year00';
 					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-				
+					$('#single_request_lightpollution').prop("checked",true);
 					}
 		
 		
@@ -680,12 +679,13 @@ function initialize() {
 					year = 'year04';
 					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-				
+					$('#single_request_lightpollution').prop("checked",true);
 					}
 		
 		
 			});
 
+	
 			$('#singleview_request_2011').click(function() {
 			
 				var testcheck10 = $(this);
@@ -694,7 +694,7 @@ function initialize() {
 					year = 'year11';
 					console.log(year);
 					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-				
+					$('#single_request_lightpollution').prop("checked",true);
 					}
 		
 		
@@ -948,13 +948,14 @@ function initialize() {
 		}
 		console.log(basemap.hasLayer(patternLayer));
 
-		//Add Legend
-		//$("#legend_basemap").clone(true).attr('id', 'legend_basemapclone').appendTo("#basemapclone");
-		//$("#current_users").clone(false).find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
+
 		
+		// clone the legend and add "_cloned" to the end if the id (note: clone should not be used in this case since the two legends dont actually have to be the same. but the effort to reprogram again is to big)
 		
 		$("#legend_dual").clone(true).appendTo("#basemapclone").find("*[id]").andSelf().each(function() { $(this).attr("id", $(this).attr("id") + "_cloned"); });
-		//$("#legend_dual").clone(true).appendTo("#basemapclone");
+
+
+		//hide the legend elements that should not be available
 		$('#dual_container_electricityconsumption').hide(); 
 		$('#dual_container_electricityprice').hide(); 
 		$('#dual_container_grossnationalproduct').hide(); 

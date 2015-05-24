@@ -39,6 +39,8 @@ function initialize() {
 	var respLayer_col=[];
 	var respLayer_pat=[];
 	var respLayer_temp=[];
+	var respCol_col='black'; 
+	var respCol_pat='black'; 
 	var barChartsClicked=false;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////												Styles       									   /////////////////////////////////////
@@ -49,49 +51,49 @@ function initialize() {
    		var stripes1 = new L.StripePattern({
 	  		weight: 0.5,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes2 = new L.StripePattern({
 	      	weight: 1,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes3 = new L.StripePattern({
 	      	weight: 1.5,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes4 = new L.StripePattern({
 	        weight: 2,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes5 = new L.StripePattern({
 	        weight: 3,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes6 = new L.StripePattern({
 	        weight: 4,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
 	    var stripes7 = new L.StripePattern({
 	        weight: 5,
 	        angle: 45,
-		    color: 'black'
+		    color: respCol_pat
 	    });
 	    
 
@@ -1085,6 +1087,11 @@ function initialize() {
         $('.accordion_level124').hide();
         $('.accordion_level125').hide();
         $('.accordion_level126').hide();
+        $('.accordion_level127').hide();
+        $('.accordion_level128').hide();
+        $('.accordion_level129').hide();
+        $('.accordion_level1210').hide();
+        $('.accordion_level1211').hide();
         $('.accordion_level32').hide();
 		
 		
@@ -1177,36 +1184,65 @@ function initialize() {
 				//Find which theme is selected first - Theme in colour fill
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
-
+						$('.accordion_level121').show();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
 						respColourFun_col=lightpollution;
 						respPatternFun_col=getPatternDense_light;
 						respLayer_col=light_layer;
 						respStyleFun_col='lightpollution';
+						respCol_col='blue';
 						
 						break;
 					case "overlayview_request_electricityconsumption":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').show();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
 						respColourFun_col=consumption;
 						respPatternFun_col=getPatternDense_consumption;
 						respLayer_col=consumption_layer;
 						respStyleFun_col='consumption';
+						respCol_col='#7A0177';
 						break;
 					case "overlayview_request_electricityprice":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').show();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
 						respColourFun_col=price;
 						respPatternFun_col=getPatternDense_price;
 						respLayer_col=price_layer;
 						respStyleFun_col='price';
+						respCol_col='#F6861F';
 						break;
 					case "overlayview_request_grossnationalproduct":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').show();
+						$('.accordion_level126').hide();
 						respColourFun_col=gnp;
 						respPatternFun_col=getPatternDense_gnp;
 						respLayer_col=gnp_layer;
 						respStyleFun_col='gnp';
+						respCol_col='#A75E34';
 						break;
 					case "overlayview_request_populationdensity":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').show();
 						respColourFun_col=density;
 						respPatternFun_col=getPatternDense_density;
 						respLayer_col=density_layer;
 						respStyleFun_col='density';
+						respCol_col='#990501';
 						break;
 				}
 				L.geoJson(respColourFun_col, {style: stylefunctions[respStyleFun_col]}).addTo(respLayer_col);
@@ -1214,34 +1250,64 @@ function initialize() {
 				//Find which theme is selected second - Theme in pattern fill
 				switch(toBePatterned) {
 					case "overlayview_request_lightpollution":
+						$('.accordion_level127').show();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
 						respColourFun_pat=lightpollution;
 						respPatternFun_pat=getPatternDense_light;
 						respLayer_pat=light_layer;
 						respStyleFun_pat='lightpollution';
+						respCol_pat='blue';
 						break;
 					case "overlayview_request_electricityconsumption":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').show();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
 						respColourFun_pat=consumption;
 						respPatternFun_pat=getPatternDense_consumption;
 						respLayer_pat=consumption_layer;
 						respStyleFun_pat='consumption';
+						respCol_pat='#7A0177';
 						break;
 					case "overlayview_request_electricityprice":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').show();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
 						respColourFun_pat=price;
 						respPatternFun_pat=getPatternDense_price;
 						respLayer_pat=price_layer;
 						respStyleFun_pat='price';
+						respCol_pat='#F6861F';
 						break;
 					case "overlayview_request_grossnationalproduct":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').show();
+						$('.accordion_level1211').hide();
 						respColourFun_pat=gnp;
 						respPatternFun_pat=getPatternDense_gnp;
 						respLayer_pat=gnp_layer;
 						respStyleFun_pat='gnp';
+						respCol_pat='#A75E34';
 						break;
 					case "overlayview_request_populationdensity":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').show();
 						respColourFun_pat=density;
 						respPatternFun_pat=getPatternDense_density;
 						respLayer_pat=density_layer;
 						respStyleFun_pat='density';
+						respCol_pat='#990501';
 						break;
 				}
 				//Add Pattern Layer
@@ -1286,11 +1352,13 @@ function initialize() {
 			respPatternFun_temp=respPatternFun_pat;
 			respLayer_temp=respLayer_pat;
 			respStyleFun_temp=respStyleFun_pat;
+			respCol_temp=respCol_pat;
 
 			respColourFun_pat=respColourFun_col;
 			respPatternFun_pat=respPatternFun_col;
 			respLayer_pat=respLayer_col;
 			respStyleFun_pat=respStyleFun_col;
+			respCol_pat=respCol_col;
 
 			function myPatternStyle(feature) {
 		      return {
@@ -1310,6 +1378,7 @@ function initialize() {
 			respPatternFun_col=respPatternFun_temp;
 			respLayer_col=respLayer_temp;
 			respStyleFun_col=respStyleFun_temp;
+			respCol_col=respCol_temp;
 		}
 	}
 

@@ -1338,7 +1338,6 @@ function initialize() {
 			    patternLayer = L.geoJson(respColourFun_pat);
 			    patternLayer.setStyle(myPatternStyle);
 			    patternLayer.addTo(basemap);
-			    console.log('pattern layer added');
 			}
 			else{
 				console.log($('input:checked').length);
@@ -1347,7 +1346,7 @@ function initialize() {
 		//When switch button is clicked switch the representation
 		document.getElementById("switchRepresentation_button").addEventListener("click", switchRepresentation);
 		function switchRepresentation() {
-			console.log('switch button clicked');
+			//console.log('switch button clicked');
 			basemap.removeLayer(patternLayer);
 			basemap.removeLayer(respLayer_col);
 			basemap.removeLayer(respLayer_pat);
@@ -1470,9 +1469,9 @@ function initialize() {
 	}
 
 	
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////// 								   			  	     SingleView BarCharts     				        			   /////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//$("#singleview_request_barcharts").prop('checked',false);
 	var barChartMarker = [];
 	
@@ -1504,7 +1503,7 @@ function initialize() {
 				//Remove any layers added in other views
 				basemap.removeLayer(barChartsLayer);
 				
-				console.log(basemap.hasLayer(barChartsLayer)===true);
+				//console.log(basemap.hasLayer(barChartsLayer)===true);
 				//console.log('in the barcharts function:' + year);
 
 				var options = [];
@@ -1577,5 +1576,95 @@ function initialize() {
 				barChartsClicked=false;
 			}
 		});
-		
-  }
+
+
+////////////////////// 								   	  	     Change BarCharts when year changes    				        			   /////////////////////////////////////
+	$('#legend_basemap input').on('change', function (e) {
+		$('#legend_basemap input[type=radio]:checked').each(function() {
+			yearRadioID=$(this).attr('id');
+			//Use right folder based on selected year
+			switch(yearRadioID) {
+			    case "singleview_request_1996":
+			        barchartsFile=barcharts1996;
+			        break;
+			    case "singleview_request_2000":
+			        barchartsFile=barcharts2000;
+			        break;
+			    case "singleview_request_2004":
+			        barchartsFile=barcharts2004;
+			        break;
+			    case "singleview_request_2011":
+			        barchartsFile=barcharts2011;
+			        break;
+			}
+			if (barChartsClicked===true){
+				barChartsLayer.clearLayers();
+				basemap.removeLayer(barChartsLayer);
+				var options = [];
+				for (i = 0; i < barchartsFile.length; i++) { 
+				    options.push({
+					    data: {
+					        'electricityconsumption': barchartsFile[i].electricityconsumption,
+					        'electricityprice': barchartsFile[i].electricityprice,
+					        'gnp': barchartsFile[i].gnp,
+					        'popdensity': barchartsFile[i].popdensity
+					    },
+					    chartOptions: {
+					        'electricityconsumption': {
+					            fillColor: '#7A0177',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Electricity Consumption",
+					            displayText: function (value) {
+					                return value.toFixed(2)+"%";
+					            }
+					        },
+					        'electricityprice': {
+					            fillColor: '#F6861F',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Electricity Price",
+					            displayText: function (value) {
+					                return value.toFixed(2)+"%";
+					            }
+					        },
+					        'gnp': {
+					            fillColor: '#A75E34',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Gross National Product",
+					            displayText: function (value) {
+					                return value.toFixed(2)+"%";
+					            }
+					        },
+					        'popdensity': {
+					            fillColor: '#990501',
+					            minValue: 0,
+					            maxValue: 200,
+					            maxHeight: 200,
+					            displayName: "<b>"+barchartsFile[i].name + "</b> <hr>Population Density",
+					            displayText: function (value) {
+					                return value.toFixed(2)+"%";
+					            }
+					        }
+					    },
+					    weight: 1,
+					    color: '#000000',
+					    fillOpacity: 1
+					}); 
+					//Add BarChart on the Map
+					if (basemap.hasLayer(barChartsLayer)){
+						basemap.removeLayer(barChartsLayer);
+					}
+					barChartMarker[i] = new L.BarChartMarker(new L.LatLng(barchartsFile[i].latitude, barchartsFile[i].longitude), options[i]);
+					barChartMarker[i].addTo(barChartsLayer);
+					barChartsLayer.addTo(basemap).bringToFront();
+				}
+			}
+		});
+	});
+
+}

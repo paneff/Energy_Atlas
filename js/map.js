@@ -346,6 +346,7 @@ function initialize() {
 			});
 		}
 
+		$('<p>You have to go to the dual view and select data to see any information here</p>').appendTo('#infotext_infograph');
 
 		/*var info = L.control();
 
@@ -924,6 +925,7 @@ function initialize() {
 		}
 		if (basemap.hasLayer(light_layer)===true) {
 			basemap.removeLayer(light_layer);
+			$('#dual_container_lightpollution').show(); 
 		}
 		if (basemap.hasLayer(consumption_layer)===true) {
 			basemap.removeLayer(consumption_layer);
@@ -946,7 +948,12 @@ function initialize() {
 		if (basemap.hasLayer(respLayer_pat)===true) {
 			basemap.removeLayer(respLayer_pat);
 		}
-		console.log(basemap.hasLayer(patternLayer));
+		//console.log(basemap.hasLayer(patternLayer));
+		
+		light_layer.addTo(basemap);
+		$('#dual_request_lightpollution').prop('checked',true);
+		$('#dual_container_lightpollution').show(); 
+		
 
 
 		
@@ -1028,6 +1035,11 @@ function initialize() {
 		}
 		$('.accordion_level121').hide();
 		$('#single_request_lightpollution').off()
+		
+		$("#graphtext_infograph img:last-child").remove()
+		$( "p" ).empty();
+		$('<p>You have to go to the dual view and select data to see any information here</p>').appendTo('#infotext_infograph');
+		
 	}
 		
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1074,6 +1086,11 @@ function initialize() {
         $('.accordion_level125').hide();
         $('.accordion_level126').hide();
         $('.accordion_level32').hide();
+		
+		
+		$("#graphtext_infograph img:last-child").remove()
+		$( "p" ).empty();
+		$('<p>You have to go to the dual view and select data to see any information here/p>').appendTo('#infotext_infograph');
 
 		//Remove any layers added in other views
 		if (basemap.hasLayer(barChartsLayer)===true) {

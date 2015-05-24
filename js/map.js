@@ -643,13 +643,13 @@ function initialize() {
 	
 	$('.accordion_level31').click(function(){
 		$('.accordion_level32').slideToggle();
-		
 			$('#singleview_request_2011').prop('checked',true);
 			
 			$('#singleview_request_1996').click(function() {
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
 					year = 'year96';
+					console.log('year'+'line653');
 				}
 			});
 		
@@ -873,7 +873,7 @@ function initialize() {
 	document.getElementById("dualview_button").addEventListener("click", dualview);
 	//Once dualview_button is Clicked Change Height and Width of the divs Basemap, Basemapclone
 	function dualview() {
-		console.log(basemap.hasLayer(patternLayer));
+		//console.log(basemap.hasLayer(patternLayer));
 		$('#basemap').height('100%');
 		$('#basemap').width('50%');
 		basemap.invalidateSize();
@@ -926,14 +926,8 @@ function initialize() {
 		if (basemap.hasLayer(respLayer_pat)===true) {
 			basemap.removeLayer(respLayer_pat);
 		}
-		//console.log(basemap.hasLayer(patternLayer));
 		
 		light_layer.addTo(basemap);
-		$('#dual_request_lightpollution').prop('checked',true);
-		$('#dual_container_lightpollution').show(); 
-		
-
-
 		
 		// clone the legend and add "_cloned" to the end if the id (note: clone should not be used in this case since the two legends dont actually have to be the same. but the effort to reprogram again is to big)
 		

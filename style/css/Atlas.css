@@ -148,31 +148,30 @@ margin-left:30px;
 
 
 #info_infograph{
-	position: relative;
-width: 300px;
+	
+margin-left:0px;
 left: 0px;
 top: 0px;
-background-color: yellow;
+
 }
 
 #infotext_infograph{
-position: relative;
-width: 300px;
+
+margin-left: 18px;
 left: 0px;
-top: 0px;
+top: 50px;
 
 }
 
 #graph_infograph{
-width: 300px;
-height: 200px;
+
+margin-left: 0px;
 
 }
 
 #graphtext_infograph{
-width: 500px;
-
-height: 550px;
+left: 0px;
+margin-left: 18px;
 }
 
 

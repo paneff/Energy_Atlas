@@ -649,7 +649,7 @@ function initialize() {
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
 					year = 'year96';
-					console.log('year'+'line653');
+					console.log('year'+'line652');
 				}
 			});
 		
@@ -949,6 +949,8 @@ function initialize() {
 	document.getElementById("singleview_button").addEventListener("click", singleview);
 	//Once single_button is Clicked Change Height and Width of the divs Basemap, Basemapclone
 	function singleview() {
+		barChartsClicked=false;
+	    lightPollutionClicked=false;
 		$('#basemap').height('100%');
 		$('#basemap').width('100%');
 		basemap.invalidateSize();
@@ -1074,6 +1076,7 @@ function initialize() {
 			basemap.removeLayer(barChartsLayer);
 		}
 		if (basemap.hasLayer(single_light_layer)===true) {
+			single_light_layer.clearLayers();
 			basemap.removeLayer(single_light_layer);
 		}
 		if (basemap.hasLayer(light_layer)===true) {
@@ -1563,19 +1566,25 @@ function initialize() {
 			switch(yearRadioID) {
 			    case "singleview_request_1996":
 			        barchartsFile=barcharts1996;
+			        year='year96';
 			        break;
 			    case "singleview_request_2000":
 			        barchartsFile=barcharts2000;
+			        year='year00';
 			        break;
 			    case "singleview_request_2004":
 			        barchartsFile=barcharts2004;
+			        year='year04';
 			        break;
 			    case "singleview_request_2011":
 			        barchartsFile=barcharts2011;
+			        year='year11';
 			        break;
 			}
 
 			if (lightPollutionClicked===true){
+				console.log(year);
+				//console.log('enter here?');
 				basemap.removeLayer(single_light_layer);
 				single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
 			}

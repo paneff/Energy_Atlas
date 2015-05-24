@@ -584,6 +584,7 @@ function initialize() {
 			
 			if (testcheck7.is(':checked')) {
 				satellite.addTo(basemap);
+				$('.accordion_level32').show();
 				$('#legend_basemap input[type=radio]').prop("disabled",true);
 				$('#singleview_request_2011').prop("checked",true); //it only checks the radiobutton of the respective year
 				
@@ -1122,28 +1123,6 @@ function initialize() {
 			});
 			toBeFilled=overlaySelectedCheckboxes[0];
 			toBePatterned=overlaySelectedCheckboxes[1];
-			//Close old legend components Open respective legend component
-			// $('.accordion_level121').hide();
-	  //       $('.accordion_level123').hide();
-	  //       $('.accordion_level124').hide();
-	  //       $('.accordion_level125').hide();
-	  //       $('.accordion_level126').hide();
-			if (toBeFilled==="overlayview_request_lightpollution" || toBePatterned==="overlayview_request_lightpollution") {
-				$('.accordion_level121').slideToggle();
-			}
-			if (toBeFilled==="overlayview_request_electricityconsumption" || toBePatterned==="overlayview_request_electricityconsumption") {
-				$('.accordion_level123').slideToggle();
-			}			
-			if (toBeFilled==="overlayview_request_electricityprice" || toBePatterned==="overlayview_request_electricityprice") {
-				$('.accordion_level124').slideToggle();
-			}
-			if (toBeFilled==="overlayview_request_grossnationalproduct" || toBePatterned==="overlayview_request_grossnationalproduct") {
-				$('.accordion_level125').slideToggle();
-			}		
-			if (toBeFilled==="overlayview_request_populationdensity" || toBePatterned==="overlayview_request_populationdensity") {
-				$('.accordion_level125').slideToggle();
-			}
-	
 			if ($('input:checked').length===3){
 				overlaySelectedRadioButton = [];
 				$('#overlayview_legend input[type=radio]:checked').each(function() {
@@ -1180,6 +1159,7 @@ function initialize() {
 				//Find which theme is selected first - Theme in colour fill
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
+
 						respColourFun_col=lightpollution;
 						respPatternFun_col=getPatternDense_light;
 						respLayer_col=light_layer;

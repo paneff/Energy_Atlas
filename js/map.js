@@ -624,6 +624,8 @@ function initialize() {
 				}
 				single_light_layer.addTo(basemap).bringToBack();
 				$('.accordion_level121').slideToggle();
+				$('.accordion_level32').show();
+				$('#singleview_request_2011').prop("checked",true); //it only checks the radiobutton of the respective year
 			}
 			
 			else {
@@ -1454,8 +1456,8 @@ function initialize() {
 	$('#singleview_request_barcharts').click(function() {
 
 		if (year==='year11'){
-			console.log('to be added');
-			//to be added
+			$('.accordion_level32').show();
+			$('#singleview_request_2011').prop("checked",true); //it only checks the radiobutton of the respective year
 		}
 		
 			var barchartschecked = $(this);

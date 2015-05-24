@@ -632,12 +632,8 @@ function initialize() {
 				$('.accordion_level121').hide();
 				basemap.removeLayer(single_light_layer);
 
-
 			}
-				
-				
-			
-			
+		
 		});
 		//*/
 
@@ -1117,6 +1113,9 @@ function initialize() {
 		//Find which theme was selected first and depict it in colour fill
 		//Find which was selected second and depict it in colour fill
 		$('#overlayview_legend input').on('change', function (e) {
+			if ($('input[type=checkbox]:checked').length===1) {
+				$('.accordion_level32').show();
+			}
 			if ($('input[type=checkbox]:checked').length > 2) {
 						$(this).prop('checked', false);
 						//alert("Only two layers can be selected in the overlay view!");

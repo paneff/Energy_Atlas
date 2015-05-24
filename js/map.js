@@ -1066,6 +1066,13 @@ function initialize() {
            }
         });
 
+        $('.accordion_level121').hide();
+        $('.accordion_level123').hide();
+        $('.accordion_level124').hide();
+        $('.accordion_level125').hide();
+        $('.accordion_level126').hide();
+        $('.accordion_level32').hide();
+
 		//Remove any layers added in other views
 		if (basemap.hasLayer(barChartsLayer)===true) {
 			basemap.removeLayer(barChartsLayer);
@@ -1110,15 +1117,36 @@ function initialize() {
 						//alert("Only two layers can be selected in the overlay view!");
 						bootbox.alert("Only two layers can be selected in the overlay view!");
 					}
+			overlaySelectedCheckboxes = [];
+			$('#overlayview_legend input[type=checkbox]:checked').each(function() {
+				overlaySelectedCheckboxes.push($(this).attr('id'));
+			});
+			console.log(overlaySelectedCheckboxes);
+			toBeFilled=overlaySelectedCheckboxes[0];
+			toBePatterned=overlaySelectedCheckboxes[1];
+			//Close old legend components Open respective legend component
+			$('.accordion_level121').hide();
+	        $('.accordion_level123').hide();
+	        $('.accordion_level124').hide();
+	        $('.accordion_level125').hide();
+	        $('.accordion_level126').hide();
+			if (toBeFilled==="overlayview_request_lightpollution" || toBePatterned==="overlayview_request_lightpollution") {
+				$('.accordion_level121').slideToggle();
+			}
+			if (toBeFilled==="overlayview_request_electricityconsumption" || toBePatterned==="overlayview_request_electricityconsumption") {
+				$('.accordion_level123').slideToggle();
+			}			
+			if (toBeFilled==="overlayview_request_electricityprice" || toBePatterned==="overlayview_request_electricityprice") {
+				$('.accordion_level124').slideToggle();
+			}
+			if (toBeFilled==="overlayview_request_grossnationalproduct" || toBePatterned==="overlayview_request_grossnationalproduct") {
+				$('.accordion_level125').slideToggle();
+			}		
+			if (toBeFilled==="overlayview_request_populationdensity" || toBePatterned==="overlayview_request_populationdensity") {
+				$('.accordion_level125').slideToggle();
+			}
+	
 			if ($('input:checked').length===3){
-				overlaySelectedCheckboxes = [];
-				$('#overlayview_legend input[type=checkbox]:checked').each(function() {
-					overlaySelectedCheckboxes.push($(this).attr('id'));
-				});
-				console.log(overlaySelectedCheckboxes);
-				toBeFilled=overlaySelectedCheckboxes[0];
-				toBePatterned=overlaySelectedCheckboxes[1];
-
 				overlaySelectedRadioButton = [];
 				$('#overlayview_legend input[type=radio]:checked').each(function() {
 					overlaySelectedRadioButton=($(this).attr('id'));
@@ -1150,25 +1178,25 @@ function initialize() {
 						break;
 					case "overlayview_request_electricityconsumption":
 						respColourFun_col=consumption;
-						respPatternFun_col=getPatternDense_light;
+						respPatternFun_col=getPatternDense_consumption;
 						respLayer_col=consumption_layer;
 						respStyleFun_col='consumption';
 						break;
 					case "overlayview_request_electricityprice":
 						respColourFun_col=price;
-						respPatternFun_col=getPatternDense_light;
+						respPatternFun_col=getPatternDense_price;
 						respLayer_col=price_layer;
 						respStyleFun_col='price';
 						break;
 					case "overlayview_request_grossnationalproduct":
 						respColourFun_col=gnp;
-						respPatternFun_col=getPatternDense_light;
+						respPatternFun_col=getPatternDense_gnp;
 						respLayer_col=gnp_layer;
 						respStyleFun_col='gnp';
 						break;
 					case "overlayview_request_populationdensity":
 						respColourFun_col=density;
-						respPatternFun_col=getPatternDense_light;
+						respPatternFun_col=getPatternDense_density;
 						respLayer_col=density_layer;
 						respStyleFun_col='density';
 						break;
@@ -1186,25 +1214,25 @@ function initialize() {
 						break;
 					case "overlayview_request_electricityconsumption":
 						respColourFun_pat=consumption;
-						respPatternFun_pat=getPatternDense_light;
+						respPatternFun_pat=getPatternDense_consumption;
 						respLayer_pat=consumption_layer;
 						respStyleFun_pat='consumption';
 						break;
 					case "overlayview_request_electricityprice":
 						respColourFun_pat=price;
-						respPatternFun_pat=getPatternDense_light;
+						respPatternFun_pat=getPatternDense_price;
 						respLayer_pat=price_layer;
 						respStyleFun_pat='price';
 						break;
 					case "overlayview_request_grossnationalproduct":
 						respColourFun_pat=gnp;
-						respPatternFun_pat=getPatternDense_light;
+						respPatternFun_pat=getPatternDense_gnp;
 						respLayer_pat=gnp_layer;
 						respStyleFun_pat='gnp';
 						break;
 					case "overlayview_request_populationdensity":
 						respColourFun_pat=density;
-						respPatternFun_pat=getPatternDense_light;
+						respPatternFun_pat=getPatternDense_density;
 						respLayer_pat=density_layer;
 						respStyleFun_pat='density';
 						break;

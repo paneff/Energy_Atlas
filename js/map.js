@@ -39,6 +39,8 @@ function initialize() {
 	var respLayer_col=[];
 	var respLayer_pat=[];
 	var respLayer_temp=[];
+	var lname_col='lname_col';
+	var lname_pat='lname_pat';
 	var respCol_col='black'; 
 	var respCol_pat='black'; 
 	var barChartsClicked=false;
@@ -1310,6 +1312,10 @@ function initialize() {
 						respCol_pat='#990501';
 						break;
 				}
+
+				lname_col=toBeFilled;
+				lname_pat=toBePatterned;
+
 				//Add Pattern Layer
 				stripes1.addTo(basemap);
 				stripes2.addTo(basemap);
@@ -1318,6 +1324,7 @@ function initialize() {
 				stripes5.addTo(basemap);
 				stripes6.addTo(basemap);
 				stripes7.addTo(basemap);
+
 			    function myPatternStyle(feature) {
 			      return {
 			        weight: 0.5,
@@ -1353,12 +1360,14 @@ function initialize() {
 			respLayer_temp=respLayer_pat;
 			respStyleFun_temp=respStyleFun_pat;
 			respCol_temp=respCol_pat;
+			lname_temp=lname_pat;
 
 			respColourFun_pat=respColourFun_col;
 			respPatternFun_pat=respPatternFun_col;
 			respLayer_pat=respLayer_col;
 			respStyleFun_pat=respStyleFun_col;
 			respCol_pat=respCol_col;
+			lname_pat=lname_col;
 
 			function myPatternStyle(feature) {
 		      return {
@@ -1379,6 +1388,84 @@ function initialize() {
 			respLayer_col=respLayer_temp;
 			respStyleFun_col=respStyleFun_temp;
 			respCol_col=respCol_temp;
+			lname_col=lname_temp;
+
+			//Switch Legend as well
+			switch(lname_col) {
+					case "overlayview_request_lightpollution":
+						$('.accordion_level121').show();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
+						break;
+					case "overlayview_request_electricityconsumption":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').show();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
+						break;
+					case "overlayview_request_electricityprice":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').show();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').hide();
+						break;
+					case "overlayview_request_grossnationalproduct":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').show();
+						$('.accordion_level126').hide();
+						break;
+					case "overlayview_request_populationdensity":
+						$('.accordion_level121').hide();
+						$('.accordion_level123').hide();
+						$('.accordion_level124').hide();
+						$('.accordion_level125').hide();
+						$('.accordion_level126').show();
+						break;
+				}
+				//Find which theme is selected second - Theme in pattern fill
+				switch(lname_pat) {
+					case "overlayview_request_lightpollution":
+						$('.accordion_level127').show();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
+						break;
+					case "overlayview_request_electricityconsumption":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').show();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
+						break;
+					case "overlayview_request_electricityprice":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').show();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').hide();
+						break;
+					case "overlayview_request_grossnationalproduct":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').show();
+						$('.accordion_level1211').hide();
+						break;
+					case "overlayview_request_populationdensity":
+						$('.accordion_level127').hide();
+						$('.accordion_level128').hide();
+						$('.accordion_level129').hide();
+						$('.accordion_level1210').hide();
+						$('.accordion_level1211').show();
+						break;
+				}
 		}
 	}
 

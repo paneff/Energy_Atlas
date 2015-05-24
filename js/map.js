@@ -39,6 +39,7 @@ function initialize() {
 	var respLayer_col=[];
 	var respLayer_pat=[];
 	var respLayer_temp=[];
+	var barChartsClicked=false;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////												Styles       									   /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -1106,7 +1107,8 @@ function initialize() {
 			console.log('something changed');
 			if ($('input[type=checkbox]:checked').length > 2) {
 						$(this).prop('checked', false);
-						alert("allowed only 2");
+						//alert("Only two layers can be selected in the overlay view!");
+						bootbox.alert("Only two layers can be selected in the overlay view!");
 					}
 			if ($('input:checked').length===3){
 				overlaySelectedCheckboxes = [];
@@ -1310,12 +1312,12 @@ function initialize() {
 				//Set options for each country separately
 				$('.accordion_level122').slideToggle();
 
+				barChartsClicked=true;
 				//Remove any layers added in other views
-				
-					basemap.removeLayer(barChartsLayer);
+				basemap.removeLayer(barChartsLayer);
 				
 				console.log(basemap.hasLayer(barChartsLayer)===true);
-				console.log('in the barcharts function:' + year);
+				//console.log('in the barcharts function:' + year);
 
 				var options = [];
 				for (i = 0; i < barchartsFile.length; i++) { 
@@ -1384,6 +1386,7 @@ function initialize() {
 			else {
 				$('.accordion_level122').slideToggle();
 				basemap.removeLayer(barChartsLayer);
+				barChartsClicked=false;
 			}
 		});
 		

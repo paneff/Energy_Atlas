@@ -1111,7 +1111,6 @@ function initialize() {
 		//Find which theme was selected first and depict it in colour fill
 		//Find which was selected second and depict it in colour fill
 		$('#overlayview_legend input').on('change', function (e) {
-			console.log('something changed');
 			if ($('input[type=checkbox]:checked').length > 2) {
 						$(this).prop('checked', false);
 						//alert("Only two layers can be selected in the overlay view!");
@@ -1121,15 +1120,14 @@ function initialize() {
 			$('#overlayview_legend input[type=checkbox]:checked').each(function() {
 				overlaySelectedCheckboxes.push($(this).attr('id'));
 			});
-			console.log(overlaySelectedCheckboxes);
 			toBeFilled=overlaySelectedCheckboxes[0];
 			toBePatterned=overlaySelectedCheckboxes[1];
 			//Close old legend components Open respective legend component
-			$('.accordion_level121').hide();
-	        $('.accordion_level123').hide();
-	        $('.accordion_level124').hide();
-	        $('.accordion_level125').hide();
-	        $('.accordion_level126').hide();
+			// $('.accordion_level121').hide();
+	  //       $('.accordion_level123').hide();
+	  //       $('.accordion_level124').hide();
+	  //       $('.accordion_level125').hide();
+	  //       $('.accordion_level126').hide();
 			if (toBeFilled==="overlayview_request_lightpollution" || toBePatterned==="overlayview_request_lightpollution") {
 				$('.accordion_level121').slideToggle();
 			}
@@ -1154,19 +1152,31 @@ function initialize() {
 				//Find which year is selected
 				switch(overlaySelectedRadioButton) {
 					case "overlayview_request_1996":
+						if(basemap.hasLayer(patternLayer)){
+							basemap.removeLayer(patternLayer);
+						}
 						year='year96';
 						break;
 					case "overlayview_request_2000":
+						if(basemap.hasLayer(patternLayer)){
+							basemap.removeLayer(patternLayer);
+						}
 						year='year00';
 						break;
 					case "overlayview_request_2004":
+						if(basemap.hasLayer(patternLayer)){
+							basemap.removeLayer(patternLayer);
+						}
 						year='year04';
 						break;
 					case "overlayview_request_2011":
+						if(basemap.hasLayer(patternLayer)){
+							basemap.removeLayer(patternLayer);
+						}
 						year='year11';
 						break;
 				}
-				console.log(year);
+				//console.log(year);
 				//Find which theme is selected first - Theme in colour fill
 				switch(toBeFilled) {
 					case "overlayview_request_lightpollution":
@@ -1203,7 +1213,6 @@ function initialize() {
 				}
 				L.geoJson(respColourFun_col, {style: stylefunctions[respStyleFun_col]}).addTo(respLayer_col);
 				respLayer_col.addTo(basemap);
-				console.log('colour layer selected');
 				//Find which theme is selected second - Theme in pattern fill
 				switch(toBePatterned) {
 					case "overlayview_request_lightpollution":
@@ -1237,7 +1246,6 @@ function initialize() {
 						respStyleFun_pat='density';
 						break;
 				}
-				console.log('pattern layer selected');
 				//Add Pattern Layer
 				stripes1.addTo(basemap);
 				stripes2.addTo(basemap);
@@ -1266,9 +1274,7 @@ function initialize() {
 			}
 		});
 		//When switch button is clicked switch the representation
-
 		document.getElementById("switchRepresentation_button").addEventListener("click", switchRepresentation);
-
 		function switchRepresentation() {
 			console.log('switch button clicked');
 			basemap.removeLayer(patternLayer);

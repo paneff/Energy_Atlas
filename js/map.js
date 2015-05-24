@@ -44,6 +44,7 @@ function initialize() {
 	var respCol_col='black'; 
 	var respCol_pat='black'; 
 	var barChartsClicked=false;
+	var lightPollutionClicked=false;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////												Styles       									   /////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
@@ -615,7 +616,7 @@ function initialize() {
 			var testcheck7 = $(this);
 			
 			if (testcheck7.is(':checked')) {
-				year = 'year11'
+				lightPollutionClicked=true;
 				if (basemap.hasLayer(satellite)===true) {
 					basemap.removeLayer(satellite);
 					$('#satellite_image').prop("checked",false);
@@ -640,8 +641,6 @@ function initialize() {
 
 	});
 	
-
-	//-Select Year-//
 	/////////////////////////////////////							Extract year from selection       									   /////////////////////////////////////
 	
 	$('.accordion_level31').click(function(){
@@ -652,13 +651,8 @@ function initialize() {
 			$('#singleview_request_1996').click(function() {
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
-					basemap.removeLayer(single_light_layer);
-					console.log(year);
 					year = 'year96';
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-					$('#single_request_lightpollution').prop("checked",true);
-					}
-			
+				}
 			});
 		
 			
@@ -666,28 +660,16 @@ function initialize() {
 			
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
-					basemap.removeLayer(single_light_layer);
 					year = 'year00';
-					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-					$('#single_request_lightpollution').prop("checked",true);
 					}
-		
-		
 			});
 			
 			$('#singleview_request_2004').click(function() {
 			
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
-					basemap.removeLayer(single_light_layer);
 					year = 'year04';
-					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-					$('#single_request_lightpollution').prop("checked",true);
 					}
-		
-		
 			});
 
 	
@@ -695,14 +677,8 @@ function initialize() {
 			
 				var testcheck10 = $(this);
 				if (testcheck10.is(':checked')) {
-					basemap.removeLayer(single_light_layer);
 					year = 'year11';
-					console.log(year);
-					single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
-					$('#single_request_lightpollution').prop("checked",true);
-					}
-		
-		
+					}		
 			});
 			
 			$('#dual_request_1996').click(function() {
@@ -1476,6 +1452,11 @@ function initialize() {
 	var barChartMarker = [];
 	
 	$('#singleview_request_barcharts').click(function() {
+
+		if (year==='year11'){
+			console.log('to be added');
+			//to be added
+		}
 		
 			var barchartschecked = $(this);
 			if (barchartschecked.is(':checked')) {
@@ -1578,8 +1559,9 @@ function initialize() {
 		});
 
 
-////////////////////// 								   	  	     Change BarCharts when year changes    				        			   /////////////////////////////////////
+////////////////////// 					  	     Change BarCharts and Light Pollution Layer  when year changes    						   /////////////////////////////////////
 	$('#legend_basemap input').on('change', function (e) {
+
 		$('#legend_basemap input[type=radio]:checked').each(function() {
 			yearRadioID=$(this).attr('id');
 			//Use right folder based on selected year
@@ -1597,6 +1579,12 @@ function initialize() {
 			        barchartsFile=barcharts2011;
 			        break;
 			}
+
+			if (lightPollutionClicked===true){
+				basemap.removeLayer(single_light_layer);
+				single_light_layer = L.geoJson(lightpollution, {style: stylefunctions['lightpollution']}).addTo(light_layer).addTo(basemap).bringToBack();
+			}
+			
 			if (barChartsClicked===true){
 				barChartsLayer.clearLayers();
 				basemap.removeLayer(barChartsLayer);
@@ -1666,5 +1654,4 @@ function initialize() {
 			}
 		});
 	});
-
 }

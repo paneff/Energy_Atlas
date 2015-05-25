@@ -599,7 +599,7 @@ function initialize() {
 			}
 			
 			else {
-				$('#legend_basemap input[type=radio]').prop("disabled",false);
+				//$('#legend_basemap input[type=radio]').prop("disabled",false);
 				basemap.removeLayer(satellite);
 			}
 				
@@ -613,10 +613,10 @@ function initialize() {
 		$('#single_request_lightpollution').prop("checked",false);
 		$('#single_request_lightpollution').click(function() {
 			
-			var testcheck7 = $(this);
+			var testcheck77 = $(this);
 			
-			if (testcheck7.is(':checked')) {
-				lightPollutionClicked=true;
+			if (testcheck77.is(':checked')) {
+				//lightPollutionClicked=true;    //is this important? had to be deleted otherwise the single_light_layer will not move away. if okay so pleas delete
 				if (basemap.hasLayer(satellite)===true) {
 					basemap.removeLayer(satellite);
 					$('#satellite_image').prop("checked",false);
@@ -625,6 +625,7 @@ function initialize() {
 				single_light_layer.addTo(basemap).bringToBack();
 				$('.accordion_level121').slideToggle();
 				$('.accordion_level32').show();
+				
 				$('#singleview_request_2011').prop("checked",true); //it only checks the radiobutton of the respective year
 			}
 			

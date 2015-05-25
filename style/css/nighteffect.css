@@ -80,7 +80,7 @@ header a, a:visited {
 }
 
 .stars {
-  background:#090610 url(../../data/images/stars.png) repeat top center;
+  background:#090610 url(../../data/images/stars.png) no-repeat center center fixed;
   z-index:0;
 }
 

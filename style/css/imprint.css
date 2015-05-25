@@ -4,8 +4,7 @@ body {
 	margin: 0 0 0 0;
 	font-family: Helvetica;
 	font-size: 10pt;
-	background: #090610;
-    background-color: #000;
+	background:#090610 url(../../data/images/stars.png) no-repeat center center fixed;
     -webkt-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -13,6 +12,9 @@ body {
     overflow-x: hidden;
 	cursor:url(../../data/icons/cursor.png),auto;
 }
+
+
+
 
 html {
     width: 100%;

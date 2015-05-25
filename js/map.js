@@ -616,7 +616,7 @@ function initialize() {
 			var testcheck77 = $(this);
 			
 			if (testcheck77.is(':checked')) {
-				//lightPollutionClicked=true;    //is this important? had to be deleted otherwise the single_light_layer will not move away. if okay so pleas delete
+				lightPollutionClicked=true;   
 				if (basemap.hasLayer(satellite)===true) {
 					basemap.removeLayer(satellite);
 					$('#satellite_image').prop("checked",false);
@@ -631,6 +631,7 @@ function initialize() {
 			
 			else {
 				$('.accordion_level121').hide();
+				lightPollutionClicked=false;
 				basemap.removeLayer(single_light_layer);
 
 			}

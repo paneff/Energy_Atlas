@@ -2,7 +2,7 @@ body {
 	font-family: "Helvetica Neue", sans-serif;
 	position: absolute;
 	margin: 0px;
-	overflow: hidden;
+	overflow: scroll;
 	top: 0;
 	left: 0;
 	bottom: 0;
@@ -52,8 +52,11 @@ body {
   bottom:0;
 }
 
+
 .sweepin-content{
 opacity:0.0;
+max-height: 500px;
+overflow: scroll;
 }
 
 .title {

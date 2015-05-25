@@ -176,11 +176,11 @@ function initialize() {
       	}
 
     function getPatternDense_light(c) {
-  		return c > 200 ? stripes1 :
-  	           c > 130 ? stripes2 :
+  		return c > 200 ? stripes7 :
+  	           c > 130 ? stripes6 :
   			   c > 100 ? stripes4 :
-  			   c > 50 ? stripes6 :
-  						stripes7 ;
+  			   c > 50 ? stripes2 :
+  						stripes1 ;
   		}  
 			
 	function getColor_density(c) {
@@ -194,13 +194,13 @@ function initialize() {
 		} 
 
 	function getPatternDense_density(c) {
-		return c > 170 ? stripes1 :
-	           c > 140 ? stripes2 :
-			   c > 110 ? stripes3 :
+		return c > 170 ? stripes7 :
+	           c > 140 ? stripes6 :
+			   c > 110 ? stripes5 :
 			   c > 80  ? stripes4 :
-			   c > 50  ? stripes5 :
-			   c > 1   ? stripes6 :
-						 stripes7 ;
+			   c > 50  ? stripes3 :
+			   c > 1   ? stripes2 :
+						 stripes1 ;
 		} 
 
 	function getColor_gnp(c) {
@@ -214,13 +214,13 @@ function initialize() {
 			}
 
 	function getPatternDense_gnp(c) {
-		return c > 170 ? stripes1 :
-			   c > 140 ? stripes2 :
-			   c > 110 ? stripes3 :
+		return c > 170 ? stripes7 :
+			   c > 140 ? stripes6 :
+			   c > 110 ? stripes5 :
 			   c > 80  ? stripes4 :
-			   c > 50  ? stripes5 :
-			   c > 1   ? stripes6 :
-						 stripes7 ;
+			   c > 50  ? stripes3 :
+			   c > 1   ? stripes2 :
+						 stripes1 ;
 			}
 		
 	
@@ -235,13 +235,13 @@ function initialize() {
 		}
 
 	function getPatternDense_price(c) {
-	return c > 170 ? stripes1 :
-		   c > 140 ? stripes2 :
-		   c > 110 ? stripes3 :
+	return c > 170 ? stripes7 :
+		   c > 140 ? stripes6 :
+		   c > 110 ? stripes5 :
 		   c > 80  ? stripes4 :
-		   c > 50  ? stripes5 :
-		   c > 1   ? stripes6 :
-					 stripes7 ;
+		   c > 50  ? stripes3 :
+		   c > 1   ? stripes2 :
+					 stripes1 ;
 		}
 	
 	function getColor_consumption(c) {
@@ -255,13 +255,13 @@ function initialize() {
 		}
 
 	function getPatternDense_consumption(c) {
-	return c > 170 ? stripes1 :
-		   c > 140 ? stripes2 :
-		   c > 110 ? stripes3 :
+	return c > 170 ? stripes7 :
+		   c > 140 ? stripes6 :
+		   c > 110 ? stripes5 :
 		   c > 80  ? stripes4 :
-		   c > 50  ? stripes5 :
-		   c > 1   ? stripes6 :
-					 stripes7 ;
+		   c > 50  ? stripes3 :
+		   c > 1   ? stripes2 :
+					 stripes1 ;
 		}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
